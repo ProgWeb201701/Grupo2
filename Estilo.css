@@ -1,0 +1,21 @@
+
+
+.center{
+	background:#BCF5A9;
+   margin: 20%;
+   padding-left: 10%;
+   padding-right: 10%;
+   padding-bottom: 5%;
+   box-shadow: 10px 10px 5px grey;
+   -moz-border-radius: 15px; /* Para Firefox */
+  -webkit-border-radius: 15px; /*Para Safari e Chrome */
+  border-radius: 15px; /* Para Opera 10.5+*/
+
+}
+.radio{
+	text-align: right;
+}
+
+.button{
+	
+}
