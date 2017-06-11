@@ -24,7 +24,7 @@
 
 
 
-				<form id="frmInscricao" method="post">
+				<form id="frmInscricao" method="post" action="">
 					
 					
 						<div class="form-group">
