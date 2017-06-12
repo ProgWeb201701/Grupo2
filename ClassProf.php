@@ -35,7 +35,7 @@ public function setEmail($email){
 	$this->Email = $email;
 
 }
-public function setCurso($AreaAtua){
+public function setAreaAtua($AreaAtua){
     $this->AreaAtua = $AreaAtua;
 
 }
@@ -62,7 +62,7 @@ public function getEmail(){
 	return $this->Email;
 }
 
-public function getCurso()){
+public function getAreaAtua(){
 	return $this->AreaAtua;
 }
 

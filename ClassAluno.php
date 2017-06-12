@@ -58,5 +58,7 @@ public function getCurso()){
 public function getInstituicao(){
 	return $this->Instituicao;
 }
+
+
 }
 ?>
