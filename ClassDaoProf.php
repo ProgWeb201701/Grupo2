@@ -12,7 +12,7 @@
 		}
 
 		public function insertProf($prof){
-			$query = "INSERT INTO professor SET id=NULL, $nomeProf = ?, $siepProf = ?, $emailProf = ?, $instituicaoProf = ?, $areaAtuaProf = ?, $curriculoProf, $formacaoProf = ?";
+			$query = "INSERT INTO professor SET idProf=NULL, $nomeProf = ?, $siepProf = ?, $emailProf = ?, $instituicaoProf = ?, $areaAtuaProf = ?, $curriculoProf, $formacaoProf = ?";
 			$stmt = $mysqli->stmt_init();
 			$stmt->prepare($query);
 			$stmt->bind_param('sisssss', $nomeProf, $siepProf, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $formacaoProf);
