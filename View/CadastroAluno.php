@@ -24,7 +24,7 @@
 
 
 
-				<form id="frmInscricao" method="post" action="">
+				<form id="frmInscricao" method="post" action="../Controler/Aluno/InsertAluno.php">
 					
 					
 						<div class="form-group">

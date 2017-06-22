@@ -1,80 +1,80 @@
 <?php
-Class Aluno
+Class Professor
 {
 
- private $Nome;
- private $Siepe;
- private $Email;
- private $Instituicao;
- private $AreaAtua;
- private $Curriculo;
- private $Formacao;
+ private $nome;
+ private $siepe;
+ private $email;
+ private $instituicao;
+ private $areaAtua;
+ private $curriculo;
+ private $formacao;
 
 
-function __cosntruct($nome, $Siepe, $email, $AreaAtua, $instituicao, $Curriculo, $Formacao){
+function __cosntruct($nome, $siape, $email, $areaAtua, $instituicao, $curriculo, $formacao){
 
-	$this->Nome = $nome;
-	$this->Siepe = $Siepe;
-	$this->Email = $email;
-	$this->AreaAtua = $AreaAtua;
-	$this->Instituicao = $instituicao;
-	$this->Curriculo = $Curriculo;
-	$this->Formacao = $Formacao;
+	$this->nome = $nome;
+	$this->siape = $Siape;
+	$this->email = $email;
+	$this->areaAtua = $AreaAtua;
+	$this->instituicao = $instituicao;
+	$this->curriculo = $Curriculo;
+	$this->formacao = $Formacao;
 }
 
 
 
 public function setNome($nome){
-	$this->Nome = $nome; 
+	$this->nome = $nome; 
 }
-public function setSiepe($Siepe){
+public function setSiape($siape){
 
-	$this->Siepe = $Siepe;
+	$this->siape = $siape;
 }
 public function setEmail($email){
-	$this->Email = $email;
+	$this->email = $email;
 
 }
-public function setAreaAtua($AreaAtua){
-    $this->AreaAtua = $AreaAtua;
+public function setAreaAtua($areaAtua){
+    $this->areaAtua = $areaAtua;
 
 }
 public function setInstituicao($instituicao){
-	$this->Instituicao = $instituicao;
+	$this->instituicao = $instituicao;
 }
 
 public function setCurriculo($curriculo){
-	$this->Curriculo = $curriculo;
+	$this->curriculo = $curriculo;
 }
 public function setFormacao($formacao){
-	$this->Formacao = $formacao;
+	$this->formacao = $formacao;
 }
 
 public function getNome(){
-	return $this->Nome;
+	return $this->nome;
 }
 
-public function getSiepe(){
-	return $this->Siepe;
+public function getSiape(){
+	return $this->Siape;
 }
 
 public function getEmail(){
-	return $this->Email;
+	return $this->email;
 }
 
 public function getAreaAtua(){
-	return $this->AreaAtua;
+	return $this->areaAtua;
 }
 
 public function getInstituicao(){
-	return $this->Instituicao;
+	return $this->instituicao;
 }
 public function getCurriculo(){
-	return $this->Curriculo;
+	return $this->curriculo;
 }
 
 public function getFormacao(){
-	return $this->Formacao;
+	return $this->formacao;
 }
 
 

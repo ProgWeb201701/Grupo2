@@ -46,10 +46,10 @@
 
 						<div class="form-group">
 						<label>Instituição:</label>
-						<input type="text" class="form-control" name="Instituicao"  placeholder="Digite o Nome da Intituição...">
+						<input type="text" class="form-control" name="instituicao"  placeholder="Digite o Nome da Intituição...">
 						</div>
-
 						<div class="form-group">
+
 						<label>Aréa de Atuação:</label>
 						<input type="text" class="form-control" name="area"  placeholder="Digite area de Atuação..."> 
 						</div>
@@ -61,7 +61,7 @@
 
 						<div class="form-group">
 						<label >Formação:</label> <br />
-						<select>
+						<select name="formacao">
   							<option value="Graduado"> Graduado </option>
   						    <option value="Mestre"> Mestrado </option>
                             <option value="Doutor">Doutorado </option>

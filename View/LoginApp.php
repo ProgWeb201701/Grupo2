@@ -16,7 +16,7 @@
 </div>
 <div  class="col-sm-6">
 	<div class="center">
-		<form method="post" >
+		<form method="post" action="../Controler/validaLogin.php">
 		<fieldset >
 		<div class = "titulo">
 			<h1 align="center"> Login Web TCC</h1>
@@ -33,8 +33,8 @@
 		</div>
 
 		<div class="form-inline" class="radio"> 
-			<label class="radio-inline"><input type="radio" name="tipologin"  >Aluno </label>
-			<label class="radio-inline"><input type="radio" name="tipologin"  >Professor</label>
+			<label class="radio-inline"><input type="radio" name="tipologin"  value="aluno" >Aluno </label>
+			<label class="radio-inline"><input type="radio" name="tipologin"  value="professor" >Professor</label>
 
 		
 		</div>
