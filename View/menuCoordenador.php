@@ -31,16 +31,22 @@
 								<li><a href="">Remover</a></li>
 								</ul>
 						</li>
-						<li><a href="Apresentação.html">Avaliações</a></li>
 						<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  TCC  <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Turmas <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="SubmeterTCC.php"> Submeter </a></li>
-								<li><a href=""> Editar Ultimo </a></li>
+								<li><a href=""> Criar </a></li>
+								<li><a href=""> Gerenciar </a></li>
 								<li><a href=""> Remover </a></li>
 								</ul>
 						</li>
-						<li><a href="">Cronograma</a></li>
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Cronograma <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href=""> Criar Tarefa </a></li>
+								<li><a href=""> Editar Tarefa </a></li>
+								<li><a href=""> Remover Tarefa </a></li>
+								</ul>
+						</li>
 						<li><a href="">Ajuda</a></li>
 						
 					<li ><a href=""> Sair</a></li>

@@ -12,6 +12,14 @@
   border-radius: 15px; /* Para Opera 10.5+*/
 
 }
+
+.caixaP{
+padding-top: 15%;
+
+}
+
+ 
+
 .radio{
 	text-align: right;
 }
