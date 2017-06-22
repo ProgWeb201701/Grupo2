@@ -40,6 +40,10 @@
 						<label>Email:</label>
 						<input type="email" class="form-control" name="email"  placeholder="Digite seu E-mail...">
 						</div>	
+						<div class="form-group">
+						<label>Lattes:</label>
+						<input type="text" class="form-control" name="Lattes"  placeholder=" Link da plataforma Lattes ">
+						</div>	
 
 						<div class="form-group">
 						<label >Curso:</label>
