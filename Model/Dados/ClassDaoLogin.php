@@ -8,15 +8,28 @@ class DaoLogin{
 		$this->$mysqli = $mysqli;
 	}
 
-	public function selectLogin($aluno){
+	public function selectLoginAluno(){
 	
 		$query = "SELECT * FROM aluno;";
 		$result =  $mysqli->query($query,MYSQLI_STORE_RESULT);
-		
-		while (list($codAluno, $matricula, $Nome, $Senha, $LinkLattes, $Curso) = $result->fetch_row()) {
-   				$aluno = new Aluno($codAluno, $matricula, $Nome, $Senha, $LinkLattes, $Curso)
+		$alunos = array();
+		while (list($codAluno, $nome, $matricula, $senha, $email, $curso, $instituicao, $lattes) = $result->fetch_row()) {
+   				$aluno = new Aluno($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
+   				array_push($alunos, $aluno);
 		}
+		return $alunos;
+	}
+
+	public function selectLoginProfessor(){
 	
+		$query = "SELECT * FROM professor;";
+		$result =  $mysqli->query($query,MYSQLI_TORE_RESULT);
+		$professores = array();
+		while (list($codProf, $nome, $siape, $email, $instituicao, $areaAtua, $curriculo, $senha, $formacao) = $result->fetch_row()) {
+   				$prof = new Professor($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
+   				array_push($professores, $prof);
+		}
+		return $alunos;
 	}
 
 }

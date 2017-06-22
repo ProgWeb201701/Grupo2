@@ -2,30 +2,35 @@
 Class Aluno
 {
 
- private $Nome;
- private $Matricula;
- private $Email;
- private $Curso;
- private $Instituicao;
+ private $nome;
+ private $matricula;
+ private $senha
+ private $email;
+ private $curso;
+ private $instituicao;
+ private $lattes;
 
 
-function __cosntruct($nome, $matricula, $email, $curso, $instituicao){
 
-	$this->Nome = $nome;
-	$this->Matricula = $matricula;
-	$this->Email = $email;
-	$this->Curso = $curso;
-	$this->Instituicao = $instituicao;
+function __cosntruct($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes){
+
+	$this->nome = $nome;
+	$this->matricula = $matricula;
+	$this->senha = $senha;
+	$this->email = $email;
+	$this->curso = $curso;
+	$this->instituicao = $instituicao;
+	$this->lattes = $lattes;
 }
 
 
 
 public function setNome($nome){
-	$this->Nome = $nome; 
+	$this->nome = $nome; 
 }
 public function setMatricula($matricula){
 
-	$this->Matricula = $matricula;
+	$this->matricula = $matricula;
 }
 public function setEmail($email){
 	$this->Email = $email;
@@ -37,6 +42,12 @@ public function setCurso($curso){
 }
 public function setInstituicao($instituicao){
 	$this->Instituicao = $instituicao;
+}
+public function setSenha($senha){
+	$this->senha = $senha;
+}
+public function setLattes($lattes){
+	$this->lattes = $lattes;
 }
 
 public function getNome(){
@@ -59,6 +70,13 @@ public function getInstituicao(){
 	return $this->Instituicao;
 }
 
+public function getSenha(){
+	return $this->senha;
+}
+
+public function getLattes(){
+	return $this->lattes;
+}
 
 }
 ?>
