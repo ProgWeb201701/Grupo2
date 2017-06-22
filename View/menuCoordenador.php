@@ -43,9 +43,9 @@
 						<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Cronograma <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href=""> Criar Tarefa </a></li>
-								<li><a href=""> Editar Tarefa </a></li>
-								<li><a href=""> Remover Tarefa </a></li>
+								<li><a href="AdicionarTarefa.php"> Adicionar Tarefa</a></li>
+								<li><a href=""> Editar Tarefa</a></li>
+								<li><a href=""> Remover Tarefa</a></li>
 								</ul>
 						</li>
 						<li><a href="">Ajuda</a></li>
@@ -53,7 +53,7 @@
 					<li ><a href=""> Sair</a></li>
 					</ul>
 
-				</div><!--/.nav-collapse -->
+				</div>
 			</div>
 		</nav>
 	</header>

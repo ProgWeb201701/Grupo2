@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Editar Perfil Avalidador</title>
+	<title> Menu Orientador Web TCC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,7 +27,8 @@
 						<li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="">Editar</a></li>
+							    <li><a href="">Alterar Senha</a></li>
+								<li><a href="EditarPerfilProfessor.php">Editar</a></li>
 								<li><a href="">Remover</a></li>
 								</ul>
 						</li>
@@ -40,7 +41,14 @@
 								</ul>
 						</li>
 				
-						<li><a href="">Cronograma</a></li>
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Cronograma <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href=""> Adicionar Tarefa</a></li>
+								<li><a href=""> Editar Tarefa</a></li>
+								<li><a href=""> Remover Tarefa</a></li>
+								</ul>
+						</li>
 						<li><a href="">Ajuda</a></li>
 						
 					<li ><a href=""> Sair</a></li>
@@ -50,17 +58,16 @@
 			</div>
 		</nav>
 	</header>
-
 <div class="container">
 <div class="col-sm-2"></div>
 <div class="col-sm-8" ></div>
 
 
-				<h3> Editar Perfil </h3>
+				<h3> Cronograma - Adicionar tarefa. </h3>
 				<br />
 
 				<div class="panel panel-primary">
-                    <div class="panel-heading"> Informações Pessoais </div>
+                    <div class="panel-heading"> Nova Tarefa </div>
                     <div class="panel-body">
 
 
@@ -69,50 +76,35 @@
 					
 					
 						<div class="form-group">
-						<label>Nome:</label>
-						<input name="nome" type="text" class="form-control"  placeholder="Digite seu Nome..." >
+						<label>Nome da Tarefa:</label>
+						<input name="nome" type="text" class="form-control"  placeholder="Digite um Nome..." >
 						</div>	
 						<div class="form-group">
-						<label>Siape:</label>
-						<input name="siape" type="text" class="form-control"  placeholder="Digite o Siape..." >
+						<label> Descição:</label>
+						<textarea name="Descicao" rows="7" type="text" class="form-control"  placeholder="Digite a Descição..." > </textarea> 
 						</div>	
 
 						<div class="form-group">
-						<label>Email:</label>
-						<input type="email" class="form-control" name="email"  placeholder="Digite seu E-mail...">
+						<label>Inicio: </label>
+						<input type="datetime-local"  name="dinicio" align="left">
 						</div>	
 
+						<div class="form-group">
+						<label>Fim:  </label>
+						<input type="datetime-local"  name="dinicio" align="left">
+						</div>	
 						
 
-						<div class="form-group">
-						<label>Instituição:</label>
-						<input type="text" class="form-control" name="Instituicao"  placeholder="Digite o Nome da Intituição...">
+						<div>
+							<label> Arquivo: </label>
+							<input type="file" name="arquivotarefa">
+
 						</div>
 
-						<div class="form-group">
-						<label>Aréa de Atuação:</label>
-						<input type="text" class="form-control" name="area"  placeholder="Digite area de Atuação..."> 
-						</div>
+						<div> <button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
 
-						<div class="form-group">
-						<label>Curriculo lattes:</label>
-						<input type="text" class="form-control" name="lattes"  placeholder="Link do Curriculo lattes..."> 
-						</div>	
+						</div>					
 
-						<div class="form-group">
-						<label >Formação:</label> <br />
-						<select>
-  							<option value="Graduado"> Graduado </option>
-  						    <option value="Mestre"> Mestrado </option>
-                            <option value="Doutor">Doutorado </option>
-                            <option value="Pós Doutorado">Pós Doutorado</option>
-                        </select>
-						</div>	
-
-                        <div> 
-                        	<button type="submit" class="btn btn-info" style="float: left;"  >Editar</button>
-                        	<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
-                        </div>
 						
 						 
 				</form>

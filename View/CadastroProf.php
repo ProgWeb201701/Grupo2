@@ -36,13 +36,21 @@
 						<label>Siape:</label>
 						<input name="siape" type="text" class="form-control"  placeholder="Digite o Siape..." >
 						</div>	
+						<div class="form-group">
+						<label>Senha:</label>
+						<input name="senha" type="password" class="form-control"  placeholder="Digite uma senha..." >
+						</div>	
+							
+						<div class="form-group">
+						<label>Confirmar Senha:</label>
+						<input name="csenha" type="password" class="form-control"  placeholder="Confirme a senha...">
+						</div>	
 
 						<div class="form-group">
 						<label>Email:</label>
 						<input type="email" class="form-control" name="email"  placeholder="Digite seu E-mail...">
 						</div>	
-
-						
+			
 
 						<div class="form-group">
 						<label>Instituição:</label>

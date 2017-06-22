@@ -97,7 +97,7 @@
 						<input type="text" class="form-control" name="Instituicao"  placeholder="Digite o Nome da Intituição..."> <br />
 						</div>	
 
-						<div> <button type="submit" class="btn btn-primary" style="float: left;"  >Editar</button>
+						<div> <button type="submit" class="btn btn-info" style="float: left;"  >Editar</button>
 						<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
 
 
