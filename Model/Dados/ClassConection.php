@@ -30,7 +30,7 @@
 			
 		}
 
-		public function getMysql(){
+		public function w{
 			return $this->$mysqli;
 		}
 	}

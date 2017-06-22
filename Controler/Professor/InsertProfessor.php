@@ -7,13 +7,12 @@ ini_set('display_errors', 1);
 	$areaAtua = $_POST['area'];
 	$instituicao = $_POST['instituicao'];
 	$curriculo = $_POST['lattes'];
-	$senha = $_POST['senha'];
 	$formacao = $_POST['formacao'];
 
-	$professor = new Professor($nome, $siape, $email, $areaAtua, $instituicao, $curriculo, $senha, $formacao);
+	$professor = new Professor($nome, $siape, $email, $areaAtua, $instituicao, $curriculo, $formacao);
 
-	$conection = new getConection();
-	$mysql = $conection->getMysql();
+	$mysql = new getConection();
+
 	$daoProf = new DaoProf($mysql->getMysqli());
 
 	$daoProf->insertProf($professor);

@@ -12,49 +12,48 @@
 		}
 
 		public function insertAluno($aluno){
-			$query = "INSERT INTO aluno SET idAluno=NULL, $nome=?, $matricula=?, $senha=?, $email=?, $curso=?, $instituicao=?, $lattes=?";
+			$query = "INSERT INTO aluno SET idAluno=NULL, $nomeAluno = ?, $matriculaAluno = ?, $emailAluno = ?, $cursoAluno = ?, $instituicaoAluno = ?";
 			$stmt = $this->$mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('sssssss', $nomeAluno, $matriculaAluno, $senhaAluno, $emailAluno, $cursoAluno, $instituicaoAluno, $lattesAluno);
+			$stmt->bind_param('sisss', $nomeAluno, $matriculaAluno, $emailAluno, $CursoAluno, $instituicaoAluno);
 			$nomeAluno = $aluno.getNome();
 			$matriculaAluno = $aluno->getMatricula();
-			$senhaAluno = $aluno->getSenha();
 			$emailAluno = $aluno->getEmail();
 			$CursoAluno = $aluno->getCurso();
 			$instituicaoAluno = $aluno->getInstituicao();
-			$lattesAluno = $aluno->getLattes();
 			$stmt->execute();
 			$stmt->close();
+			$this->$mysqli->close();
 		}
 
 		public function editAluno($aluno, $id){
-			$query = "UPDATE aluno SET $nome=?, $matricula=?, $senha=?, $email=?, $curso=?, $instituicao=?, $lattes=? WHERE idAluno=?";
+			$query = "UPDATE aluno SET $nomeAluno = ?, $matriculaAluno = ?, $emailAluno = ?, $cursoAluno = ?, $instituicao = ? WHERE idAluno=?";
 			$stmt = $this->$mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('sssssssi', $nomeAluno, $matriculaAluno, $senhaAluno, $emailAluno, $cursoAluno, $instituicaoAluno, $lattesAluno, $codAluno);
-			$nomeAluno = $aluno.getNome();
+			$stmt->bind_param('sissi', $nomeAluno, $matriculaAluno, $emailAluno, $CursoAluno, $instituicaoAluno, $idAluno);
+			$nomeAluno = $aluno->getNome();
 			$matriculaAluno = $aluno->getMatricula();
-			$senhaAluno = $aluno->getSenha();
 			$emailAluno = $aluno->getEmail();
 			$CursoAluno = $aluno->getCurso();
 			$instituicaoAluno = $aluno->getInstituicao();
-			$lattesAluno = $aluno->getLattes();
-			$codAluno = $id;
+			$idAluno = $id;
 
 			$stmt->execute();
 			$stmt->close();
+			$this->$mysqli->close();
 		}
 
 		public function deleteAluno($id){
 			$query = "DELETE FROM aluno WHERE idAluno=?";
 			$stmt = $this->$mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('i', $codAluno);
+			$stmt->bind_param('i', $idAluno);
 
-			$codAluno = $id;
+			$idAluno = $id;
 
 			$stmt->execute();
 			$stmt->close();
+			$this->$mysqli->close();
 		}
 
 	}

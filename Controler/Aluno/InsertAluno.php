@@ -3,16 +3,13 @@
 ini_set('display_errors', 1);
 	$nome = $_POST['nome'];
 	$matricula = $_POST['matricula'];
-	$senha = $_POST['senha'];
 	$email = $_POST['email'];
 	$curso = $_POST['curso'];
 	$instituicao = $_POST['instituicao'];
-	$lattes = $_POST['Lattes'];
 
-	$aluno = new Aluno($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
+	$aluno = new Aluno($nome, $matricula, $email, $curso, $instituicao);
 
-	$conection = new getConection();
-	$mysql = $conection->getMysql();
+	$mysql = new getConection();
 
 	$daoAluno = new DaoALuno($mysql->getMysqli());
 
