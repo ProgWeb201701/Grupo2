@@ -3,23 +3,25 @@ Class Professor
 {
 
  private $nome;
- private $siepe;
+ private $siape;
  private $email;
  private $instituicao;
  private $areaAtua;
  private $curriculo;
+ private $senha
  private $formacao;
 
 
-function __cosntruct($nome, $siape, $email, $areaAtua, $instituicao, $curriculo, $formacao){
+function __cosntruct($nome, $siape, $email, $instituicao, $areaAtua, $curriculo, $senha, $formacao){
 
 	$this->nome = $nome;
-	$this->siape = $Siape;
+	$this->siape = $siape;
 	$this->email = $email;
-	$this->areaAtua = $AreaAtua;
 	$this->instituicao = $instituicao;
-	$this->curriculo = $Curriculo;
-	$this->formacao = $Formacao;
+	$this->areaAtua = $areaAtua;
+	$this->curriculo = $curriculo;
+	$this->senha = $senha;
+	$this->formacao = $formacao;
 }
 
 
@@ -50,6 +52,10 @@ public function setFormacao($formacao){
 	$this->formacao = $formacao;
 }
 
+public function setSenha($senha){
+	$this->senha = $senha;
+}
+
 public function getNome(){
 	return $this->nome;
 }
@@ -77,6 +83,9 @@ public function getFormacao(){
 	return $this->formacao;
 }
 
+public function getSenha(){
+	return $this->senha;
+}
 
 }
 ?>

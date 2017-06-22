@@ -21,7 +21,7 @@
 		private $mysqli;
 
 		private global $local = "localhost";
-		private global $user = "root";
+		private global $user = "ProgWeb";
 		private global $pass = "123";
 		private global $dataBase = "pw";
 
