@@ -11,10 +11,11 @@ class DaoLogin{
 	public function selectLogin($aluno){
 	
 		$query = "SELECT * FROM aluno;";
-		$stmt = $mysqli->stmt_init();
-		$stmt->prepare($query);
-		$stmt->bind_param('ssdi', $codAluno, $matricula, $Nome, $Senha, $LinkLattes, $Curso);
+		$result =  $mysqli->query($query,MYSQLI_STORE_RESULT);
 		
+		while (list($codAluno, $matricula, $Nome, $Senha, $LinkLattes, $Curso) = $result->fetch_row()) {
+   				$aluno = new Aluno($codAluno, $matricula, $Nome, $Senha, $LinkLattes, $Curso)
+		}
 	
 	}
 
