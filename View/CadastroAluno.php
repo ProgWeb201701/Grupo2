@@ -40,9 +40,19 @@
 						<label>Email:</label>
 						<input type="email" class="form-control" name="email"  placeholder="Digite seu E-mail...">
 						</div>	
+
+						<div class="form-group">
+						<label>Senha:</label>
+						<input type="password" class="form-control" name="senha"  placeholder="Digite uma Senha...">
+						</div>	
+
+						<div class="form-group">
+						<label>Confirmar Senha:</label>
+						<input type="password" class="form-control" name="senha2"  placeholder="Digite sua Senha novamente...">
+						</div>	
 						<div class="form-group">
 						<label>Lattes:</label>
-						<input type="text" class="form-control" name="Lattes"  placeholder=" Link da plataforma Lattes ">
+						<input type="text" class="form-control" name="lattes"  placeholder=" Link da plataforma Lattes ">
 						</div>	
 
 						<div class="form-group">
@@ -52,7 +62,7 @@
 
 						<div class="form-group">
 						<label>Instituição:</label>
-						<input type="text" class="form-control" name="Instituicao"  placeholder="Digite o Nome da Intituição..."> <br />
+						<input type="text" class="form-control" name="instituicao"  placeholder="Digite o Nome da Intituição..."> <br />
 						</div>	
 
 						

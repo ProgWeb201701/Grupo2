@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 	$email = $_POST['email'];
 	$curso = $_POST['curso'];
 	$instituicao = $_POST['instituicao'];
-	$lattes = $_POST['Lattes'];
+	$lattes = $_POST['lattes'];
 
 	$aluno = new Aluno($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
 
@@ -17,6 +17,6 @@ ini_set('display_errors', 1);
 	$daoAluno = new DaoALuno($mysql->getMysqli());
 
 	$daoAluno->insertAluno($aluno);
-}
+
 
 ?>
