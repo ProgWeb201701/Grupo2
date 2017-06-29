@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../Estilo.css">
+	<link rel="stylesheet" type="text/css" href="CSS/Estilo.css">
 </head>
 <body>
 	<header>
@@ -51,6 +51,129 @@
 			</div>
 		</nav>
 	</header>
+
+<div class="container" class="corpo">
+<div class="col-sm-2"></div>
+
+<div class="col-sm-8" >
+<br />
+<br />
+<br />
+	
+<h3> Proximas Tarefas </h3>
+				<br />
+
+				<div class="panel panel-primary">
+                    <div class="panel-heading"> Tarefa </div>
+                    <div class="panel-body">
+
+
+
+				<form id="frmInscricao" method="post" action="">
+					
+					
+						<div class="form-group">
+						<label>Nome:</label>
+						
+						</div>	
+
+						<div class="form-group">
+						<label> Descrição: </label>
+						</div>
+							
+
+						<div class="form-group">
+						<label>Data de inicio: </label>						
+						</div>	
+
+						<div class="form-group">
+						<label>Data final:  </label>						
+						</div>
+
+						<div class="form-group">
+						<label>Arquivo:  </label>
+						<button type="submit" class="btn btn-primary" style="float: right"  >Baixar</button>
+						
+						</div>				
+
+						
+
+						
+										
+
+						
+						 
+				</form>
+			
+              </div>
+             </div> 
+
+
+
+<br />
+<br />
+<br />
+	
+<h3> Últimas Tarefas </h3>
+				<br />
+
+				<div class="panel panel-primary">
+                    <div class="panel-heading"> Tarefa </div>
+                    <div class="panel-body">
+
+
+
+				<form id="frmInscricao" method="post" action="">
+					
+					
+						<div class="form-group">
+						<label>Nome:</label>
+						
+						</div>	
+
+						<div class="form-group">
+						<label> Descrição: </label>
+						</div>
+							
+
+						<div class="form-group">
+						<label>Data de inicio: </label>						
+						</div>	
+
+						<div class="form-group">
+						<label>Data final:  </label>						
+						</div>
+
+						<div class="form-group">
+						<label>Avaliação:  </label>						
+						</div>
+
+
+						<div class="form-group">
+						<label>Arquivo:  </label>
+						<button type="submit" class="btn btn-primary" style="float: right"  >Baixar</button>
+						
+						</div>				
+
+						
+
+						
+										
+
+						
+						 
+				</form>
+			
+              </div>
+             </div> 
+
+
+</div>
+
+<div class="col-sm-2" ></div>
+
+</div>
+
 
 </body>
 </html>

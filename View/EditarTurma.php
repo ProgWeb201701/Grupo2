@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Editar Turma Web TCC</title>
+	<title> Adicionar Turma Web TCC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -61,7 +61,69 @@
 <div class="container">
 <div class="col-sm-2"></div>
 
-<div class="col-sm-8" ></div>
+<div class="col-sm-8" >
+	
+<h3> Turmas - Adicionar Turma. </h3>
+				<br />
+
+				<div class="panel panel-primary">
+                    <div class="panel-heading"> Nova Turma </div>
+                    <div class="panel-body">
+
+
+
+				<form id="frmInscricao" method="post" action="">
+					
+					
+						<div class="form-group">
+						<label>Codígo da Turma:</label>
+						<input name="codigo" type="text" class="form-control"  placeholder="Digite o codígo da turma..." >
+						</div>	
+						<div class="form-group">
+						<label> Curso: </label>
+						<input  name="curso"  type="text" class="form-control"  placeholder="Digite a Descição..." > </input> 
+						</div>	
+
+						<div class="form-group">
+						<label>Semestre: </label>
+						<select>
+						 <option value="semestre"> </option>
+						 <option value="semestre"> 1º Semestre </option>
+						 <option value="semestre"> 2º Semestre </option>
+
+						</select>
+						</div>	
+
+						<div class="form-group">
+						<label>Data Inico:  </label>
+						<input type="datetime-local"  name="dinicio" align="left">
+						</div>
+
+						<div class="form-group">
+						<label>Data Fim:  </label>
+						<input type="datetime-local"  name="dfim" align="left">
+						</div>				
+
+						
+
+						<div>
+						<div> <button type="submit" class="btn btn-warning" style="float: left;"  >Editar</button>			
+
+
+
+
+						 <button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
+
+						</div>					
+
+						
+						 
+				</form>
+			
+              </div>
+             </div> 
+
+</div>
 
 <div class="col-sm-2" ></div>
 
