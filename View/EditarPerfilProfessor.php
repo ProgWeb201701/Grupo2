@@ -54,7 +54,7 @@
 
 <div class="container">
 <div class="col-sm-2"></div>
-<div class="col-sm-8" ></div>
+<div class="col-sm-8" >
 
 
 				<h3> Editar Perfil </h3>
@@ -126,7 +126,7 @@
 
 
 
-
+</div>
 
 <div class="col-sm-2" ></div>
 </div>

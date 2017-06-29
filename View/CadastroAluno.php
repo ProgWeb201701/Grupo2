@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 <div class="col-sm-2"></div>
-<div class="col-sm-8" ></div>
+<div class="col-sm-8" >
 
 
 				<h3> Cadastro  Aplicação Web TCC. </h3>
@@ -76,7 +76,7 @@
 
 
 
-
+ </div>
 
 
 <div class="col-sm-2" ></div>

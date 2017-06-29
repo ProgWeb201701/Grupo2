@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Cadastro Web TCC</title>
+	<title> Cadastro Professor Web TCC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 
 <div class="container">
 <div class="col-sm-2"></div>
-<div class="col-sm-8" ></div>
+<div class="col-sm-8" >
 
 
 				<h3> Cadastro  Aplicação Web TCC. </h3>
@@ -90,7 +90,7 @@
 
 
 
-
+</div>
 
 <div class="col-sm-2" ></div>
 </div>

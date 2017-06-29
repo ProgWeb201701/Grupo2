@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Editar Perfila Aluno Web TCC</title>
+	<title> Editar Tarefa Web TCC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -28,20 +28,27 @@
 							<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="">Alterar Senha</a></li>
-								<li><a href="EditarPerfilAluno.php" class="nav-link active">Editar</a></li>
+								<li><a href="EditarPerfilProfessor.php">Editar</a></li>
 								<li><a href="">Remover</a></li>
 							</ul>
 						</li>
-						<li><a href="Apresentação.html">Avaliações</a></li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  TCC  <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Avaliações  <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="SubmeterTCC.php"> Submeter </a></li>
+								<li><a href=""> Adicionar </a></li>
 								<li><a href=""> Editar Ultimo </a></li>
 								<li><a href=""> Remover </a></li>
 							</ul>
 						</li>
-						<li><a href="">Cronograma</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Cronograma <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href=""> Adicionar Tarefa</a></li>
+								<li><a href=""> Editar Tarefa</a></li>
+								<li><a href=""> Remover Tarefa</a></li>
+							</ul>
+						</li>
 						<li><a href="">Ajuda</a></li>
 						
 						<li ><a href=""> Sair</a></li>
@@ -51,17 +58,16 @@
 			</div>
 		</nav>
 	</header>
-
 	<div class="container">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8" >
 
 
-			<h3> Perfil Aluno </h3>
-			<br>
+			<h3> Cronograma - Adicionar tarefa. </h3>
+			<br />
 
 			<div class="panel panel-primary">
-				<div class="panel-heading"> Informações Pessoais</div>
+				<div class="panel-heading"> Nova Tarefa </div>
 				<div class="panel-body">
 
 
@@ -70,47 +76,54 @@
 
 
 						<div class="form-group">
-							<label>Nome:</label>
-							<input name="nome" type="text" class="form-control"  placeholder="Digite seu Nome..." >
+							<label>Nome da Tarefa:</label>
+							<input name="nome" type="text" class="form-control"  placeholder="Digite um Nome..." >
 						</div>	
 						<div class="form-group">
-							<label>Matricula:</label>
-							<input name="matricula" type="text" class="form-control"  placeholder="Digite sua Matricula..." >
-						</div>	
-
-						<div class="form-group">
-							<label>Email:</label>
-							<input type="email" class="form-control" name="email"  placeholder="Digite seu E-mail...">
+							<label> Descição:</label>
+							<textarea name="Descicao" rows="7" type="text" class="form-control"  placeholder="Digite a Descição..." > </textarea> 
 						</div>	
 
 						<div class="form-group">
-							<label>Lattes:</label>
-							<input type="text" class="form-control" name="Lattes"  placeholder=" Link da plataforma Lattes ">
+							<label>Inicio: </label>
+							<input type="datetime-local"  name="dinicio" align="left">
 						</div>	
 
 						<div class="form-group">
-							<label >Curso:</label>
-							<input type="text" class="form-control" name="curso"  placeholder="Digite o seu Curso...">
+							<label>Fim:  </label>
+							<input type="datetime-local"  name="dinicio" align="left">
 						</div>	
 
-						<div class="form-group">
-							<label>Instituição:</label>
-							<input type="text" class="form-control" name="Instituicao"  placeholder="Digite o Nome da Intituição..."> <br />
-						</div>	
 
-						<div> <button type="submit" class="btn btn-info" style="float: left;"  >Editar</button>
-							<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
-
+						<div>
+							<label> Arquivo: </label>
+							<input type="file" name="arquivotarefa">
 
 						</div>
-						
-					</form>
 
-				</div>
-				</div> </div>
+						<div>
 
-		<div class="col-sm-2" ></div>
-	</div>
+							<div> <button type="submit" class="btn btn-info" style="float: left;"  >Editar</button>
 
-</body>
-</html>
+								<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
+
+							</div>					
+
+
+
+						</form>
+
+					</div>
+				</div> 
+
+
+
+
+
+
+			</div>
+
+			<div class="col-sm-2" ></div>	</div>
+
+	</body>
+	</html>

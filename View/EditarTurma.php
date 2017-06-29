@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Menu Coordenador Web TCC</title>
+	<title> Editar Turma Web TCC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -58,66 +58,13 @@
 		</nav>
 	</header>
 
-	<div class="container">
+<div class="container">
 <div class="col-sm-2"></div>
-<div class="col-sm-8" >
 
-
-				<h3> Cronograma - Adicionar tarefa. </h3>
-				<br />
-
-				<div class="panel panel-primary">
-                    <div class="panel-heading"> Nova Tarefa </div>
-                    <div class="panel-body">
-
-
-
-				<form id="frmInscricao" method="post" action="">
-					
-					
-						<div class="form-group">
-						<label>Nome da Tarefa:</label>
-						<input name="nome" type="text" class="form-control"  placeholder="Digite um Nome..." >
-						</div>	
-						<div class="form-group">
-						<label> Descição:</label>
-						<textarea name="Descicao" rows="7" type="text" class="form-control"  placeholder="Digite a Descição..." > </textarea> 
-						</div>	
-
-						<div class="form-group">
-						<label>Inicio: </label>
-						<input type="datetime-local"  name="dinicio" align="left">
-						</div>	
-
-						<div class="form-group">
-						<label>Fim:  </label>
-						<input type="datetime-local"  name="dinicio" align="left">
-						</div>	
-						
-
-						<div>
-							<label> Arquivo: </label>
-							<input type="file" name="arquivotarefa">
-
-						</div>
-
-						<div> <button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
-
-						</div>					
-
-						
-						 
-				</form>
-			
-              </div>
-             </div> </div>
-             
-
-
-
-
+<div class="col-sm-8" ></div>
 
 <div class="col-sm-2" ></div>
+
 </div>
 
 </body>

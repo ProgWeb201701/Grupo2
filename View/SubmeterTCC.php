@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Tela de Login Aplicacao Web</title>
+	<title> Subimição TCC Web TCC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -52,10 +52,10 @@
 		</nav>
 	</header>
 <div>
-<div class="col-sm-3">
+<div class="col-sm-2">
 	
 </div>
-<div  class="col-sm-6">
+<div  class="col-sm-8">
 	<div class="caixaP">
 		<form method="post" action=" ">
 		<fieldset >
@@ -105,7 +105,7 @@
 
 	</div>
 </div>
-	<div class="col-sm-3">
+	<div class="col-sm-2">
 		
 	</div>
 </div>	
