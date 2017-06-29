@@ -48,10 +48,118 @@
 					<li ><a href=""> Sair</a></li>
 					</ul>
 
-				</div><!--/.nav-collapse -->
+				</div>
 			</div>
 		</nav>
 	</header>
+
+<div class="container">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8" >
+
+
+			<br />
+			<br />
+			<br />
+
+			<h3> Proximas Tarefas </h3>
+			<br />
+
+			<div class="panel panel-primary">
+				<div class="panel-heading"> Tarefa </div>
+				<div class="panel-body">
+
+
+
+					<form id="frmInscricao" method="post" action="">
+
+
+						<div class="form-group">
+							<label>Nome:</label>
+
+						</div>	
+
+						<div class="form-group">
+							<label> Descrição: </label>
+						</div>
+
+
+						<div class="form-group">
+							<label>Data de inicio: </label>						
+						</div>	
+
+						<div class="form-group">
+							<label>Data final:  </label>						
+						</div>
+
+
+						<div class="form-group">
+
+						<label>Arquivos da Avaliação:  </label>
+						<button type="submit" class="btn btn-primary" style="float: right"  >Baixar</button>
+
+						</div>	
+
+
+
+						
+
+					</form>
+
+				</div>
+			</div> 
+
+
+
+			<br />
+			<br />
+			<br />
+
+			<h3> Últimas Tarefas </h3>
+			<br />
+
+			<div class="panel panel-primary">
+				<div class="panel-heading"> Tarefa </div>
+				<div class="panel-body">
+
+
+
+					<form id="frmInscricao" method="post" action="">
+
+
+						<div class="form-group">
+							<label>Nome:</label>
+
+						</div>	
+
+						<div class="form-group">
+							<label> Descrição: </label>
+						</div>
+
+
+						<div class="form-group">
+							<label>Data de inicio: </label>						
+						</div>	
+
+						<div class="form-group">
+							<label>Data final:  </label>						
+						</div>
+
+						<div class="form-group">
+
+						<label>Arquivos da Avaliação:  </label>
+						<button type="submit" class="btn btn-primary" style="float: right"  >Baixar</button>	
+											
+						</div>	
+	
+
+					</form>
+
+				</div>
+			</div> 
+			
+			<div class="col-sm-2" ></div>
+		</div>
 
 
 </body>

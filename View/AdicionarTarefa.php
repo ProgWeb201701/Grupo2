@@ -97,15 +97,30 @@
 						<label>Fim:  </label>
 						<input type="datetime-local"  name="dinicio" align="left">
 						</div>	
+						<br>
+
+						<div class="form-group">
+						<label> Destinatario: </label>
+						<select>
+						 <option value="semestre"> </option>
+						 <option value="semestre"> Aluno </option>
+						 <option value="semestre"> Orientador </option>
+						 <option value="semestre"> Avaliador </option>
+
+						</select>
+						</div>
 						
 
 						<div>
-							<label> Arquivo: </label>
-							<input type="file" name="arquivotarefa">
+						<label> Arquivo: </label>
+						<input type="file" name="arquivotarefa">
+
+
 
 						</div>
-
-						<div> <button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
+						
+						<div>
+					<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
 
 						</div>					
 
