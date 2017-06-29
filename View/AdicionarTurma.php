@@ -8,6 +8,38 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../Estilo.css">
+	<script src="../js/jquery.min.js"></script>
+	<script language="JavaScript" src="../js/jquery.validate.js" type="text/javascript"></script> 
+
+    <script type="text/javascript">
+
+		$(document).ready(function(){
+	     	var campos_max = 10;   //max de 10 campos
+        var x = 1; // campos iniciais
+        $('#campo').click (function(e) {
+                e.preventDefault();     //prevenir novos clicks
+                if (x < campos_max) {
+                	$('#adicionar').append(' <div> \ <br> \ <div class= "form-group">\ <label>Nome do Aluno:</label>\ <input  type="text" class="form-control" name="nome" placeholder="Digite o nome do aluno..." >\  </div>\ <div class= "form-group">\ <label>Matricula:</label>\
+										<input type="text" class="form-control"   name="matricula" placeholder="Digite a matricula do aluno..." >\  </div>\ <div class= "form-group">\ <label>Orientador:</label>\
+										<input type="text" class="form-control"   name="orientador" placeholder="Digite o noeme do orientador..." >\  </div>\<br>\
+                		<input   type="button" class="btn btn-warning " value = "Remover Aluno" id= "remover_campo">  \ <br> <br>\
+                	 </div>');
+                	x++;
+                }
+            });
+
+        
+        $('#adicionar').on("click","#remover_campo",function(e) {
+        	e.preventDefault();
+        	$(this).parent('div').remove();
+        	x--;
+        });
+
+    });
+</script>
+
+
+
 </head>
 <body>
 	<header>
@@ -62,6 +94,10 @@
 <div class="col-sm-2"></div>
 
 <div class="col-sm-8" >
+<br>
+<br>
+<br>
+
 	
 <h3> Turmas - Adicionar Turma. </h3>
 				<br />
@@ -102,11 +138,38 @@
 						<div class="form-group">
 						<label>Data Fim:  </label>
 						<input type="datetime-local"  name="dfim" align="left">
-						</div>				
+						</div>
 
-						
+						<label> Adicionar Alunos: </label>
 
-						<div> <button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
+						<br>
+						<br>
+                           <div id="adicionar"> 
+									<div class="form-group">
+										<label>Nome do aluno:</label>
+										<input  type="text" class="form-control" name="nome" placeholder="Digite o nome do aluno..." >
+									</div> 
+									<div class="form-group">
+										<label> Matricula:</label>
+										<input type="text" class="form-control" name="matricula"  placeholder="Digite a matricula do aluno...">
+									</div>	
+
+									<div class="form-group">
+										<label> Orientador:</label>
+										<input type="text" class="form-control" name="orientador"  placeholder="Digite o nome do Prof. Orientador...">
+									</div>	
+
+									
+
+
+
+
+								</div>	<br>
+						<div>
+
+						<input type="button" class="btn btn-info " id="campo" value="Adicionar Aluno">
+
+						<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
 
 						</div>					
 

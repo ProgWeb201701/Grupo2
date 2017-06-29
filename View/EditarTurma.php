@@ -62,12 +62,16 @@
 <div class="col-sm-2"></div>
 
 <div class="col-sm-8" >
+<br>
+<br>
+<br>
+
 	
-<h3> Turmas - Adicionar Turma. </h3>
+<h3> Turmas - Editar Turma. </h3>
 				<br />
 
 				<div class="panel panel-primary">
-                    <div class="panel-heading"> Nova Turma </div>
+                    <div class="panel-heading"> Editar </div>
                     <div class="panel-body">
 
 
