@@ -4,11 +4,12 @@
 	ini_set('display_errors', 1);
 	$login = $_POST['login'];
 	$senha = $_POST['senha'];
+	$tipologin = $_POST['tipologin'];
 	$conection = new getConection();
 	$mysql = $conection->getMysql();
 	$daoLogin = new DaoLogin($mysql);
 
-	$aluno = $daoLogin->selectLoginAluno($login, $senha);
+	$aluno = $daoLogin->selectLoginAluno($login, $senha $tipologin);
 
 
 		if($aluno->getMatricula() == $login && $aluno->getSenha() == $senha){
