@@ -1,11 +1,12 @@
 <?php 
 	include '../Model/Dados/ClassConection.php';
+	include '../Model/Dados/ClassDaoLogin.php';
 	ini_set('display_errors', 1);
 	$login = $_POST['login'];
 	$senha = $_POST['senha'];
 	$conection = new getConection();
 	$mysql = $conection->getMysql();
-	$daoLogin = new DaoLogin($mysql->getMysqli());
+	$daoLogin = new DaoLogin($mysql);
 
 	$alunos = $daoLogin->selectLoginAluno();
 	foreach ($alunos as $alu) {

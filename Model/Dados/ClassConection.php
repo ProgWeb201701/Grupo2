@@ -3,7 +3,7 @@
 
 	class getConection{
 		
-		private $mysqli;
+		protected $mysqli;
 
 		protected $local = "127.0.0.1";
 		protected $user = "ProgWeb";
