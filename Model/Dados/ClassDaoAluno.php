@@ -11,27 +11,28 @@
 	}
 
 		public function insertAluno($aluno){
-	// 		echo "<pre>";
- //    print_r($aluno->getCurso());
-	// echo "</pre>";
-	//  exit();
+	
 
 	
-			$query = "INSERT INTO aluno SET idAluno=NULL, $nome=?, $matricula=?, $senha=?, $email=?, $curso=?, $instituicao=?, $lattes=?";
-			$stmt = $this->$mysqli->stmt_init();
-			$stmt->prepare($query);
-			$stmt->bind_param('sssssss', $nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
 			
-			$nomeAluno = $aluno->getNome();
-			$matriculaAluno = $aluno->getMatricula();
-			$senhaAluno = $aluno->getSenha();
-			$emailAluno = $aluno->getEmail();
-			$cursoAluno = $aluno->getCurso();
-			$instituicaoAluno = $aluno->getInstituicao();
+			$stmt = $this->mysqli->stmt_init();
+			$stmt->prepare( "INSERT INTO aluno SET CodAluno=NULL, nome=?, matricula=?, senha=?, email=?, curso=?, instituicao=?, LinkLattes=?");
+
+			// echo "<pre>";
+   //      print_r($stmt);
+	  //   echo "</pre>";
+	  //   exit();
+			$stmt->bind_param('sssssss', $nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
+
+			$nome = $aluno->getNome();
+			$matricula = $aluno->getMatricula();
+			$senha = $aluno->getSenha();
+			$email = $aluno->getEmail();
+			$curso = $aluno->getCurso();
+			$instituicao = $aluno->getInstituicao();
 			$lattesAluno = $aluno->getLattes();
 
 		
-	
 
 
 
