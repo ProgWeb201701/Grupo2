@@ -12,7 +12,7 @@ Class Aluno
 
 
 
-function __cosntruct($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes){
+function __construct($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes){
 
 	$this->nome = $nome;
 	$this->matricula = $matricula;

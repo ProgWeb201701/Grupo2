@@ -20,14 +20,12 @@ class DaoLogin{
 
 		$alunos = array();
 		if ($result->num_rows > 0) {
+
 			$result = $result->fetch_array(MYSQLI_ASSOC);
 			$aluno = new Aluno($result['Nome'], $result['Matricula'], $result['Senha'], $result['email'], $result['Curso'], $result['instituicao'], $result['LinkLattes']);
 	
 		}
-		echo "<pre>";
-		echo ($result['Nome'], $result['Matricula'], $result['Senha'], $result['email'], $result['Curso'], $result['instituicao'], $result['LinkLattes']);
-		echo "</pre>";
-		exit();
+		 
 
 		return $aluno;
 	}

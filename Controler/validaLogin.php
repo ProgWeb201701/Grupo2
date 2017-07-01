@@ -8,18 +8,15 @@
 	$mysql = $conection->getMysql();
 	$daoLogin = new DaoLogin($mysql);
 
-	$alunos = $daoLogin->selectLoginAluno($login, $senha);
-	foreach ($alunos as $alu) {
-		echo "<pre>";
-		print_r($alu);
-		echo "</pre>";
+	$aluno = $daoLogin->selectLoginAluno($login, $senha);
 
-		if($alu->getMatricula() == $login && $alu->getSenha() == $senha){
+
+		if($aluno->getMatricula() == $login && $aluno->getSenha() == $senha){
 
 			header("Location: ../View/menuAluno.php");
 			exit();
 		}
-	}
+	
 
 
 	$professores = $daoLogin->selectLoginProfessor();
