@@ -13,10 +13,7 @@ class DaoLogin{
 
 		$query = "SELECT * FROM aluno where Matricula= $login and Senha = $senha";
 		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-		// echo "<pre>";
-		// print_r($result);
-		// echo "</pre>";
-		// exit();
+		
 
 		$alunos = array();
 		if ($result->num_rows > 0) {

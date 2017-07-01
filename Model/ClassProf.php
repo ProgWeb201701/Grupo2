@@ -8,11 +8,11 @@ Class Professor
  private $instituicao;
  private $areaAtua;
  private $curriculo;
- private $senha
+ private $senha;
  private $formacao;
 
 
-function __cosntruct($nome, $siape, $email, $instituicao, $areaAtua, $curriculo, $senha, $formacao){
+function __construct($nome, $siape, $email, $instituicao, $areaAtua, $curriculo, $senha, $formacao){
 
 	$this->nome = $nome;
 	$this->siape = $siape;
@@ -61,7 +61,7 @@ public function getNome(){
 }
 
 public function getSiape(){
-	return $this->Siape;
+	return $this->siape;
 }
 
 public function getEmail(){

@@ -18,10 +18,7 @@
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare( "INSERT INTO aluno SET CodAluno=NULL, nome=?, matricula=?, senha=?, email=?, curso=?, instituicao=?, LinkLattes=?");
 
-			// echo "<pre>";
-   //      print_r($stmt);
-	  //   echo "</pre>";
-	  //   exit();
+	
 			$stmt->bind_param('sssssss', $nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
 
 			$nome = $aluno->getNome();

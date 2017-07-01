@@ -1,4 +1,8 @@
 <?php 
+
+include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
+include  'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoProf.php';
 	
 ini_set('display_errors', 1);
 	$nome = $_POST['nome'];
@@ -13,10 +17,10 @@ ini_set('display_errors', 1);
 	$professor = new Professor($nome, $siape, $email, $areaAtua, $instituicao, $curriculo, $senha, $formacao);
 
 	$conection = new getConection();
-	$mysql = $conection->getMysql();
-	$daoProf = new DaoProf($mysql->getMysqli());
+	
+	$daoProf = new DaoProf($conection->getMysql());
 
 	$daoProf->insertProf($professor);
-}
+
 
 ?>
