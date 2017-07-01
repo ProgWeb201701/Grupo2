@@ -1,6 +1,9 @@
-<?php 
-	
-ini_set('display_errors', 1);
+<?php  
+include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAluno.php';
+include  'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
+ 
+    ini_set('display_errors', 1);
 	$nome = $_POST['nome'];
 	$matricula = $_POST['matricula'];
 	$senha = $_POST['senha'];
@@ -11,12 +14,15 @@ ini_set('display_errors', 1);
 
 	$aluno = new Aluno($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
 
+	
+	
 	$conection = new getConection();
+
 	$mysql = $conection->getMysql();
 
-	$daoAluno = new DaoALuno($mysql->getMysqli());
+	$daoAluno = new DaoALuno($conection->getMysql());
 
 	$daoAluno->insertAluno($aluno);
-
+					
 
 ?>

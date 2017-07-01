@@ -1,28 +1,40 @@
 <?php
 	
-	/**
-	* 
-	*/
+
+	
 	class DaoAluno{
 		
-		private  $mysqli;
+		protected $mysqli;
 
-		function __construct($mysql){
-			$this->$mysqli = $mysql;
-		}
+	function __construct($mysql){
+		$this->mysqli = $mysql;
+	}
 
 		public function insertAluno($aluno){
+	// 		echo "<pre>";
+ //    print_r($aluno->getCurso());
+	// echo "</pre>";
+	//  exit();
+
+	
 			$query = "INSERT INTO aluno SET idAluno=NULL, $nome=?, $matricula=?, $senha=?, $email=?, $curso=?, $instituicao=?, $lattes=?";
 			$stmt = $this->$mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('sssssss', $nomeAluno, $matriculaAluno, $senhaAluno, $emailAluno, $cursoAluno, $instituicaoAluno, $lattesAluno);
-			$nomeAluno = $aluno.getNome();
+			$stmt->bind_param('sssssss', $nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
+			
+			$nomeAluno = $aluno->getNome();
 			$matriculaAluno = $aluno->getMatricula();
 			$senhaAluno = $aluno->getSenha();
 			$emailAluno = $aluno->getEmail();
-			$CursoAluno = $aluno->getCurso();
+			$cursoAluno = $aluno->getCurso();
 			$instituicaoAluno = $aluno->getInstituicao();
 			$lattesAluno = $aluno->getLattes();
+
+		
+	
+
+
+
 			$stmt->execute();
 			$stmt->close();
 		}

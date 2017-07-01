@@ -7,7 +7,7 @@
 		
 		private global $mysqli;
 
-		function __construct($mysqli){
+		public function __construct($mysqli){
 			$this->$mysqli = $mysqli;
 		}
 

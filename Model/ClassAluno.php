@@ -1,4 +1,5 @@
 <?php
+
 Class Aluno
 {
 
@@ -51,7 +52,7 @@ public function setLattes($lattes){
 }
 
 public function getNome(){
-	return $this->Nome;
+	return $this->nome;
 }
 
 public function getMatricula(){
@@ -59,15 +60,15 @@ public function getMatricula(){
 }
 
 public function getEmail(){
-	return $this->Email;
+	return $this->email;
 }
 
 public function getCurso(){
-	return $this->Curso;
+	return $this->curso;
 }
 
 public function getInstituicao(){
-	return $this->Instituicao;
+	return $this->instituicao;
 }
 
 public function getSenha(){
