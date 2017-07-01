@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 01-Jul-2017 às 17:40
+-- Data de Criação: 01-Jul-2017 às 18:38
 -- Versão do servidor: 5.5.28
 -- versão do PHP: 5.3.19
 
@@ -152,6 +152,29 @@ CREATE TABLE IF NOT EXISTS `professor` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tarefa`
+--
+
+CREATE TABLE IF NOT EXISTS `tarefa` (
+  `codTarefa` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) NOT NULL,
+  `descricao` varchar(200) NOT NULL,
+  `dinicio` varchar(50) NOT NULL,
+  `dfim` varchar(50) NOT NULL,
+  `destinatario` varchar(150) NOT NULL,
+  `arquivo` varchar(200) NOT NULL,
+  `idAvaliador` int(10) NOT NULL,
+  `codaluno` int(10) NOT NULL,
+  `codNota` int(10) NOT NULL,
+  PRIMARY KEY (`codTarefa`),
+  KEY `idAvaliador` (`idAvaliador`),
+  KEY `codNota` (`codNota`),
+  KEY `codaluno` (`codaluno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `turma`
 --
 
@@ -187,6 +210,14 @@ ALTER TABLE `nota`
 --
 ALTER TABLE `professor`
   ADD CONSTRAINT `professor_ibfk_1` FOREIGN KEY (`codFunc`) REFERENCES `funcao` (`codFunc`);
+
+--
+-- Limitadores para a tabela `tarefa`
+--
+ALTER TABLE `tarefa`
+  ADD CONSTRAINT `nota` FOREIGN KEY (`codNota`) REFERENCES `nota` (`codNota`),
+  ADD CONSTRAINT `aluno` FOREIGN KEY (`codaluno`) REFERENCES `aluno` (`CodAluno`),
+  ADD CONSTRAINT `avalidor` FOREIGN KEY (`idAvaliador`) REFERENCES `professor` (`idAval`);
 
 --
 -- Limitadores para a tabela `turma`

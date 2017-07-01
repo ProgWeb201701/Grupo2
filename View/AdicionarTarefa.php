@@ -76,7 +76,7 @@
 
 
 
-				<form id="frmInscricao" method="post" action="">
+				<form id="frmInscricao" method="post" action="../Controler/Tarefas/InsertTarefa.php">
 					
 					
 						<div class="form-group">
@@ -95,13 +95,13 @@
 
 						<div class="form-group">
 						<label>Fim:  </label>
-						<input type="datetime-local"  name="dinicio" align="left">
+						<input type="datetime-local"  name="dfim" align="left">
 						</div>	
 						<br>
 
 						<div class="form-group">
 						<label> Destinatario: </label>
-						<select>
+						<select name="destinatario">
 						 <option value="semestre"> </option>
 						 <option value="semestre"> Aluno </option>
 						 <option value="semestre"> Orientador </option>
