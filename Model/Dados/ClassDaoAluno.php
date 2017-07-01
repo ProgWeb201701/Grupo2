@@ -5,10 +5,10 @@
 	*/
 	class DaoAluno{
 		
-		private global $mysqli;
+		private  $mysqli;
 
-		function __construct($mysqli){
-			$this->$mysqli = $mysqli;
+		function __construct($mysql){
+			$this->$mysqli = $mysql;
 		}
 
 		public function insertAluno($aluno){

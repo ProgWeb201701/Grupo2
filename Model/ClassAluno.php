@@ -4,7 +4,7 @@ Class Aluno
 
  private $nome;
  private $matricula;
- private $senha
+ private $senha;
  private $email;
  private $curso;
  private $instituicao;
@@ -62,7 +62,7 @@ public function getEmail(){
 	return $this->Email;
 }
 
-public function getCurso()){
+public function getCurso(){
 	return $this->Curso;
 }
 

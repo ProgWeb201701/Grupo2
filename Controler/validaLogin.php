@@ -1,6 +1,6 @@
 <?php 
-	include '../Model/Dados/ClassConection.php';
-	include '../Model/Dados/ClassDaoLogin.php';
+
+	include_once '../Model/Dados/ClassDaoLogin.php';
 	ini_set('display_errors', 1);
 	$login = $_POST['login'];
 	$senha = $_POST['senha'];
@@ -10,7 +10,12 @@
 
 	$alunos = $daoLogin->selectLoginAluno();
 	foreach ($alunos as $alu) {
+		// echo "<pre>";
+		// print_r($alu);
+		// echo "</pre>";
+
 		if($alu->getMatricula() == $login && $alu->getSenha() == $senha){
+
 			header("Location: ../View/menuAluno.php");
 			exit();
 		}
