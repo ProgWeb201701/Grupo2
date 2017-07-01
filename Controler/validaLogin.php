@@ -8,11 +8,11 @@
 	$mysql = $conection->getMysql();
 	$daoLogin = new DaoLogin($mysql);
 
-	$alunos = $daoLogin->selectLoginAluno();
+	$alunos = $daoLogin->selectLoginAluno($login, $senha);
 	foreach ($alunos as $alu) {
-		// echo "<pre>";
-		// print_r($alu);
-		// echo "</pre>";
+		echo "<pre>";
+		print_r($alu);
+		echo "</pre>";
 
 		if($alu->getMatricula() == $login && $alu->getSenha() == $senha){
 

@@ -9,9 +9,9 @@ class DaoLogin{
 		$this->mysqli = $mysql;
 	}
 
-	public function selectLoginAluno(){
+	public function selectLoginAluno($login, $senha){
 
-		$query = "SELECT * FROM aluno";
+		$query = "SELECT * FROM aluno where Matricula= $login and Senha = $senha";
 		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
 		// echo "<pre>";
 		// print_r($result);
@@ -21,10 +21,15 @@ class DaoLogin{
 		$alunos = array();
 		if ($result->num_rows > 0) {
 			$result = $result->fetch_array(MYSQLI_ASSOC);
-			$aluno = new Aluno($result["Nome"], $result["Matricula"], $result["Senha"], $result["email"], $result["Curso"], $result["instituicao"], $result["LinkLattes"]);
-			array_push($alunos, $aluno);
+			$aluno = new Aluno($result['Nome'], $result['Matricula'], $result['Senha'], $result['email'], $result['Curso'], $result['instituicao'], $result['LinkLattes']);
+	
 		}
-		return $alunos;
+		echo "<pre>";
+		echo ($result['Nome'], $result['Matricula'], $result['Senha'], $result['email'], $result['Curso'], $result['instituicao'], $result['LinkLattes']);
+		echo "</pre>";
+		exit();
+
+		return $aluno;
 	}
 
 	public function selectLoginProfessor(){
