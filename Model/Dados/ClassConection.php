@@ -5,19 +5,17 @@
 		
 		private $mysqli;
 
-		private $local = "localhost";
-		private $user = "ProgWeb";
-		private $pass = "123";
-		private $dataBase = "pw";
+		protected $local = "127.0.0.1";
+		protected $user = "ProgWeb";
+		protected $pass = "123";
+		protected $dataBase = "pw";
 
 		function __construct(){
-			global $local, $user, $pass, $dataBase;
-			$this->$mysqli = new mysqli($local, $user, $pass, $dataBase);
-			
+			$this->mysqli = new mysqli($this->local, $this->user, $this->pass, $this->dataBase);		
 		}
 
 		public function getMysql(){
-			return $this->$mysqli;
+			return $this->mysqli;
 		}
 	}
 ?>
