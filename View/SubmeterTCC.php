@@ -69,7 +69,7 @@
 				<div class="panel-body">
 
 					
-						<form method="post" action=" ">
+						<form method="post" action="../Controler/TCC/insertTCC.php">
 							
 								<div class="form-group">
 									<label>Titulo </label>
@@ -96,8 +96,8 @@
 									<textarea  name="resumo"  class="form-control"  row = "6" placeholder="Resumo"></textarea>
 								</div>
 								<div class="form-group">
-									<label >Abastract </label>
-									<textarea  name="abastract"  class="form-control"  row = "6" placeholder="Abastract"></textarea>
+									<label >Abstract </label>
+									<textarea  name="abstract"  class="form-control"  row = "6" placeholder="Abastract"></textarea>
 									
 								</div>
 								<div class="inline" >
