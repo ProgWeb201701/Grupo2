@@ -20,10 +20,12 @@
 			$query = "INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, area=?,			linkLattes=?, senha=?, formacao=?, codFunc=?";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('ssssssssi', $nomeProf, $siapeprof, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
+			$stmt->bind_param('ssssssssi', $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
+
+
 
 			$nomeProf = $prof->getNome();
-			$siapProf = $prof->getSiape();
+			$siape = $prof->getSiape();
 			$emailProf = $prof->getEmail();
 			$instituicaoProf = $prof->getInstituicao();
 			$areaAtuaProf = $prof->getAreaAtua();

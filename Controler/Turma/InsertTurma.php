@@ -15,8 +15,6 @@ ini_set('display_errors', 1);
 
 	$idcor = $daoTur->consultaCoordenador($siape);
 
-	$daoTur->insertTurma($codigoturma, $semestre, $curso, $idcor);
-
-	
+	$daoTur->insertTurma($codigoturma, $semestre, $curso, $idcor);	
 
 ?>

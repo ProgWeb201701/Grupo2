@@ -61,98 +61,57 @@
 
 	<div class="container">
 		<div class="col-sm-2"></div>
-		<div class="col-sm-8" >
+		<div class="col-sm-8" > 
+         <br>
+<br>
+<br>
+
+	
+<h3> Turmas - Adicionar Alunos. </h3>
+				<br />
+
+				<div class="panel panel-primary">
+                    <div class="panel-heading"> Adicionar Aluno </div>
+                    <div class="panel-body">
 
 
-			<br />
-			<br />
-			<br />
 
-			<h3> Proximas Tarefas </h3>
-			<br />
-
-			<div class="panel panel-primary">
-				<div class="panel-heading"> Tarefa </div>
-				<div class="panel-body">
-
-
-
-					<form id="frmInscricao" method="post" action="">
-
-
+				<form id="frmInscricao" method="post" action="../Controler/AlunosTcc/InsertAlunosTcc.php">
+					
+					
 						<div class="form-group">
-							<label>Nome:</label>
-
+						<label>Codígo da Turma:</label>
+						<input name="codigo" type="text" class="form-control"  placeholder="Digite o codígo da turma..." >
+						</div>	
+						<div class="form-group">
+						<label> Matricula do Aluno: </label>
+						<input  name="matricula"  type="text" class="form-control"  placeholder="Digite a matricula do Aluno.." > </input> 
 						</div>	
 
 						<div class="form-group">
-							<label> Descrição: </label>
+						<label>Siape Do Professor Orientador: </label>						
+						<input type="text" name="siape" class="form-control" placeholder="Digite o siape do Professor Orientador.."> </input>
 						</div>
 
-
-						<div class="form-group">
-							<label>Data de inicio: </label>						
-						</div>	
-
-						<div class="form-group">
-							<label>Data final:  </label>						
-						</div>
-
+						<div>
 
 						
+						<button type="submit" class="btn btn-primary" style="float: right"  >Adicionar</button>
 
-					</form>
+						</div>					
 
-				</div>
-			</div> 
-
-
-
-			<br />
-			<br />
-			<br />
-
-			<h3> Últimas Tarefas </h3>
-			<br />
-
-			<div class="panel panel-primary">
-				<div class="panel-heading"> Tarefa </div>
-				<div class="panel-body">
-
-
-
-					<form id="frmInscricao" method="post" action="">
-
-
-						<div class="form-group">
-							<label>Nome:</label>
-
-						</div>	
-
-						<div class="form-group">
-							<label> Descrição: </label>
-						</div>
-
-
-						<div class="form-group">
-							<label>Data de inicio: </label>						
-						</div>	
-
-						<div class="form-group">
-							<label>Data final:  </label>						
-						</div>
-
-						<div class="form-group">
-							<label>Avaliação:  </label>						
-						</div>
-	
-
-					</form>
-
-				</div>
-			</div> 
+						
+						 
+				</form>
 			
-			<div class="col-sm-2" ></div>
+              </div>
+             </div> 
+
+
+
+
+		</div>
+		<div class="col-sm-2" ></div>
 		</div>
 
 	</body>
