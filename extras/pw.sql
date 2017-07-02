@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 01-Jul-2017 às 18:38
+-- Data de Criação: 02-Jul-2017 às 01:39
 -- Versão do servidor: 5.5.28
 -- versão do PHP: 5.3.19
 
@@ -85,9 +85,8 @@ CREATE TABLE IF NOT EXISTS `funcao` (
 --
 
 INSERT INTO `funcao` (`codFunc`, `NomFunc`) VALUES
-(1, 'CoordenadorDeTCC'),
-(2, 'Orientador'),
-(3, 'Avaliador');
+(1, 'Orientador'),
+(2, 'Avaliador');
 
 -- --------------------------------------------------------
 
@@ -96,18 +95,25 @@ INSERT INTO `funcao` (`codFunc`, `NomFunc`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `monografia` (
-  `CodAluno` int(10) DEFAULT NULL,
-  `idTurma` int(10) DEFAULT NULL,
-  `hora` varchar(12) DEFAULT NULL,
-  `Arquivo` varchar(200) DEFAULT NULL,
-  `Local` varchar(200) DEFAULT NULL,
-  `Data` date DEFAULT NULL,
-  `Resumo` varchar(250) DEFAULT NULL,
+  `idTurma` int(10) NOT NULL DEFAULT '0',
   `Titulo` varchar(100) DEFAULT NULL,
-  `Tema` varchar(100) DEFAULT NULL,
+  `CodAluno` int(10) NOT NULL DEFAULT '0',
+  `orientador` varchar(150) DEFAULT NULL,
+  `palavrasChaves` varchar(150) DEFAULT NULL,
+  `Resumo` varchar(250) DEFAULT NULL,
+  `abstract` varchar(200) DEFAULT NULL,
+  `arquivo` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`CodAluno`,`idTurma`),
   KEY `CodAluno` (`CodAluno`),
   KEY `idTurma` (`idTurma`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `monografia`
+--
+
+INSERT INTO `monografia` (`idTurma`, `Titulo`, `CodAluno`, `orientador`, `palavrasChaves`, `Resumo`, `abstract`, `arquivo`) VALUES
+(1, '123', 11, '123@123.123', '123', '123', '123', 'alguma coisa');
 
 -- --------------------------------------------------------
 
@@ -143,11 +149,18 @@ CREATE TABLE IF NOT EXISTS `professor` (
   `LinkLattes` varchar(200) DEFAULT NULL,
   `Senha` varchar(50) DEFAULT NULL,
   `Formacao` varchar(50) DEFAULT NULL,
-  `codFunc` int(10) NOT NULL,
+  `codFunc` int(10) DEFAULT NULL,
   PRIMARY KEY (`idAval`),
   KEY `codFunc` (`codFunc`),
   KEY `codFunc_2` (`codFunc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `professor`
+--
+
+INSERT INTO `professor` (`idAval`, `Nome`, `siape`, `email`, `instituicao`, `Área`, `LinkLattes`, `Senha`, `Formacao`, `codFunc`) VALUES
+(1, '0', '123', NULL, NULL, NULL, NULL, '123', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -163,14 +176,15 @@ CREATE TABLE IF NOT EXISTS `tarefa` (
   `dfim` varchar(50) NOT NULL,
   `destinatario` varchar(150) NOT NULL,
   `arquivo` varchar(200) NOT NULL,
-  `idAvaliador` int(10) NOT NULL,
-  `codaluno` int(10) NOT NULL,
-  `codNota` int(10) NOT NULL,
-  PRIMARY KEY (`codTarefa`),
-  KEY `idAvaliador` (`idAvaliador`),
-  KEY `codNota` (`codNota`),
-  KEY `codaluno` (`codaluno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`codTarefa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Extraindo dados da tabela `tarefa`
+--
+
+INSERT INTO `tarefa` (`codTarefa`, `nome`, `descricao`, `dinicio`, `dfim`, `destinatario`, `arquivo`) VALUES
+(0, '321', ' 321', '312', '123321', 'alguma outra coisa', 'alguma coisa');
 
 -- --------------------------------------------------------
 
@@ -185,7 +199,14 @@ CREATE TABLE IF NOT EXISTS `turma` (
   `idCordenador` int(10) DEFAULT NULL,
   PRIMARY KEY (`idTurma`),
   KEY `idCordenador` (`idCordenador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `turma`
+--
+
+INSERT INTO `turma` (`idTurma`, `Ano`, `Curso`, `idCordenador`) VALUES
+(1, '2017', 'es', NULL);
 
 --
 -- Constraints for dumped tables
@@ -210,14 +231,6 @@ ALTER TABLE `nota`
 --
 ALTER TABLE `professor`
   ADD CONSTRAINT `professor_ibfk_1` FOREIGN KEY (`codFunc`) REFERENCES `funcao` (`codFunc`);
-
---
--- Limitadores para a tabela `tarefa`
---
-ALTER TABLE `tarefa`
-  ADD CONSTRAINT `nota` FOREIGN KEY (`codNota`) REFERENCES `nota` (`codNota`),
-  ADD CONSTRAINT `aluno` FOREIGN KEY (`codaluno`) REFERENCES `aluno` (`CodAluno`),
-  ADD CONSTRAINT `avalidor` FOREIGN KEY (`idAvaliador`) REFERENCES `professor` (`idAval`);
 
 --
 -- Limitadores para a tabela `turma`
