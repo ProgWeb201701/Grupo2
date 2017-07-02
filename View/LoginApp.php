@@ -34,7 +34,9 @@
 
 		<div class="form-inline" class="radio"> 
 			<label class="radio-inline"><input type="radio" name="tipologin"  value="aluno" >Aluno </label>
-			<label class="radio-inline"><input type="radio" name="tipologin"  value="professor" >Professor</label>
+			<label class="radio-inline"><input type="radio" name="tipologin"  value="aluno" >Orientador </label>
+			<label class="radio-inline"><input type="radio" name="tipologin"  value="aluno" >Avaliador </label>
+			<label class="radio-inline"><input type="radio" name="tipologin"  value="professor" >Coordenador</label>
 
 		
 		</div>

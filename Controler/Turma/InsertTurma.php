@@ -16,10 +16,9 @@ ini_set('display_errors', 1);
 
 	$daoTur->insertTurna($semestre, $curso, 1);
 
-
 	$codori = $daoTur->consultaOrientador($orientador);
 
-	$daoTur->insertTurna($nome, $matricula, $codori);
+	$daoTur->insertTurna($idAluno, $idori, $idTurma);
 
 
 

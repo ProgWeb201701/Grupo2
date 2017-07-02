@@ -23,6 +23,11 @@
 		}
 
 
+
+
+
+
+
 		public function consultaOrientador($siape){
 
 		$query = "SELECT * FROM professor where siape= $siape";
@@ -36,19 +41,30 @@
 			
 		}
 
-
     	return $result['idAval'];
-	    }
+	   }
 
 
-		public function insertTcc($nome, $matricula, $orientador){
+	   public function consultaAluno($matricula){
+
+		$query = "SELECT * FROM aluno where Matricula= $matricula";
+		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+		
+
+		
+		return $result['codAluno'];
+
+		}
 
 
-			$query = "INSERT INTO tcc SET idTurma =NULL, nome=?, matricula =?, orientador =?";
+
+		public function insertTcc($idAluno, $idOri, $idTurma){
+
+
+			$query = "INSERT INTO tcc SET idTcc =NULL, idAluno=?, idOri =?, idTurma = ?";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('ssi', $nome, $matricula, $orientador);
-			
+			$stmt->bind_param('ssi', $idAluno, $idOri, $idTurma);
 
 			$stmt->execute();
 			$stmt->close();

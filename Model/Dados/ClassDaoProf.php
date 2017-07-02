@@ -17,9 +17,10 @@
 		
 		
 
+			$query = "INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, area=?,			linkLattes=?, senha=?, formacao=?, codFunc=?";
 			$stmt = $this->mysqli->stmt_init();
-			$stmt->prepare("INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, area=?, LinkLattes=?, senha=?,  formacao=?");
-			$stmt->bind_param('ssssssss', $nomeProf, $siapProf, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf);
+			$stmt->prepare($query);
+			$stmt->bind_param('ssssssssi', $nomeProf, $siapeprof, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
 
 			$nomeProf = $prof->getNome();
 			$siapProf = $prof->getSiape();
@@ -29,6 +30,9 @@
 			$curriculoProf = $prof->getCurriculo();
 			$senhaProf = $prof->getSenha();
 			$formacaoProf = $prof->getFormacao();
+			$codFunc = 2; /// obter de algum lugar o codfunc
+
+		
 
 			$stmt->execute();
 			$stmt->close();
