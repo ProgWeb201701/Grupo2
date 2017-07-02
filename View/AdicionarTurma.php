@@ -108,7 +108,7 @@
 
 
 
-				<form id="frmInscricao" method="post" action="">
+				<form id="frmInscricao" method="post" action="../Controler/Turma/InsertTurma.php">
 					
 					
 						<div class="form-group">
@@ -122,12 +122,18 @@
 
 						<div class="form-group">
 						<label>Semestre: </label>						
-						<input type="text" name="semestre" class="form-control" placeholder="01 ou 02"> </input>
+						<input type="text" name="semestre" class="form-control" placeholder="20xx/01 ou 20xx/02"> </input>
+						</div>
+
+						<div class="form-group">
+						<label>Siape Coordenador: </label>						
+						<input type="text" name="siape" class="form-control" placeholder="Digite o siape do professor coordenador..."> </input>
 						</div>	
-						<br>
+						
+
 
 						
-						<label> Adicionar Alunos: </label>
+						<!-- <label> Adicionar Alunos: </label>
 
 						<br>
 						<br>
@@ -151,11 +157,11 @@
 
 
 
-								</div>	<br>
+								</div>	<br> -->
 						<div>
 
-						<input type="button" class="btn btn-info " id="campo" value="Adicionar Aluno">
-
+						<!-- <input type="button" class="btn btn-info " id="campo" value="Adicionar Aluno">
+ -->
 						<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
 
 						</div>					
