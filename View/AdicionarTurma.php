@@ -14,7 +14,7 @@
     <script type="text/javascript">
 
 		$(document).ready(function(){
-	     	var campos_max = 10;   //max de 10 campos
+	     	var campos_max = 100;   //max de 100 campos
         var x = 1; // campos iniciais
         $('#campo').click (function(e) {
                 e.preventDefault();     //prevenir novos clicks
@@ -117,29 +117,16 @@
 						</div>	
 						<div class="form-group">
 						<label> Curso: </label>
-						<input  name="curso"  type="text" class="form-control"  placeholder="Digite a Descição..." > </input> 
+						<input  name="curso"  type="text" class="form-control"  placeholder="Digite o nome do curso..." > </input> 
 						</div>	
 
 						<div class="form-group">
-						<label>Semestre: </label>
-						<select>
-						 <option value="semestre"> </option>
-						 <option value="semestre"> 1º Semestre </option>
-						 <option value="semestre"> 2º Semestre </option>
-
-						</select>
+						<label>Semestre: </label>						
+						<input type="text" name="semestre" class="form-control" placeholder="01 ou 02"> </input>
 						</div>	
+						<br>
 
-						<div class="form-group">
-						<label>Data Inico:  </label>
-						<input type="datetime-local"  name="dinicio" align="left">
-						</div>
-
-						<div class="form-group">
-						<label>Data Fim:  </label>
-						<input type="datetime-local"  name="dfim" align="left">
-						</div>
-
+						
 						<label> Adicionar Alunos: </label>
 
 						<br>
