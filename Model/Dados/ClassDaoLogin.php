@@ -1,6 +1,7 @@
 <?php
 include '../Model/Dados/ClassConection.php';
 include '../Model/ClassAluno.php';
+include '../Model/ClassProf.php';
 class DaoLogin{
 
 	protected $mysqli;
@@ -34,12 +35,12 @@ class DaoLogin{
 		
 		if($result->num_rows > 0){
 			$result = $result->fetch_array(MYSQLI_ASSOC);
-			$professor = new Professor($result['Nome'], $result['siape'], $result['senha'], $result['email'], $result['instituicao'],$result['LinkLattes'], $result['areaAtua'], $result['formacao'], $result['tipo']);
+			$professor = new Professor($result['Nome'], $result['siape'], $result['email'], $result['instituicao'],      $result['Área'], $result['LinkLattes'], $result['Senha'], $result['Formacao']);
 
 
 		}
 
-		return $professores; 
+		return $professor; 
     }
 
 	// public function selectLoginCoordenadorTCC(){

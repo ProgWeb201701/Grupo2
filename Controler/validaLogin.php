@@ -1,45 +1,63 @@
-<?php 
+	<?php 
 
-	include_once '../Model/Dados/ClassDaoLogin.php';
-	ini_set('display_errors', 1);
-	$login = $_POST['login'];
-	$senha = $_POST['senha'];
-	$tipologin = $_POST['tipologin'];
-	$conection = new getConection();
-	$mysql = $conection->getMysql();
-	$daoLogin = new DaoLogin($mysql);
+		include_once '../Model/Dados/ClassDaoLogin.php';
+		ini_set('display_errors', 1);
+		$login = $_POST['login'];
+		$senha = $_POST['senha'];
+		$tipologin = $_POST['tipologin'];
+		$conection = new getConection();
+		$mysql = $conection->getMysql();
+		$daoLogin = new DaoLogin($mysql);
 
-	if($tipologin =='aluno'){
+		if($tipologin =='aluno'){
 
-	$aluno = $daoLogin->selectLoginAluno($login, $senha);
+			$aluno = $daoLogin->selectLoginAluno($login, $senha);
 
+			echo "teste";
+			if($aluno->getMatricula() == $login && $aluno->getSenha() == $senha){
+				echo "teste1";
+				header("Location: ../View/menuAluno.php");
+				exit();
+			}
+		
+	    }else if($tipologin =='orientador'){
 
-		if($aluno->getMatricula() == $login && $aluno->getSenha() == $senha){
+			$prof = $daoLogin->selectLoginProfessor($login, $senha);
+			//print_r($prof);
+			if($prof->getSiape() != ""){
+				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
+					echo "test02";
+					header("Location: ../View/MenuOrientador.php");
+					exit();
+			}
+			
+	    }
+	} else if($tipologin =='avaliador'){
 
-			header("Location: ../View/menuAluno.php");
-			exit();
+			$prof = $daoLogin->selectLoginProfessor($login, $senha);
+			if($prof->getSiape() != ""){
+				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
+
+					header("Location: ../View/MenuAvaliador.php");
+					exit();
+				
+			
+		    }
 		}
-	
-    }
+	} else if($tipologin =='coordenador'){
 
-    if($tipologin =='professor'){
-
-	$professores = $daoLogin->selectLoginProfessor();
-	foreach ($professores as $prof) {
-		if($prof->getSiape() == $login && $prof->getSenha() == $senha{
-			header("Location: ../View/");
-			exit();
+		$prof = $daoLogin->selectLoginProfessor($login, $senha);
+		if($prof->getSiape() != ""){
+			if($prof->getSiape() == $login && $prof->getSenha() == $senha){
+				
+				header("Location: ../View/MenuCoordenador.php");
+				exit();
+	    	}
 		}
+	}else{
+		echo "Dados Inválidos";
 	}
-    }
 
-
-	// $cordenador = $daoLogin->selectLoginCoordenadorTCC();
-	// foreach ($cordenador as $coord) {
-	// 	if($coord->getSiape() == $login && $coord->getSenha() == $senha){
-	// 		header("Location: ../View/menuCoordenador.php");
-	// 		exit();
-	// 	}
-	// }
-?>
+		
+	?>
 
