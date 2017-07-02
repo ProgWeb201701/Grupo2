@@ -17,7 +17,6 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.ph
 			$query = "INSERT INTO tarefa SET codTarefa=NULL, nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?,			arquivo=?, idAvaliador=NULL, codAluno=NULL, codNota=NULL";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
-			// , $idAvaliador, $codAluno, $codNota
 			$stmt->bind_param('ssssss', $nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo);
 			$nome = $tarefa->getNome();
 			$descricao = $tarefa->getDescricao();
@@ -31,8 +30,8 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.ph
 		}
 
 		public function updateTarefa($tarefa, $id){
-			$query = "UPDATE tarefa SET $nome=null, $descricao=?, $dinicio=?, $dfim=?, $destinatario=?, 
-			$arquivo=? WHERE codTarefa=?";
+			$query = "UPDATE tarefa SET nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?, 
+			arquivo=? WHERE codTarefa=?";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
 			$stmt->bind_param('ssssssi', $nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo, $codTarefa);
@@ -43,7 +42,12 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.ph
 			$destinatario = $tarefa->getDestinatario(); 
 			$arquivo = $tarefa->getArquivo();
 			$codTarefa = $id;
-
+			// echo "<br>";
+			// echo "<br>";
+			// print_r($query);
+			// echo "<br>";
+			// echo "<br>";
+			// exit();
 			$stmt->execute();
 			$stmt->close();
 		}

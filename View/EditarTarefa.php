@@ -72,7 +72,7 @@
 
 
 
-					<form id="frmInscricao" method="post" action="">
+					<form id="frmInscricao" method="post" action="../Controler/Tarefas/UpdateTarefa.php">
 
 
 						<div class="form-group">
@@ -80,8 +80,8 @@
 							<input name="nome" type="text" class="form-control"  placeholder="Digite um Nome..." >
 						</div>	
 						<div class="form-group">
-							<label> Descição:</label>
-							<textarea name="Descicao" rows="7" type="text" class="form-control"  placeholder="Digite a Descição..." > </textarea> 
+							<label> Descrição:</label>
+							<textarea name="descricao" rows="7" type="text" class="form-control"  placeholder="Digite a Descição..." > </textarea> 
 						</div>	
 
 						<div class="form-group">
@@ -91,7 +91,7 @@
 
 						<div class="form-group">
 							<label>Fim:  </label>
-							<input type="datetime-local"  name="dinicio" align="left">
+							<input type="datetime-local"  name="dfim" align="left">
 						</div>	
 
 
