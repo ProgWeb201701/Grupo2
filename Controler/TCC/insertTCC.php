@@ -25,11 +25,21 @@ ini_set('display_errors', 1);
   $mysql = $conection->getMysql();
   $daoTCC = new DaoTCC($mysql);
   $idTurma = 1;
-  $codAluno = 11;
-  $daoTCC->insertTCC($TCC, $codAluno, $idTurma);
 
-  header("Location: ../../View/MenuAluno.php");
-  exit();
+    // echo "<br><br>";
+    // print_r($autor);
+    // echo "<br><br>";
+    // exit();
 
+  $codAluno = $daoTCC->consultaAluno($autor);
+  if($codAluno != null){
+    $daoTCC->insertTCC($TCC, $codAluno, $idTurma);
+
+    
+    header("Location: ../../View/MenuAluno.php");
+    exit();
+}else{
+  echo "error";
+}
 
 ?>
