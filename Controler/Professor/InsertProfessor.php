@@ -30,7 +30,7 @@ ini_set('display_errors', 1);
 	$daoProf->insertProf($professor);
 	
 
-	//header("Location: ../../View/menuOrientador.php");
+	header("Location: ../../View/LoginApp.php");
 	exit();
 
 ?>

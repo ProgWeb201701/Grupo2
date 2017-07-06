@@ -17,4 +17,6 @@ ini_set('display_errors', 1);
 
 	$daoTur->insertTurma($codigoturma, $semestre, $curso, $idcor);	
 
+	header("Location: ../../View/menuCoordenador.php");
+	exit();
 ?>

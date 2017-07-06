@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `turma` (
   `idCordenador` int(10) DEFAULT NULL,
   PRIMARY KEY (`idTurma`),
   KEY `idCordenador` (`idCordenador`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Extraindo dados da tabela `turma`
