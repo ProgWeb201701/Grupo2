@@ -12,7 +12,7 @@ class DaoProf{
 
 
 
-	public function insertProf($prof){
+     public function insertProf($prof){
 		   $query = "INSERT INTO professor SET nome=?, siape=?, email=?, instituicao=?, area=?,			linkLattes=?, senha=?, formacao=?, codFunc=?";
 			$stmt = $this->mysqli->prepare($query);
 			$stmt->bind_param("ssssssssi", $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);		
@@ -63,15 +63,12 @@ class DaoProf{
 
 			$formacaoProf = $prof->getFormacao();
 			
-			echo ("<pre>");
-			print_r($senha);
+
+			  echo ("<pre>");
+			print_r($nomeProf);
 			echo ("<pre>");
 			exit();
-
-
-
-
-
+			
 			
 			$stmt->execute();
 			$stmt->close();
