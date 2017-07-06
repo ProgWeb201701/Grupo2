@@ -69,7 +69,7 @@
 				<div class="panel-body">
 
 					
-						<form method="post" action="../Controler/TCC/insertTCC.php">
+						<form method="post" action="../Controler/Monografia/insertMonografia.php">
 							
 								<div class="form-group">
 									<label>Titulo </label>
