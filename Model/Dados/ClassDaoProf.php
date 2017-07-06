@@ -1,16 +1,12 @@
 <?php
 
-		public function __construct($mysqli){
-			$this->mysqli = $mysqli;
-		}
-
 class DaoProf{
 
 	protected $mysqli;
 
-	public function __construct($mysqli){
-		$this->mysqli = $mysqli;
-	}
+	public function __construct($mysql){
+			$this->mysqli = $mysql;
+		}
 
 
 
@@ -20,7 +16,7 @@ class DaoProf{
 		
 			$stmt = $this->mysqli->stmt_init();
 
-			$query = "INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, area=?,			linkLattes=?, senha=?, formacao=?, codFunc=?";
+			$query = "INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, Área=?,			linkLattes=?, senha=?, formacao=?, codFunc=?";
 			$stmt = $this->mysqli->prepare($query);
 			
 
@@ -38,7 +34,6 @@ class DaoProf{
 
 			$stmt->bind_param("ssssssssi", $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
 
->>>>>>> Stashed changes
 
 			$stmt->execute();
 			$stmt->close();
@@ -49,18 +44,25 @@ class DaoProf{
 		public function updateProf($prof){
 
 
-			$stmt = $this->mysqli->stmt_init();
-			$stmt->prepare("UPDATE professor SET nome=?, email=?, instituicao=?, area=?, linklattes=?,   formacao=?, codFunc =? WHERE siape=? and senha=?");
-			$stmt->bind_param('ssssssiss', $nome, $email, $instituicao, $area, $linkLattes, $formacao, $codFunc, $siape, $senha);
+			$stmt->prepare("INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, Área=?,			linkLattes=?, senha=?, formacao=?, codFunc=?");
 
-			$nome = $prof->getNome();
-			$siape= $prof->getSiape();
-			$email = $prof->getEmail();
-			$instituicao = $prof->getInstituicao();
-			$area = $prof->getAreaAtua();
-			$linkLattes = $prof->getCurriculo();
-			$senha = $prof->getSenha();
-			$formacao = $prof->getFormacao();
+			$stmt->bind_param('ssssssssi', $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
+
+			$nomeProf = $prof->getNome();
+
+			$siape = $prof->getSiape();
+
+			$emailProf = $prof->getEmail();
+
+			$instituicaoProf = $prof->getInstituicao();
+
+			$areaAtuaProf = $prof->getAreaAtua();
+
+			$curriculoProf = $prof->getCurriculo();
+
+			$senhaProf = $prof->getSenha();
+
+			$formacaoProf = $prof->getFormacao();
 			$codfunc = 2;
 
 			// echo ("<pre>");
@@ -95,24 +97,4 @@ class DaoProf{
 	
 
 	?>
-		public function __construct($mysql){
-			$this->mysqli = $mysql;
-		}
-			$stmt->prepare("INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, Área=?,			linkLattes=?, senha=?, formacao=?, codFunc=?");
-			$stmt->bind_param('ssssssssi', $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
-			$nomeProf = $prof->getNome();
-			$siape = $prof->getSiape();
-			$emailProf = $prof->getEmail();
-			$instituicaoProf = $prof->getInstituicao();
-			$areaAtuaProf = $prof->getAreaAtua();
-			$curriculoProf = $prof->getCurriculo();
-			$senhaProf = $prof->getSenha();
-			$formacaoProf = $prof->getFormacao();
-			// echo "____<br><br>____";
-			// print_r($query);
-			// echo "____<br><br>____";
-			
-			// print_r($prof->getSiape());
-			// echo "____<br><br>____";
-			// exit();
-			
+		
