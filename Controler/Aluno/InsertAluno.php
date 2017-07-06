@@ -24,7 +24,7 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 	$daoAluno->insertAluno($aluno);
 
 	session_start();
-	$_SESSION['user'] = $aluno;
+	$_SESSION['user'] = serialize($aluno);
 
 	header("Location: ../../View/menuAluno.php");
 	exit();

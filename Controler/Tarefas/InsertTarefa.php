@@ -19,6 +19,7 @@ ini_set('display_errors', 1);
   $mysql = $conection->getMysql();
   $daoTarefa = new DaoTarefa($mysql);
   $usuario = $_SESSION['user'];
+  $usuario = unserialize($usuario);
   $daoTarefa->insertTarefa($tarefa, $usuario);
 
   header("Location: ../../View/menuCoordenador.php");
