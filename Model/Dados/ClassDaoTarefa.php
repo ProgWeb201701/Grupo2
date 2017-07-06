@@ -98,22 +98,24 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
 
 		return $id; 
 	}
-		public function selectTarefas()	{
-			$query = "SELECT * FROM tarefa order by dinicio";
+		public function selectTarefas($siapeAval){
+			$query = "SELECT * FROM tarefa INNER JOIN professor ON tarefa.idAval = professor.idAval WHERE professor.siape = $siapeAval order by dinicio";
 			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-			
-			$num_rows = mysql_num_rows($result)
-			for ($i=0;$i<$num_rows;$i++) {
-				$row = mysql_fetch_assoc($result)
-				$messageID = $row['messageID'];
-				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
-			}
-			if($result->num_rows > 0){
-				$result = $result->fetch_array(MYSQLI_ASSOC);
-				$id = $result['idAval'];
-			}
+			$num_rows = $result->num_rows;
 
-			return $id; 
+			$tarefas = array();
+			while ($row = $result->fetch_assoc()) {
+				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
+				array_push($tarefas,$tarefa);
+
+			}
+			// echo "<br><br>";
+			// print_r(count($tarefas));
+			// echo "<br><br>";
+			// exit();
+
+
+			return $tarefas; 
 		}
 	}
 

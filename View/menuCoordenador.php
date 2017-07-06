@@ -72,46 +72,63 @@
 			<br />
 
 			<?php
-			include_once '../Controler/Tarefas/SelectTarefa.php'; 
-			for ($i=0; $i < 10; $i++) { 
-				echo '<div class="panel panel-primary">';
-				echo '<div class="panel-heading"> Tarefa </div>';
-				echo '<div class="panel-body">';
+				include_once '../Controler/Tarefas/SelectTarefa.php';
+				include_once '../Model/Dados/ClassDaoTarefa.php';
+
+				$selectTa = new SelectTarefa();
+				session_start();
+				$usuario = $_SESSION['user'];
+				$siapeAval = $usuario->getSiape();
+				$tar = $selectTa->tarefas($siapeAval);
+				// echo "___<br><br>";
+				// print_r(count($tar));
+				// echo "<br><br>___";
+				// echo "___<br><br>";
+				// print_r($tar[0]->getNome());
+				// echo "<br><br>___";
+				// exit();
+				foreach ($tar as $value) {
+					
+				
+					echo '<div class="panel panel-primary">';
+					echo '<div class="panel-heading"> Tarefa </div>';
+					echo '<div class="panel-body">';
 
 
 
-					echo '<form id="frmInscricao" method="post" action="">';
+						echo '<form id="frmInscricao" method="post" action="">';
 
 
-						echo '<div class="form-group">';
-							echo '<label>Nome:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-							echo '<label>Valorx</label>';
-						echo '</div>';	
+							echo '<div class="form-group">';
+								echo '<label>Nome:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label>'.$value->getNome().'</label>';
+							echo '</div>';	
 
-						echo '<div class="form-group">';
-							echo '<label> Descrição:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-							echo '<label>Valorx</label>';
-						echo '</div>';
-
-
-						echo '<div class="form-group">';
-							echo '<label>Data de inicio:&nbsp;&nbsp;</label>';	
-							echo '<label>Valorx</label>';					
-						echo '</div>';	
-
-						echo '<div class="form-group">';
-							echo '<label>Data final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-							echo '<label>Valorx</label>';						
-						echo '</div>';
+							echo '<div class="form-group">';
+								echo '<label> Descrição:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label>'.$value->getDescricao().'</label>';
+							echo '</div>';
 
 
-						
+							echo '<div class="form-group">';
+								echo '<label>Data de inicio:&nbsp;&nbsp;</label>';	
+								echo '<label>'.$value->getDinicio().'</label>';					
+							echo '</div>';	
 
-					echo '</form>';
+							echo '<div class="form-group">';
+								echo '<label>Data final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label>'.$value->getDfim().'</label>';						
+							echo '</div>';
 
+
+							
+
+						echo '</form>';
+
+					echo '</div>';
 				echo '</div>';
-			echo '</div>';
-			}
+				
+				}
 			 ?> 
 
 			
