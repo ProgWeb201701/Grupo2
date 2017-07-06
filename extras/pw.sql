@@ -45,10 +45,6 @@ CREATE TABLE IF NOT EXISTS `aluno` (
 -- Extraindo dados da tabela `aluno`
 --
 
-INSERT INTO `aluno` (`CodAluno`, `Nome`, `Matricula`, `Senha`, `email`, `Curso`, `instituicao`, `LinkLattes`) VALUES
-(10, 'gui', '123', '123', NULL, NULL, NULL, NULL),
-(11, 'vitor', '12345', '12345', 'vitao375@hotmail.com', '12345', '12345', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -84,9 +80,6 @@ CREATE TABLE IF NOT EXISTS `funcao` (
 -- Extraindo dados da tabela `funcao`
 --
 
-INSERT INTO `funcao` (`codFunc`, `NomFunc`) VALUES
-(1, 'Orientador'),
-(2, 'Avaliador');
 
 -- --------------------------------------------------------
 
@@ -112,8 +105,6 @@ CREATE TABLE IF NOT EXISTS `monografia` (
 -- Extraindo dados da tabela `monografia`
 --
 
-INSERT INTO `monografia` (`idTurma`, `Titulo`, `CodAluno`, `orientador`, `palavrasChaves`, `Resumo`, `abstract`, `arquivo`) VALUES
-(1, '123', 11, '123@123.123', '123', '123', '123', 'alguma coisa');
 
 -- --------------------------------------------------------
 
@@ -159,8 +150,6 @@ CREATE TABLE IF NOT EXISTS `professor` (
 -- Extraindo dados da tabela `professor`
 --
 
-INSERT INTO `professor` (`idAval`, `Nome`, `siape`, `email`, `instituicao`, `Área`, `LinkLattes`, `Senha`, `Formacao`, `codFunc`) VALUES
-(1, '0', '123', NULL, NULL, NULL, NULL, '123', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,6 +165,7 @@ CREATE TABLE IF NOT EXISTS `tarefa` (
   `dfim` varchar(50) NOT NULL,
   `destinatario` varchar(150) NOT NULL,
   `arquivo` varchar(200) NOT NULL,
+  `idAval` int(10),
   PRIMARY KEY (`codTarefa`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
@@ -204,9 +194,6 @@ CREATE TABLE IF NOT EXISTS `turma` (
 --
 -- Extraindo dados da tabela `turma`
 --
-
-INSERT INTO `turma` (`idTurma`, `Ano`, `Curso`, `idCordenador`) VALUES
-(1, '2017', 'es', NULL);
 
 --
 -- Constraints for dumped tables
@@ -237,6 +224,9 @@ ALTER TABLE `professor`
 --
 ALTER TABLE `turma`
   ADD CONSTRAINT `turma_ibfk_1` FOREIGN KEY (`idCordenador`) REFERENCES `coordenadortcc` (`idCordenador`);
+
+  ALTER TABLE `tarefa`
+  ADD CONSTRAINT `tarefa_fk` FOREIGN KEY (`idAval`) REFERENCES `professor` (`idAval`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

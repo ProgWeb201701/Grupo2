@@ -26,7 +26,7 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 	$daoAluno->updateAluno($aluno);	
 	
 
-	header("Location: ../View/menuAluno.php");
+	header("Location: ../../View/menuAluno.php");
 	exit();
 
 					
