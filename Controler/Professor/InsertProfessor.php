@@ -16,16 +16,21 @@ ini_set('display_errors', 1);
 
 	$professor = new Professor($nome, $siape, $email, $areaAtua, $instituicao, $curriculo, $senha, $formacao);
 
+   //   echo ("<pre>");
+			// print_r($professor);
+			// echo ("<pre>");
+			// exit();
+
+
+
 	$conection = new getConection();
 	
 	$daoProf = new DaoProf($conection->getMysql());
 
 	$daoProf->insertProf($professor);
+	
 
-	session_start();
-	$_SESSION['user'] = serialize($professor);
-
-	header("Location: ../../View/menuOrientador.php");
+	//header("Location: ../../View/menuOrientador.php");
 	exit();
 
 ?>
