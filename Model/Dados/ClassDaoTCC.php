@@ -4,36 +4,125 @@
 	* 
 	*/
 
-	class DaoTCC{
-		
-		private $mysqli;
+	class DaoTcc{
+ 
 
-		public function __construct($my){
-			$this->mysqli = $my;
-		}
+ 
+  protected $mysqli;
+ 
 
-		public function insertTCC($TCC, $codAlu, $idTur){
-			$query = "INSERT INTO monografia SET idTurma=?, titulo=?, CodAluno=?, orientador=?, palavrasChaves=?, Resumo=?, abstract=?, arquivo=?";
-			$stmt = $this->mysqli->stmt_init();
-			$stmt->prepare($query);
-			$stmt->bind_param('isisssss', $idTurma, $titulo, $CodAluno, $orientador, $palavrasChaves, $Resumo, $abstract, $arquivo);
-			$idTurma = $idTur;
-			$titulo = $TCC->getTitulo();
-			$CodAluno = $codAlu;
-			$orientador = $TCC->getOrientador();
-			$palavrasChaves = $TCC->getPalavraChave();
-			$Resumo = $TCC->getResumo();
-			$abstract = $TCC->getAbstract();
-			$arquivo = $TCC->getArquivo();
+ 
+  public function __construct($mysqli){
+ 
+    $this->mysqli = $mysqli;
+ 
+  }
+ 
 
-			// echo "<br><br>";
-  	// 		print_r($TCC);
-  	// 		echo "<br><br>";
-  	// 		exit();
+ 
+  public function insertTcc($idAluno, $idOri, $idTurma){
+ 
+    $query = "INSERT INTO tcc SET idTcc =NULL, idAluno = ?, idOri=?, idTurma =?";
+ 
 
-			$stmt->execute();
-			$stmt->close();
-		}
+ 
+    $stmt = $this->mysqli->stmt_init();
+ 
+    $stmt->prepare($query);
+ 
+    $stmt->bind_param('iii', $idAluno, $idOri, $idTurma);
+ 
+
+ 
+
+ 
+    $stmt->execute();
+ 
+
+ 
+
+ 
+    $stmt->close();
+ 
+  }
+
+  public function consultaOri($siape){
+ 
+
+ 
+  $query = "SELECT * FROM professor where siape= '$siape'";
+ 
+  $result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+ 
+    if ($result->num_rows > 0) {
+ 
+
+ 
+        $result = $result->fetch_array(MYSQLI_ASSOC);
+ 
+        $idOri = $result['idAval']; 
+ 
+        }
+ 
+    
+ 
+
+ 
+  return $idOri;
+ 
+}
+ 
+ public function consultaAluno($matricula){
+ 
+
+ 
+  $query = "SELECT * FROM aluno where Matricula= '$matricula'";
+ 
+  $result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+ 
+
+ 
+    if ($result->num_rows > 0) {
+ 
+
+ 
+        $result = $result->fetch_array(MYSQLI_ASSOC);
+ 
+
+ 
+        $idAluno = $result['CodAluno']; 
+ 
+        } 
+
+  return $idAluno;
+  
+}
+ 
+ 
+public function consultaTurma($codigo){
+ $query = "SELECT * FROM turma where codigoturma= '$codigo'";
+ 
+  $result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+ 
+
+ 
+    if ($result->num_rows > 0) {
+ 
+      $result = $result->fetch_array(MYSQLI_ASSOC);
+ 
+        $idTurma = $result['idTurma']; 
+ 
+        }
+  return $idTurma;
+ 
+
+ 
+}
+ 
+
+
+
+
 
 		// public function updateTarefa($tarefa, $id){
 		// 	$query = "UPDATE tarefa SET nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?, 

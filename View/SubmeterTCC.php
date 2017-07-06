@@ -83,7 +83,7 @@
 								</div>
 								<div class="form-group">
 									<label >Orientador</label>
-									<input type="Email" name="orientador"  class="form-control" placeholder="Orientador">
+									<input type="text" name="orientador"  class="form-control" placeholder="Orientador">
 									
 								</div>
 								<div class="form-group">
