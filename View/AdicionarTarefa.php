@@ -102,10 +102,10 @@
 						<div class="form-group">
 						<label> Destinatario: </label>
 						<select name="destinatario">
-						 <option value="semestre"> </option>
-						 <option value="semestre"> Aluno </option>
-						 <option value="semestre"> Orientador </option>
-						 <option value="semestre"> Avaliador </option>
+						 <option value="aluno"> </option>
+						 <option value="aluno"> Aluno </option>
+						 <option value="orientador"> Orientador </option>
+						 <option value="avaliador"> Avaliador </option>
 
 						</select>
 						</div>

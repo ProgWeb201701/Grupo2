@@ -60,115 +60,65 @@
 <br />
 <br />
 	
-<h3> Proximas Tarefas </h3>
+<h3>Tarefas </h3>
 				<br />
 
-				<div class="panel panel-primary">
-                    <div class="panel-heading"> Tarefa </div>
-                    <div class="panel-body">
+				<?php
+				include_once '../Controler/Tarefas/SelectTarefa.php';
+				include_once '../Model/Dados/ClassDaoTarefa.php';
 
-
-
-				<form id="frmInscricao" method="post" action="">
+				$selectTa = new SelectTarefa();
+				$tar = $selectTa->tarefasAluno();
+				// echo "___<br><br>";
+				// print_r(count($tar));
+				// echo "<br><br>___";
+				// echo "___<br><br>";
+				// print_r($tar[0]->getNome());
+				// echo "<br><br>___";
+				// exit();
+				foreach ($tar as $value) {
 					
-					
-						<div class="form-group">
-						<label>Nome:</label>
-						
-						</div>	
+				
+					echo '<div class="panel panel-primary">';
+					echo '<div class="panel-heading"> Tarefa </div>';
+					echo '<div class="panel-body">';
 
-						<div class="form-group">
-						<label> Descrição: </label>
-						</div>
+
+
+						echo '<form id="frmInscricao" method="post" action="">';
+
+
+							echo '<div class="form-group">';
+								echo '<label>Nome:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label>'.$value->getNome().'</label>';
+							echo '</div>';	
+
+							echo '<div class="form-group">';
+								echo '<label> Descrição:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label>'.$value->getDescricao().'</label>';
+							echo '</div>';
+
+
+							echo '<div class="form-group">';
+								echo '<label>Data de inicio:&nbsp;&nbsp;</label>';	
+								echo '<label>'.$value->getDinicio().'</label>';					
+							echo '</div>';	
+
+							echo '<div class="form-group">';
+								echo '<label>Data final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label>'.$value->getDfim().'</label>';						
+							echo '</div>';
+
+
 							
 
-						<div class="form-group">
-						<label>Data de inicio: </label>						
-						</div>	
+						echo '</form>';
 
-						<div class="form-group">
-						<label>Data final:  </label>						
-						</div>
-
-						<div class="form-group">
-						<label>Arquivo:  </label>
-						<button type="submit" class="btn btn-primary" style="float: right"  >Baixar</button>
-						
-						</div>				
-
-						
-
-						
-										
-
-						
-						 
-				</form>
-			
-              </div>
-             </div> 
-
-
-
-<br />
-<br />
-<br />
-	
-<h3> Últimas Tarefas </h3>
-				<br />
-
-				<div class="panel panel-primary">
-                    <div class="panel-heading"> Tarefa </div>
-                    <div class="panel-body">
-
-
-
-				<form id="frmInscricao" method="post" action="">
-					
-					
-						<div class="form-group">
-						<label>Nome:</label>
-						
-						</div>	
-
-						<div class="form-group">
-						<label> Descrição: </label>
-						</div>
-							
-
-						<div class="form-group">
-						<label>Data de inicio: </label>						
-						</div>	
-
-						<div class="form-group">
-						<label>Data final:  </label>						
-						</div>
-
-						<div class="form-group">
-						<label>Avaliação:  </label>						
-						</div>
-
-
-						<div class="form-group">
-						<label>Arquivos da Avaliação:  </label>
-						<button type="submit" class="btn btn-primary" style="float: right"  >Baixar</button>
-						
-						</div>				
-
-						
-
-						
-										
-
-						
-						 
-				</form>
-			
-              </div>
-             </div> 
-
-
-</div>
+					echo '</div>';
+				echo '</div>';
+				
+				}
+			 ?>
 
 <div class="col-sm-2" ></div>
 
