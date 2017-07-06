@@ -43,17 +43,7 @@ class DaoLogin{
 		return $professor; 
     }
 
-	// public function selectLoginCoordenadorTCC(){
-
-	// 	$query = "SELECT * FROM coordenadortcc;";
-	// 	$result =  $this->mysqli->query($query,MYSQLI_STORE_RESULT);
-	// 	$coordenadorestcc = array();
-	// 	while (list($idCordenador, $nome, $senha) = $result->fetch_row()) {
-	// 		$coordenador = new CoordenadorTCC($nome, $senha);
-	// 		array_push($coordenadorestcc, $coordenador);
-	// 	}
-	// 	return $coordenadorestcc;
-	// }
+	
 
 	}
 	?>

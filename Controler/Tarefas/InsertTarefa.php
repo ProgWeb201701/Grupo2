@@ -11,17 +11,17 @@ ini_set('display_errors', 1);
   $destinatario = $_POST['destinatario'];
   // $arquivo = $_POST['arquivotarefa'];
   $arquivo = "alguma coisa";
-
+  session_start();
 
   $tarefa = new Tarefa($nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo);
 
   $conection = new getConection();
   $mysql = $conection->getMysql();
   $daoTarefa = new DaoTarefa($mysql);
+  $usuario = $_SESSION['user'];
+  $daoTarefa->insertTarefa($tarefa, $usuario);
 
-  $daoTarefa->insertTarefa($tarefa);
-
-  header("Location: ../../View/EditarPerfilProfessor.php");
+  header("Location: ../../View/menuCoordenador.php");
   exit();
 
 
