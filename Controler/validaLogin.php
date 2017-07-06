@@ -1,4 +1,5 @@
 	<?php 
+		session_start();
 
 		include_once '../Model/Dados/ClassDaoLogin.php';
 		ini_set('display_errors', 1);
@@ -9,13 +10,15 @@
 		$mysql = $conection->getMysql();
 		$daoLogin = new DaoLogin($mysql);
 
+		
+
+
 		if($tipologin =='aluno'){
 
 			$aluno = $daoLogin->selectLoginAluno($login, $senha);
 
-			echo "teste";
 			if($aluno->getMatricula() == $login && $aluno->getSenha() == $senha){
-				echo "teste1";
+				$_SESSION['user'] = $aluno;
 				header("Location: ../View/menuAluno.php");
 				exit();
 			}
@@ -26,7 +29,7 @@
 			//print_r($prof);
 			if($prof->getSiape() != ""){
 				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
-					echo "test02";
+					$_SESSION['user'] = $prof;
 					header("Location: ../View/MenuOrientador.php");
 					exit();
 			}
@@ -37,7 +40,8 @@
 			$prof = $daoLogin->selectLoginProfessor($login, $senha);
 			if($prof->getSiape() != ""){
 				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
-
+					$_SESSION['login'] = $login;
+					$_SESSION['senha'] = $senha;
 					header("Location: ../View/MenuAvaliador.php");
 					exit();
 				
@@ -49,7 +53,8 @@
 		$prof = $daoLogin->selectLoginProfessor($login, $senha);
 		if($prof->getSiape() != ""){
 			if($prof->getSiape() == $login && $prof->getSenha() == $senha){
-				
+				$_SESSION['login'] = $login;
+				$_SESSION['senha'] = $senha;				
 				header("Location: ../View/MenuCoordenador.php");
 				exit();
 	    	}
