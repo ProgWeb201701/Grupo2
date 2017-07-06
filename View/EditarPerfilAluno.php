@@ -1,6 +1,7 @@
 <?php
-
+  session_start();
   include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+  include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAluno.php';
 
 
 
@@ -22,20 +23,24 @@
 			ini_set('display_errors', 1);
 			$conection = new getConection();
             $mysql = $conection->getMysql();
-			$matricula = $_SESSION['login'];
-			$senha= $_SESSION["senha"];
+            
+			$aluno = $_SESSION['user'];
+			echo("<pre>");
+            print_r($_SESSION['user']->getNome());
+			echo("</pre>");
 
-			$query = "SELECT nome, email, matricula, curso, instituicao, linkLattes FROM Aluno WHERE matricula = $matricula and senha=$senha";
-			$result = $mysql->query($query,MYSQLI_STORE_RESULT);
-			if ($result->num_rows > 0) {
-				while ($row = $result->fetch_assoc()) {
-					$nome = $row['nome'];
-					$email = $row['email'];
-					$curso = $row['curso'];
-					$instituicao = $row['instituicao'];
-					$Lattes = $row['linkLattes'];
-				}
-			}
+
+			// $nome = $aluno->getNome();
+			// $email = $aluno->getEmail();
+			// $curso = $aluno->getCurso();
+			// $instituicao = $aluno->getInstituicao(); 
+			// $Lattes = $aluno->getLattes();
+
+			// print_r($aluno);
+			exit();
+
+			
+			
 			?>
 
 
