@@ -41,11 +41,11 @@ class DaoProf{
 
 
 		public function updateProf($prof){
+             
 
-
-			$stmt->prepare("INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, Área=?,			linkLattes=?, senha=?, formacao=?, codFunc=?");
-
-			$stmt->bind_param('ssssssssi', $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
+            $query = "UPDATE  professor SET nome=?, email=?, instituicao=?, area=?, linkLattes=?, formacao=? WHERE siape = ? and senha=?";
+            $stmt = $this->mysqli->prepare($query);
+			$stmt->bind_param('ssssssss', $nomeProf, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf,  $formacaoProf, $siape, $senha);
 
 			$nomeProf = $prof->getNome();
 
@@ -62,12 +62,11 @@ class DaoProf{
 			$senhaProf = $prof->getSenha();
 
 			$formacaoProf = $prof->getFormacao();
-			$codfunc = 2;
-
-			// echo ("<pre>");
-			// print_r($senha);
-			// echo ("<pre>");
-			// exit();
+			
+			echo ("<pre>");
+			print_r($senha);
+			echo ("<pre>");
+			exit();
 
 
 

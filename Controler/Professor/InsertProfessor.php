@@ -14,7 +14,7 @@ ini_set('display_errors', 1);
 	$senha = $_POST['senha'];
 	$formacao = $_POST['formacao'];
 
-	$professor = new Professor($nome, $siape, $email, $areaAtua, $instituicao, $curriculo, $senha, $formacao);
+	$professor = new Professor($nome, $siape, $email,  $instituicao, $areaAtua, $curriculo, $senha, $formacao);
 
    //   echo ("<pre>");
 			// print_r($professor);
