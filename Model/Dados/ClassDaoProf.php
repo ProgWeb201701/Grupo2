@@ -1,5 +1,8 @@
 <?php
 
+		public function __construct($mysqli){
+			$this->mysqli = $mysqli;
+		}
 
 class DaoProf{
 
@@ -15,34 +18,25 @@ class DaoProf{
 
 	public function insertProf($prof){
 		
-		
+			$stmt = $this->mysqli->stmt_init();
 
-<<<<<<< Updated upstream
 			$query = "INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, area=?,			linkLattes=?, senha=?, formacao=?, codFunc=?";
 			$stmt = $this->mysqli->prepare($query);
 			
-=======
-		$query = "INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, area=?,			linkLattes=?, senha=?, formacao=?, codFunc=?";
-		$stmt = $this->mysqli->stmt_init();
-		$stmt->prepare($query);
-		$stmt->bind_param('ssssssssi', $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
->>>>>>> Stashed changes
 
 
 
-		$nomeProf = $prof->getNome();
-		$siape = $prof->getSiape();
-		$emailProf = $prof->getEmail();
-		$instituicaoProf = $prof->getInstituicao();
-		$areaAtuaProf = $prof->getAreaAtua();
-		$curriculoProf = $prof->getCurriculo();
-		$senhaProf = $prof->getSenha();
-		$formacaoProf = $prof->getFormacao();
+			$nomeProf = $prof->getNome();
+			$siape = $prof->getSiape();
+			$emailProf = $prof->getEmail();
+			$instituicaoProf = $prof->getInstituicao();
+			$areaAtuaProf = $prof->getAreaAtua();
+			$curriculoProf = $prof->getCurriculo();
+			$senhaProf = $prof->getSenha();
+			$formacaoProf = $prof->getFormacao();
 			$codFunc = 2; /// obter de algum lugar o codfunc
 
-<<<<<<< Updated upstream
 			$stmt->bind_param("ssssssssi", $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
-=======
 
 >>>>>>> Stashed changes
 
@@ -101,3 +95,24 @@ class DaoProf{
 	
 
 	?>
+		public function __construct($mysql){
+			$this->mysqli = $mysql;
+		}
+			$stmt->prepare("INSERT INTO professor SET idAval=NULL, nome=?, siape=?, email=?, instituicao=?, Área=?,			linkLattes=?, senha=?, formacao=?, codFunc=?");
+			$stmt->bind_param('ssssssssi', $nomeProf, $siape, $emailProf, $instituicaoProf, $areaAtuaProf, $curriculoProf, $senhaProf, $formacaoProf, $codFunc);
+			$nomeProf = $prof->getNome();
+			$siape = $prof->getSiape();
+			$emailProf = $prof->getEmail();
+			$instituicaoProf = $prof->getInstituicao();
+			$areaAtuaProf = $prof->getAreaAtua();
+			$curriculoProf = $prof->getCurriculo();
+			$senhaProf = $prof->getSenha();
+			$formacaoProf = $prof->getFormacao();
+			// echo "____<br><br>____";
+			// print_r($query);
+			// echo "____<br><br>____";
+			
+			// print_r($prof->getSiape());
+			// echo "____<br><br>____";
+			// exit();
+			

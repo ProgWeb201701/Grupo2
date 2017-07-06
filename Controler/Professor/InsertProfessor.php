@@ -22,5 +22,10 @@ ini_set('display_errors', 1);
 
 	$daoProf->insertProf($professor);
 
+	session_start();
+	$_SESSION['user'] = serialize($professor);
+
+	header("Location: ../../View/menuOrientador.php");
+	exit();
 
 ?>

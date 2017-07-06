@@ -22,6 +22,11 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 	$daoAluno = new DaoALuno($conection->getMysql());
 
 	$daoAluno->insertAluno($aluno);
-					
+
+	session_start();
+	$_SESSION['user'] = $aluno;
+
+	header("Location: ../../View/menuAluno.php");
+	exit();
 
 ?>

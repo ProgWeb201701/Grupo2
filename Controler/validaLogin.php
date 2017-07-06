@@ -40,8 +40,7 @@
 			$prof = $daoLogin->selectLoginProfessor($login, $senha);
 			if($prof->getSiape() != ""){
 				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
-					$_SESSION['login'] = $login;
-					$_SESSION['senha'] = $senha;
+					$_SESSION['user'] = serialize($prof);
 					header("Location: ../View/MenuAvaliador.php");
 					exit();
 				
@@ -55,8 +54,7 @@
 
 		if($prof->getSiape() != ""){
 			if($prof->getSiape() == $login && $prof->getSenha() == $senha){
-				$_SESSION['login'] = $login;
-				$_SESSION['senha'] = $senha;				
+				$_SESSION['user'] = serialize($prof);				
 				header("Location: ../View/MenuCoordenador.php");
 				exit();
 	    	}

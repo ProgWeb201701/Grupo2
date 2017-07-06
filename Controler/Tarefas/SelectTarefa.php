@@ -20,7 +20,8 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.ph
   public function tarefas($siapeAval){
     return $this->daoTarefa->selectTarefas($siapeAval);
   }
-  public function tarefasAluno($siapeAval){
+
+  public function tarefasAluno(){
     return $this->daoTarefa->selectTarefasAluno();
   }
 }

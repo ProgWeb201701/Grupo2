@@ -78,6 +78,15 @@
 				$selectTa = new SelectTarefa();
 				session_start();
 				$usuario = $_SESSION['user'];
+				$usuario = unserialize($usuario);
+				// echo "____<br><br>____";
+				// print_r($usuario);
+				// echo "____<br><br>____";
+				
+				// print_r($usuario->getSiape());
+				// echo "____<br><br>____";
+				// exit();
+
 				$siapeAval = $usuario->getSiape();
 				$tar = $selectTa->tarefas($siapeAval);
 				// echo "___<br><br>";
