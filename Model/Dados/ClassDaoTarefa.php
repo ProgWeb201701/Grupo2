@@ -4,7 +4,7 @@
 	* 
 	*/
 include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.php';
-
+include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
 	class DaoTarefa{
 		
 		private $mysqli;
@@ -13,17 +13,20 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.ph
 			$this->mysqli = $my;
 		}
 
-		public function insertTarefa($tarefa){
-			$query = "INSERT INTO tarefa SET codTarefa=NULL, nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?,			arquivo=?, idAvaliador=NULL, codAluno=NULL, codNota=NULL";
+		public function insertTarefa($tarefa, $user){
+			$id = $this->selectProfessores($user->getSiape(), $user->getSenha());
+			$query = "INSERT INTO tarefa SET codTarefa=NULL, nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?,			arquivo=?, idAval=?";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('ssssss', $nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo);
+			$stmt->bind_param('ssssssi', $nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo, $avaliador);
 			$nome = $tarefa->getNome();
 			$descricao = $tarefa->getDescricao();
 			$dinicio = $tarefa->getDinicio(); 
 			$dfim = $tarefa->getDfim();
 			$destinatario = $tarefa->getDestinatario(); 
 			$arquivo = $tarefa->getArquivo();
+			$avaliador = $id;
+
 
 			$stmt->execute();
 			$stmt->close();
@@ -82,7 +85,19 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.ph
 		// 	$stmt->close();
 		// }
 
+		public function selectProfessores($login, $senha){
+
+		$query = "SELECT * FROM professor where siape= $login and Senha = $senha";
+		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
 		
+		if($result->num_rows > 0){
+			$result = $result->fetch_array(MYSQLI_ASSOC);
+			$id = $result['idAval'];
+
+		}
+
+		return $id; 
+	}
 	}
 
 ?>
