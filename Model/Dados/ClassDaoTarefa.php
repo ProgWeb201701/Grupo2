@@ -98,6 +98,23 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
 
 		return $id; 
 	}
+		public function selectTarefas()	{
+			$query = "SELECT * FROM tarefa order by dinicio";
+			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+			
+			$num_rows = mysql_num_rows($result)
+			for ($i=0;$i<$num_rows;$i++) {
+				$row = mysql_fetch_assoc($result)
+				$messageID = $row['messageID'];
+				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
+			}
+			if($result->num_rows > 0){
+				$result = $result->fetch_array(MYSQLI_ASSOC);
+				$id = $result['idAval'];
+			}
+
+			return $id; 
+		}
 	}
 
 ?>

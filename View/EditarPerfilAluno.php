@@ -28,6 +28,7 @@
 			echo("<pre>");
             print_r($_SESSION['user']->getNome());
 			echo("</pre>");
+			exit();
 
 
 			// $nome = $aluno->getNome();

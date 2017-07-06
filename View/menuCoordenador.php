@@ -68,89 +68,52 @@
 			<br />
 			<br />
 
-			<h3> Proximas Tarefas </h3>
+			<h3>Tarefas</h3>
 			<br />
 
-			<div class="panel panel-primary">
-				<div class="panel-heading"> Tarefa </div>
-				<div class="panel-body">
+			<?php
+			include_once '../Controler/Tarefas/SelectTarefa.php'; 
+			for ($i=0; $i < 10; $i++) { 
+				echo '<div class="panel panel-primary">';
+				echo '<div class="panel-heading"> Tarefa </div>';
+				echo '<div class="panel-body">';
 
 
 
-					<form id="frmInscricao" method="post" action="">
+					echo '<form id="frmInscricao" method="post" action="">';
 
 
-						<div class="form-group">
-							<label>Nome:</label>
+						echo '<div class="form-group">';
+							echo '<label>Nome:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+							echo '<label>Valorx</label>';
+						echo '</div>';	
 
-						</div>	
+						echo '<div class="form-group">';
+							echo '<label> Descrição:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+							echo '<label>Valorx</label>';
+						echo '</div>';
 
-						<div class="form-group">
-							<label> Descrição: </label>
-						</div>
 
+						echo '<div class="form-group">';
+							echo '<label>Data de inicio:&nbsp;&nbsp;</label>';	
+							echo '<label>Valorx</label>';					
+						echo '</div>';	
 
-						<div class="form-group">
-							<label>Data de inicio: </label>						
-						</div>	
-
-						<div class="form-group">
-							<label>Data final:  </label>						
-						</div>
+						echo '<div class="form-group">';
+							echo '<label>Data final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+							echo '<label>Valorx</label>';						
+						echo '</div>';
 
 
 						
 
-					</form>
+					echo '</form>';
 
-				</div>
-			</div> 
+				echo '</div>';
+			echo '</div>';
+			}
+			 ?> 
 
-
-
-			<br />
-			<br />
-			<br />
-
-			<h3> Últimas Tarefas </h3>
-			<br />
-
-			<div class="panel panel-primary">
-				<div class="panel-heading"> Tarefa </div>
-				<div class="panel-body">
-
-
-
-					<form id="frmInscricao" method="post" action="">
-
-
-						<div class="form-group">
-							<label>Nome:</label>
-
-						</div>	
-
-						<div class="form-group">
-							<label> Descrição: </label>
-						</div>
-
-
-						<div class="form-group">
-							<label>Data de inicio: </label>						
-						</div>	
-
-						<div class="form-group">
-							<label>Data final:  </label>						
-						</div>
-
-						<div class="form-group">
-							<label>Avaliação:  </label>						
-						</div>
-	
-
-					</form>
-
-				</div>
-			</div> 
 			
 			<div class="col-sm-2" ></div>
 		</div>
