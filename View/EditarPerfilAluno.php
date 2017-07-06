@@ -1,7 +1,7 @@
 <?php
-  session_start();
-  include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
-  include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAluno.php';
+session_start();
+include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAluno.php';
 
 
 
@@ -18,30 +18,21 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../Estilo.css">
 </head>
+
 <?php
 
-			ini_set('display_errors', 1);
-			$conection = new getConection();
-            $mysql = $conection->getMysql();
-            $aluno = $_SESSION['user'];
-			// echo("<pre>");
-   //          echo(unserialize($_SESSION['user'])->getNome());
-			// echo("</pre>");
-			// exit();
+ini_set('display_errors', 1);
+$conection = new getConection();
+$mysql = $conection->getMysql();
+$aluno = $_SESSION['user'];
 
+$nome = unserialize($_SESSION['user'])->getNome();
+$email = unserialize($_SESSION['user'])->getEmail();
+$curso = unserialize($_SESSION['user'])->getCurso();
+$instituicao = unserialize($_SESSION['user'])->getInstituicao(); 
+$Lattes = unserialize($_SESSION['user'])->getLattes();		
 
-			$nome = unserialize($_SESSION['user'])->getNome();
-			$email = unserialize($_SESSION['user'])->getEmail();
-			$curso = unserialize($_SESSION['user'])->getCurso();
-			$instituicao = unserialize($_SESSION['user'])->getInstituicao(); 
-			$Lattes = unserialize($_SESSION['user'])->getLattes();
-
-			// print_r($aluno);
-			exit();
-
-			
-			
-			?>
+?>
 
 
 
@@ -86,6 +77,19 @@
 				</div><!--/.nav-collapse -->
 			</div>
 		</nav>
+
+		<script type="text/javascript">
+			$(document).ready(function($) {
+
+
+			});
+
+			function myFunction() {
+                document.getElementById("button").setAttribute("disabled");
+
+
+                }
+		</script>
 	</header>
 
 	<div class="container">
@@ -139,8 +143,8 @@
 							<input type="text" class="form-control" name="Instituicao" value="<?php echo($instituicao)?>"> <br />
 						</div>	
 
-						<div> <button type="submit" class="btn btn-info" style="float: left;"  >Editar</button>
-							<button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
+						<div> <button type="submit" class="btn btn-warning" style="float: left;" onclick="myFunction()" >Editar </button>
+							<button type="submit" class="btn btn-primary" style="float: right"   id="button" >Enviar</button>
 
 
 						</div>

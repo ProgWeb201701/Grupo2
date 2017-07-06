@@ -37,11 +37,11 @@
 			$stmt->close();
 		}
 
-		public function editAluno($aluno, $id){
-			$query = "UPDATE aluno SET $nome=?, $matricula=?, $senha=?, $email=?, $curso=?, $instituicao=?, $lattes=? WHERE idAluno=?";
-			$stmt = $this->$mysqli->stmt_init();
+		public function updateAluno($aluno){
+			$query = "UPDATE aluno SET nome=?, email=?, curso=?, instituicao=?, lattes=? WHERE matricula=? and senha=?";
+			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('sssssssi', $nomeAluno, $matriculaAluno, $senhaAluno, $emailAluno, $cursoAluno, $instituicaoAluno, $lattesAluno, $codAluno);
+			$stmt->bind_param('sssssss', $nomeAluno,$emailAluno, $cursoAluno, $instituicaoAluno, $lattesAluno, $codAluno, $matriculaAluno, $senhaAluno);
 			$nomeAluno = $aluno.getNome();
 			$matriculaAluno = $aluno->getMatricula();
 			$senhaAluno = $aluno->getSenha();
@@ -49,15 +49,14 @@
 			$CursoAluno = $aluno->getCurso();
 			$instituicaoAluno = $aluno->getInstituicao();
 			$lattesAluno = $aluno->getLattes();
-			$codAluno = $id;
-
+			
 			$stmt->execute();
 			$stmt->close();
 		}
 
 		public function deleteAluno($id){
 			$query = "DELETE FROM aluno WHERE idAluno=?";
-			$stmt = $this->$mysqli->stmt_init();
+			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
 			$stmt->bind_param('i', $codAluno);
 
