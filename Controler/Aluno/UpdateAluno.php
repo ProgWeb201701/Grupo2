@@ -26,6 +26,8 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 	$daoAluno->updateAluno($aluno);
 
 	
+
+	
 	
 
 	header("Location: ../View/EditarPerfilAluno.php");

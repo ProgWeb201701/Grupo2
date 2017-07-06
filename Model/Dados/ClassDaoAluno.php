@@ -38,29 +38,36 @@
 		}
 
 		public function updateAluno($aluno){
-			$query = "UPDATE aluno SET nome=?, email=?, curso=?, instituicao=?, lattes=? WHERE matricula=? and senha=?";
+
+			
+			
 			$stmt = $this->mysqli->stmt_init();
-			$stmt->prepare($query);
-			$stmt->bind_param('sssssss', $nomeAluno,$emailAluno, $cursoAluno, $instituicaoAluno, $lattesAluno, $codAluno, $matriculaAluno, $senhaAluno);
-			$nomeAluno = $aluno.getNome();
-			$matriculaAluno = $aluno->getMatricula();
-			$senhaAluno = $aluno->getSenha();
-			$emailAluno = $aluno->getEmail();
-			$CursoAluno = $aluno->getCurso();
-			$instituicaoAluno = $aluno->getInstituicao();
-			$lattesAluno = $aluno->getLattes();
+			$stmt->prepare("UPDATE aluno SET nome=?, email=?, curso=?, instituicao=?, linklattes=? WHERE matricula=? and senha=?");
+			$stmt->bind_param('sssssss', $nome,$email, $curso, $instituicao, $lattes, $matricula, $senha);
+			
+			$nome = $aluno->getNome();
+			$matricula = $aluno->getMatricula();
+			$senha = $aluno->getSenha();
+			$email = $aluno->getEmail();
+			$curso = $aluno->getCurso();
+			$instituicao = $aluno->getInstituicao();
+			$lattes = $aluno->getLattes();
+
+
+
 			
 			$stmt->execute();
 			$stmt->close();
 		}
 
-		public function deleteAluno($id){
-			$query = "DELETE FROM aluno WHERE idAluno=?";
+		public function deleteAluno($aluno){
+			$query = "DELETE FROM aluno WHERE matricula=? and senha= ?";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('i', $codAluno);
+			$stmt->bind_param('ss', $matriculaAluno, $senhaAluno);
 
-			$codAluno = $id;
+			$matriculaAluno = $aluno->getMatricula();
+			$senha = $aluno->getSenha();
 
 			$stmt->execute();
 			$stmt->close();

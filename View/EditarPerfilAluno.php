@@ -22,10 +22,7 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAluno.php';
 <?php
 
 ini_set('display_errors', 1);
-$conection = new getConection();
-$mysql = $conection->getMysql();
 $aluno = $_SESSION['user'];
-
 $nome = unserialize($_SESSION['user'])->getNome();
 $email = unserialize($_SESSION['user'])->getEmail();
 $curso = unserialize($_SESSION['user'])->getCurso();
@@ -84,11 +81,11 @@ $Lattes = unserialize($_SESSION['user'])->getLattes();
 
 			});
 
-			function myFunction() {
-                document.getElementById("button").setAttribute("disabled");
+			// function myFunction() {
+   //              document.getElementById("button").setAttribute("disabled");
 
 
-                }
+   //              }
 		</script>
 	</header>
 
@@ -116,7 +113,7 @@ $Lattes = unserialize($_SESSION['user'])->getLattes();
 
 
 
-					<form id="frmInscricao" method="post" action="">
+					<form id="frmInscricao" method="post" action="../Controler/Aluno/UpdateAluno.php">
 
 
 						<div class="form-group">
@@ -130,7 +127,7 @@ $Lattes = unserialize($_SESSION['user'])->getLattes();
 
 						<div class="form-group">
 							<label>Lattes:</label>
-							<input type="text" class="form-control" name="Lattes"  value="<?php echo($Lattes)?>">
+							<input type="text" class="form-control" name="lattes"  value="<?php echo($Lattes)?>">
 						</div>	
 
 						<div class="form-group">
@@ -140,11 +137,11 @@ $Lattes = unserialize($_SESSION['user'])->getLattes();
 
 						<div class="form-group">
 							<label>Instituição:</label>
-							<input type="text" class="form-control" name="Instituicao" value="<?php echo($instituicao)?>"> <br />
+							<input type="text" class="form-control" name="instituicao" value="<?php echo($instituicao)?>"> <br />
 						</div>	
 
 						<div> <button type="submit" class="btn btn-warning" style="float: left;" onclick="myFunction()" >Editar </button>
-							<button type="submit" class="btn btn-primary" style="float: right"   id="button" >Enviar</button>
+							<button type="submit" class="btn btn-primary" style="float: right" >Enviar</button>
 
 
 						</div>
