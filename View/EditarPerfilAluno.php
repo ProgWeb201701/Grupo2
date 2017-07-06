@@ -23,19 +23,18 @@
 			ini_set('display_errors', 1);
 			$conection = new getConection();
             $mysql = $conection->getMysql();
-            
-			$aluno = $_SESSION['user'];
-			echo("<pre>");
-            print_r($_SESSION['user']->getNome());
-			echo("</pre>");
-			exit();
+            $aluno = $_SESSION['user'];
+			// echo("<pre>");
+   //          echo(unserialize($_SESSION['user'])->getNome());
+			// echo("</pre>");
+			// exit();
 
 
-			// $nome = $aluno->getNome();
-			// $email = $aluno->getEmail();
-			// $curso = $aluno->getCurso();
-			// $instituicao = $aluno->getInstituicao(); 
-			// $Lattes = $aluno->getLattes();
+			$nome = unserialize($_SESSION['user'])->getNome();
+			$email = unserialize($_SESSION['user'])->getEmail();
+			$curso = unserialize($_SESSION['user'])->getCurso();
+			$instituicao = unserialize($_SESSION['user'])->getInstituicao(); 
+			$Lattes = unserialize($_SESSION['user'])->getLattes();
 
 			// print_r($aluno);
 			exit();

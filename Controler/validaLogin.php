@@ -18,7 +18,7 @@
 			$aluno = $daoLogin->selectLoginAluno($login, $senha);
 
 			if($aluno->getMatricula() == $login && $aluno->getSenha() == $senha){
-				$_SESSION['user'] = $aluno;
+				$_SESSION['user'] = serialize($aluno);
 				header("Location: ../View/menuAluno.php");
 				exit();
 			}
@@ -51,6 +51,8 @@
 	} else if($tipologin =='coordenador'){
 
 		$prof = $daoLogin->selectLoginProfessor($login, $senha);
+
+
 		if($prof->getSiape() != ""){
 			if($prof->getSiape() == $login && $prof->getSenha() == $senha){
 				$_SESSION['login'] = $login;
