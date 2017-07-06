@@ -62,12 +62,16 @@
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8" >
 
+		</b>
+		</b>
+		</b>
 
-			<h3> Cronograma - Adicionar tarefa. </h3>
+
+			<h3> Cronograma - Editar tarefa. </h3>
 			<br />
 
 			<div class="panel panel-primary">
-				<div class="panel-heading"> Nova Tarefa </div>
+				<div class="panel-heading"> Editar Tarefa </div>
 				<div class="panel-body">
 
 
