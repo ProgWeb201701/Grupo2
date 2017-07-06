@@ -21,7 +21,7 @@ ini_set('display_errors', 1);
   $usuario = $_SESSION['user'];
   $daoTarefa->insertTarefa($tarefa, $usuario);
 
-  header("Location: ../../View/menuAvaliador.php");
+  header("Location: ../../View/menuCoordenador.php");
   exit();
 
 
