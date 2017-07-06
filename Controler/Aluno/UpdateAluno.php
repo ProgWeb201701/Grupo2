@@ -23,14 +23,10 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 
 	$daoAluno = new DaoALuno($conection->getMysql());
 
-	$daoAluno->updateAluno($aluno);
-
+	$daoAluno->updateAluno($aluno);	
 	
 
-	
-	
-
-	header("Location: ../View/EditarPerfilAluno.php");
+	header("Location: ../View/menuAluno.php");
 	exit();
 
 					

@@ -29,7 +29,7 @@
 			//print_r($prof);
 			if($prof->getSiape() != ""){
 				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
-					$_SESSION['user'] = $prof;
+					$_SESSION['user'] = serialize($prof);
 					header("Location: ../View/MenuOrientador.php");
 					exit();
 			}

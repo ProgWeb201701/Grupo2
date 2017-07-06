@@ -35,7 +35,7 @@ class DaoLogin{
 		
 		if($result->num_rows > 0){
 			$result = $result->fetch_array(MYSQLI_ASSOC);
-			$professor = new Professor($result['Nome'], $result['siape'], $result['email'], $result['instituicao'],      $result['Área'], $result['LinkLattes'], $result['Senha'], $result['Formacao']);
+			$professor = new Professor($result['Nome'], $result['siape'], $result['email'], $result['instituicao'],      $result['area'], $result['LinkLattes'], $result['Senha'], $result['Formacao']);
 
 
 		}

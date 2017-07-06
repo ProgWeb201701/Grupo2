@@ -1,3 +1,16 @@
+<?php
+session_start();
+include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +22,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../Estilo.css">
 </head>
+<?php
+
+ini_set('display_errors', 1);
+$prof = unserialize($_SESSION['user']);
+$nome = unserialize($_SESSION['user'])->getNome();
+$email = unserialize($_SESSION['user'])->getEmail();
+$area = unserialize($_SESSION['user'])->getAreaAtua();
+$instituicao =unserialize($_SESSION['user'])->getInstituicao(); 
+$lattes = unserialize($_SESSION['user'])->getCurriculo();
+$formacao = unserialize($_SESSION['user'])->getFormacao(); 		
+
+
+
+
+
+?>
+
+
 <body>
 <header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -50,6 +81,16 @@
 				</div><!--/.nav-collapse -->
 			</div>
 		</nav>
+
+		<script type="text/javascript">
+			$(document).ready(function($) {
+
+
+			});
+        </script>
+
+
+
 	</header>
 
 <div class="container">
@@ -66,43 +107,40 @@
 
 
 
-				<form id="frmInscricao" method="post" action="">
+				<form id="frmInscricao" method="post" action="../Controler/Professor/UpdateProfessor.php">
 					
 					
 						<div class="form-group">
 						<label>Nome:</label>
-						<input name="nome" type="text" class="form-control"  placeholder="Digite seu Nome..." >
+						<input name="nome" type="text" class="form-control" value="<?php echo($nome) ?>" >
 						</div>	
-						<div class="form-group">
-						<label>Siape:</label>
-						<input name="siape" type="text" class="form-control"  placeholder="Digite o Siape..." >
-						</div>	
-
+						
 						<div class="form-group">
 						<label>Email:</label>
-						<input type="email" class="form-control" name="email"  placeholder="Digite seu E-mail...">
+						<input type="email" class="form-control" name="email"  value="<?php echo($email) ?>">
 						</div>	
 
 						
 
 						<div class="form-group">
 						<label>Instituição:</label>
-						<input type="text" class="form-control" name="Instituicao"  placeholder="Digite o Nome da Intituição...">
+						<input type="text" class="form-control" name="instituicao" value="<?php echo($instituicao) ?>">
 						</div>
 
 						<div class="form-group">
 						<label>Aréa de Atuação:</label>
-						<input type="text" class="form-control" name="area"  placeholder="Digite area de Atuação..."> 
+						<input type="text" class="form-control" name="area"  value="<?php echo($area) ?>"> 
 						</div>
 
 						<div class="form-group">
 						<label>Curriculo lattes:</label>
-						<input type="text" class="form-control" name="lattes"  placeholder="Link do Curriculo lattes..."> 
+						<input type="text" class="form-control" name="lattes"  value="<?php echo($lattes) ?>">  
 						</div>	
 
 						<div class="form-group">
 						<label >Formação:</label> <br />
-						<select>
+						<select name="formacao">
+						    <option value="<?php echo($formacao)?>"> <?php echo($formacao)?></option>
   							<option value="Graduado"> Graduado </option>
   						    <option value="Mestre"> Mestrado </option>
                             <option value="Doutor">Doutorado </option>
