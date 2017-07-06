@@ -1,3 +1,11 @@
+<?php
+
+  include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +17,29 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../Estilo.css">
 </head>
+<?php
+
+			ini_set('display_errors', 1);
+			$conection = new getConection();
+            $mysql = $conection->getMysql();
+			$matricula = $_SESSION['login'];
+			$senha= $_SESSION["senha"];
+
+			$query = "SELECT nome, email, matricula, curso, instituicao, linkLattes FROM Aluno WHERE matricula = $matricula and senha=$senha";
+			$result = $mysql->query($query,MYSQLI_STORE_RESULT);
+			if ($result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					$nome = $row['nome'];
+					$email = $row['email'];
+					$curso = $row['curso'];
+					$instituicao = $row['instituicao'];
+					$Lattes = $row['linkLattes'];
+				}
+			}
+			?>
+
+
+
 <body>
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -57,6 +88,16 @@
 		<div class="col-sm-8" >
 
 
+
+
+
+
+
+			
+
+
+
+
 			<h3> Perfil Aluno </h3>
 			<br>
 
@@ -71,31 +112,26 @@
 
 						<div class="form-group">
 							<label>Nome:</label>
-							<input name="nome" type="text" class="form-control"  placeholder="Digite seu Nome..." >
+							<input name="nome" type="text" class="form-control" value="<?php echo($nome)?>" >
 						</div>	
-						<div class="form-group">
-							<label>Matricula:</label>
-							<input name="matricula" type="text" class="form-control"  placeholder="Digite sua Matricula..." >
-						</div>	
-
 						<div class="form-group">
 							<label>Email:</label>
-							<input type="email" class="form-control" name="email"  placeholder="Digite seu E-mail...">
+							<input type="email" class="form-control" name="email"  value="<?php echo($email)?>">
 						</div>	
 
 						<div class="form-group">
 							<label>Lattes:</label>
-							<input type="text" class="form-control" name="Lattes"  placeholder=" Link da plataforma Lattes ">
+							<input type="text" class="form-control" name="Lattes"  value="<?php echo($Lattes)?>">
 						</div>	
 
 						<div class="form-group">
 							<label >Curso:</label>
-							<input type="text" class="form-control" name="curso"  placeholder="Digite o seu Curso...">
+							<input type="text" class="form-control" name="curso"  value="<?php echo($curso)?>">
 						</div>	
 
 						<div class="form-group">
 							<label>Instituição:</label>
-							<input type="text" class="form-control" name="Instituicao"  placeholder="Digite o Nome da Intituição..."> <br />
+							<input type="text" class="form-control" name="Instituicao" value="<?php echo($instituicao)?>"> <br />
 						</div>	
 
 						<div> <button type="submit" class="btn btn-info" style="float: left;"  >Editar</button>
@@ -107,10 +143,10 @@
 					</form>
 
 				</div>
-				</div> </div>
+			</div> </div>
 
-		<div class="col-sm-2" ></div>
-	</div>
+			<div class="col-sm-2" ></div>
+		</div>
 
-</body>
-</html>
+	</body>
+	</html>
