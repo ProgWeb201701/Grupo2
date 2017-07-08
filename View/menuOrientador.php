@@ -35,22 +35,12 @@
 						<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Avaliações  <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href=""> Adicionar </a></li>
+								<li><a href="AdicionarAvaliacao.php"> Adicionar </a></li>
 								<li><a href=""> Editar  </a></li>
 								<li><a href=""> Remover </a></li>
 								</ul>
 						</li>
-				
-						<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Cronograma <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="AdicionarTarefa.php"> Adicionar Tarefa</a></li>
-								<li><a href=""> Editar Tarefa</a></li>
-								<li><a href=""> Remover Tarefa</a></li>
-								</ul>
-						</li>
-						<li><a href="">Ajuda</a></li>
-						
+				    						
 					<li ><a href=""> Sair</a></li>
 					</ul>
 

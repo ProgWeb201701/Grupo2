@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Menu Avaliador Web TCC</title>
+	<title> Avaliação  Web TCC</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 						<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  Avaliações  <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="AdicionarAvaliacao.php"> Adicionar </a></li>
+								<li><a href=""> Adicionar </a></li>
 								<li><a href=""> Editar Ultimo </a></li>
 								<li><a href=""> Remover </a></li>
 								</ul>
@@ -55,77 +55,59 @@
 <div class="container">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8" >
+			<h3> Cadastro  Aplicação Web TCC. </h3>
+				<br />
+
+				<div class="panel panel-primary">
+                    <div class="panel-heading">Cadastro - Informações Pessoais</div>
+                    <div class="panel-body">
 
 
-			<br />
-			<br />
-			<br />
 
-			<h3>Tarefas </h3>
-			<br />
-
-			<?php
-				include_once '../Controler/Tarefas/SelectTarefa.php';
-				include_once '../Model/Dados/ClassDaoTarefa.php';
-
-				$selectTa = new SelectTarefa();
-				session_start();
-				$usuario = $_SESSION['user'];
-				$usuario = unserialize($usuario);
-				$siapeAval = $usuario->getSiape();
-				$tar = $selectTa->tarefas($siapeAval);
-				// echo "___<br><br>";
-				// print_r(count($tar));
-				// echo "<br><br>___";
-				// echo "___<br><br>";
-				// print_r($tar[0]->getNome());
-				// echo "<br><br>___";
-				// exit();
-				foreach ($tar as $value) {
+				<form id="frmInscricao" method="post" action="../Controler/Professor/InsertProfessor.php">
 					
-				
-					echo '<div class="panel panel-primary">';
-					echo '<div class="panel-heading"> Tarefa </div>';
-					echo '<div class="panel-body">';
-
-
-
-						echo '<form id="frmInscricao" method="post" action="">';
-
-
-							echo '<div class="form-group">';
-								echo '<label>Nome:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-								echo '<label>'.$value->getNome().'</label>';
-							echo '</div>';	
-
-							echo '<div class="form-group">';
-								echo '<label> Descrição:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-								echo '<label>'.$value->getDescricao().'</label>';
-							echo '</div>';
-
-
-							echo '<div class="form-group">';
-								echo '<label>Data de inicio:&nbsp;&nbsp;</label>';	
-								echo '<label>'.$value->getDinicio().'</label>';					
-							echo '</div>';	
-
-							echo '<div class="form-group">';
-								echo '<label>Data final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-								echo '<label>'.$value->getDfim().'</label>';						
-							echo '</div>';
-
-
-							
-
-						echo '</form>';
-
-					echo '</div>';
-				echo '</div>';
-				
-				}
-			 ?>
+					
+						<div class="form-group">
+						<label>Nome Do Aluno:</label>
+						<input name="nome" type="text" class="form-control"  placeholder="Digite seu Nome..." >
+						</div>	
+						<div class="form-group">
+						<label>Matricula:</label>
+						<input name="matricula" type="text" class="form-control"  placeholder="Digite o Siape..." >
+						</div>	
+						
+						<div class="form-group">
+						<label>Titulo do Trabalho:</label>
+						<input type="text" class="form-control" name="titulo"  placeholder="Digite o titulo do Trabalho...">
+						</div>	
 			
-			<div class="col-sm-2" ></div>
+
+						<div class="form-group">
+						<label>Nota:</label>
+						<input type="text" class="form-control" name="nota"  placeholder="Digite uma Nota... ">
+						</div>
+                        
+                        <div class="form-group">
+						<label> Parecer:</label>
+						<textarea type="text" class="form-control"  rows ="7" name="nota"  placeholder="Digite uma Nota... "> </textarea>
+						</div>
+
+						<div class="form-group">
+
+						<div>
+						<label> Arquivo: </label>
+						<input type="file" name="arquivotarefa">
+						</div>
+
+
+						
+						 <button type="submit" class="btn btn-primary" style="float: right"  >Enviar</button>
+				</form>
+
+
+
+		</div>			
+		<div class="col-sm-2" ></div>
 		</div>
 
 
