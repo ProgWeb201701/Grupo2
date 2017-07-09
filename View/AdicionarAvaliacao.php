@@ -64,7 +64,7 @@
 
 
 
-				<form id="frmInscricao" method="post" action="../Controler/Professor/InsertProfessor.php">
+				<form id="frmInscricao" method="post" action="../Controler/Avaliacao/InsertAvaliacao.php">
 					
 					
 						<div class="form-group">
