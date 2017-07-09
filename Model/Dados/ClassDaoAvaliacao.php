@@ -12,18 +12,18 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAvaliacao.php';
 			$this->mysqli = $my;
 		}
 
-		public function insertAvaliacao($avaliacao, $user){
-			$id = $this->selectProfessores($user->getSiape(), $user->getSenha());
-			$query = "INSERT INTO Nota SET codAvaliacao=NULL, nome=?, nota=?, parecer=?, arquivo=?, idAval=?, codAluno = ?";
+		public function insertAvaliacao($avaliacao){
+
+			$query = "INSERT INTO Nota SET codAvaliacao=NULL, nota=?, parecer=?, arquivo=?, idAval=?, codAluno = ?";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
-			$stmt->bind_param('sssssi', $nome, $nota, $parecer, $arquivo, $idAval, $codAluno);
-			$nome = $avaliacao->getNome();
-			$codAluno = $avaliacao->getCodAluno();
+			$stmt->bind_param('sssii', $nota, $parecer, $arquivo, $idAval, $codAluno);
 			$nota = $avaliacao->getNota(); 
 			$parecer = $avaliacao->getParecer();
 			$arquivo = $avaliacao->getArquivo(); 
-			$idAval = $id;
+			$idAval = $avaliacao->getIdAval();
+			$codAluno = $avaliacao->getCodAluno();
+	
 
 
 			$stmt->execute();
@@ -64,26 +64,8 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAvaliacao.php';
 			$stmt->execute();
 			$stmt->close();
 		}
-		// public function editTarefa($tarefa, $id){
-		// 	$query = "UPDATE professor SET $nome=?, $siape=?, $email=?, $instituicao=?, $areaAtua=?, $curriculo=?, $senha=?,  $formacao=? WHERE idProf=?";
-		// 	$stmt = $this->$mysqli->stmt_init();
-		// 	$stmt->prepare($query);
-		// 	$stmt->bind_param('sssssssi', $nome, $siape, $email, $instituicao, $areaAtua, $curriculo, $senha,  $formacao, $idAval);
-		// 	$nome = $aluno->getNome();
-		// 	$siap = $prof->getsiep();
-		// 	$email = $prof->getEmail();
-		// 	$instituicao = $prof->getInstituicao();
-		// 	$areaAtua = $prof->getAreaAtua();
-		// 	$curriculo = $prof->getCurriculo();
-		// 	$senha = $prof->getSenha();
-		// 	$formacaoProf = $prof->getFormacao();
-		// 	$idAval = $id;
-
-		// 	$stmt->execute();
-		// 	$stmt->close();
-		// }
-
-		public function selectProfessores($login, $senha){
+		
+		public function selectProfessor($login, $senha){
 
 		$query = "SELECT * FROM professor where siape= $login and Senha = $senha";
 		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
@@ -101,14 +83,16 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAvaliacao.php';
 
 	public function selectAluno($matricula){
 
-		$query = "SELECT * FROM aluno where matricula=$matricula";
+		$query = "SELECT * FROM aluno where matricula = $matricula";
 		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+		
 		
 		if($result->num_rows > 0){
 			$result = $result->fetch_array(MYSQLI_ASSOC);
-			$codAluno = $result['codAluno'];
+			$codAluno = $result['CodAluno'];
 
 		}
+
 
 		return $codAluno; 
 

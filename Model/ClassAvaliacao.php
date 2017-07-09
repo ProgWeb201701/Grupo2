@@ -1,71 +1,72 @@
 <?php
-Class Professor
+Class Avaliacao
 {
 
- private $nome;
- private $matricula;
- private $titulo;
  private $nota;
  private $parecer;
  private $arquivo;
+ private $idAval;
+ private $codAluno;
 
-function __construct($nome, $matricula, $titulo, $nota, $parecer, $arquivo){
+function __construct($nota, $parecer, $arquivo, $idAval, $codAluno){
 
-	$this->nome = $nome;
-	$this->matricula = $matricula;
-	$this->titulo = $titulo;
 	$this->nota = $nota;
 	$this->parecer = $parecer;
 	$this->arquivo = $arquivo;
+	$this->idAval = $idAval;
+	$this->codAluno = $codAluno;
 	
 
-
-
-public function setNome($nome){
-	$this->nome = $nome; 
 }
-public function setMatricula($matricula){
 
-	$this->matricula = $matricula;
-}
-public function setTitulo($titulo){
-	$this->titulo = $titulo;
 
+
+public function setNota($nota){
+	$this->nota = $nota;
 }
 public function setParecer($parecer){
     $this->parecer = $parecer;
 
 }
-public function setNota($nota){
-	$this->nota = $nota;
-}
 public function setArquvo($arquivo){
 	$this->arquivo = $arquivo;
 }
+ 
+public function setIdAval($idAval){
 
+$this->idAval=$idAval;
 
-public function getNome(){
-	return $this->nome;
+} 
+public function setCodAluno($codAluno){
+
+	$this->codAluno = $codAluno;
 }
 
-public function getMatricula(){
-	return $this->matricula;
-}
 
-public function getTitulo(){
-	return $this->titulo;
+
+
+
+public function getNota(){
+	return $this->nota;
 }
 
 public function getParecer(){
 	return $this->parecer;
 }
 
-public function getNota(){
-	return $this->nota;
-}public function getArquivo(){
+public function getArquivo(){
 	return $this->arquivo;
 }
 
+public function getIdAval(){
+	return $this->idAval;
+
+}
+
+public function getCodAluno(){
+
+	return $this->codAluno;
+}
 
 
 }
