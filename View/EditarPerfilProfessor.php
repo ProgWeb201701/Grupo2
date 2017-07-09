@@ -6,11 +6,6 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
 
 ?>
 
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>

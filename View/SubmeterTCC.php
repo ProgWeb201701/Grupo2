@@ -28,22 +28,17 @@
 							<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Perfil <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="">Alterar Senha</a></li>
-								<li><a href="EditarPerfilAluno.php">Editar</a></li>						
-								<li><a href="">Remover</a></li>
+								<li><a href="EditarPerfilAluno.php">Editar</a></li>	
+								<li><a href="">Remover</a></li>					
 							</ul>
 						</li>
-						<li><a href="">Avaliações</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  TCC  <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="SubmeterTCC.php"> Submeter </a></li>
 								<li><a href=""> Editar Ultimo </a></li>
-								<li><a href=""> Remover </a></li>
 							</ul>
 						</li>
-						<li><a href="">Cronograma</a></li>
-						<li><a href="">Ajuda</a></li>
-						
 						<li ><a href=""> Sair</a></li>
 					</ul>
 

@@ -80,7 +80,7 @@
 								<li><a href=""> Remover Tarefa</a></li>
 								</ul>
 						</li>
-						<li><a href="">Ajuda</a></li>
+						
 						
 					<li ><a href=""> Sair</a></li>
 					</ul>

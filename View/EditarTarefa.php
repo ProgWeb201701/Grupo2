@@ -37,7 +37,6 @@
 							<ul class="dropdown-menu">
 								<li><a href=""> Adicionar </a></li>
 								<li><a href=""> Editar Ultimo </a></li>
-								<li><a href=""> Remover </a></li>
 							</ul>
 						</li>
 
@@ -49,8 +48,7 @@
 								<li><a href=""> Remover Tarefa</a></li>
 							</ul>
 						</li>
-						<li><a href="">Ajuda</a></li>
-						
+												
 						<li ><a href=""> Sair</a></li>
 					</ul>
 

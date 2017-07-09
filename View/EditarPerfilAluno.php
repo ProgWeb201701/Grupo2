@@ -56,18 +56,13 @@ $Lattes = unserialize($_SESSION['user'])->getLattes();
 								<li><a href="">Remover</a></li>
 							</ul>
 						</li>
-						<li><a href="Apresentação.html">Avaliações</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  TCC  <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="SubmeterTCC.php"> Submeter </a></li>
 								<li><a href=""> Editar Ultimo </a></li>
-								<li><a href=""> Remover </a></li>
 							</ul>
-						</li>
-						<li><a href="">Cronograma</a></li>
-						<li><a href="">Ajuda</a></li>
-						
+						</li>						
 						<li ><a href=""> Sair</a></li>
 					</ul>
 
