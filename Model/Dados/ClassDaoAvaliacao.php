@@ -1,9 +1,6 @@
 <?php
-	
-	/**
-	* 
-	*/
-include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAvaliacao.php';
+
+	include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAvaliacao.php';
 	class DaoAvaliacao{
 		
 		private $mysqli;
@@ -23,7 +20,7 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAvaliacao.php';
 			$arquivo = $avaliacao->getArquivo(); 
 			$idAval = $avaliacao->getIdAval();
 			$codAluno = $avaliacao->getCodAluno();
-	
+
 
 
 			$stmt->execute();
@@ -67,74 +64,37 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAvaliacao.php';
 		
 		public function selectProfessor($login, $senha){
 
-		$query = "SELECT * FROM professor where siape= $login and Senha = $senha";
-		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-		
-		if($result->num_rows > 0){
-			$result = $result->fetch_array(MYSQLI_ASSOC);
-			$id = $result['idAval'];
-
-		}
-
-		return $id; 
-
-	}
-
-
-	public function selectAluno($matricula){
-
-		$query = "SELECT * FROM aluno where matricula = $matricula";
-		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-		
-		
-		if($result->num_rows > 0){
-			$result = $result->fetch_array(MYSQLI_ASSOC);
-			$codAluno = $result['CodAluno'];
-
-		}
-
-
-		return $codAluno; 
-
-	}
-		public function selectTarefas($siapeAval){
-			$query = "SELECT * FROM tarefa INNER JOIN professor ON tarefa.idAval = professor.idAval WHERE professor.siape = $siapeAval order by dinicio";
+			$query = "SELECT * FROM professor where siape= $login and Senha = $senha";
 			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-			$num_rows = $result->num_rows;
 
-			$tarefas = array();
-			while ($row = $result->fetch_assoc()) {
-				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
-				array_push($tarefas,$tarefa);
+			if($result->num_rows > 0){
+				$result = $result->fetch_array(MYSQLI_ASSOC);
+				$id = $result['idAval'];
 
 			}
-			// echo "<br><br>";
-			// print_r(count($tarefas));
-			// echo "<br><br>";
-			// exit();
 
-
-			return $tarefas; 
+			return $id; 
 		}
-		public function selectTarefasAluno(){
-			$query = "SELECT * FROM tarefa WHERE tarefa.destinatario='aluno' order by dinicio";
-			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-			$num_rows = $result->num_rows;
 
-			$tarefas = array();
-			while ($row = $result->fetch_assoc()) {
-				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
-				array_push($tarefas,$tarefa);
+
+
+		public function selectAluno($matricula){
+
+			$query = "SELECT * FROM aluno where matricula = $matricula";
+			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+
+
+			if($result->num_rows > 0){
+				$result = $result->fetch_array(MYSQLI_ASSOC);
+				$codAluno = $result['CodAluno'];
 
 			}
-			// echo "<br><br>";
-			// print_r(count($tarefas));
-			// echo "<br><br>";
-			// exit();
 
 
-			return $tarefas; 
+			return $codAluno; 
+
 		}
+		
 	}
 
 ?>

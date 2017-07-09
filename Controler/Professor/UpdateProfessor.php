@@ -15,12 +15,9 @@ ini_set('display_errors', 1);
 	$lattes= $_POST['lattes'];
 	$formacao = $_POST['formacao'];
 
-	$professor = new Professor($nome, $siape, $email, $areaAtua, $instituicao, $lattes, $senha, $formacao);
+	$professor = new Professor($nome, $siape, $email,  $instituicao,$areaAtua, $lattes, $senha, $formacao);
 
-// echo ("<pre>");
-// print_r($professor);
-// echo ("<pre>");
-// exit();
+
 
 	$conection = new getConection();
 	

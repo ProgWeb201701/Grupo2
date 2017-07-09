@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 08-Jul-2017 às 21:32
+-- Data de Criação: 09-Jul-2017 às 14:53
 -- Versão do servidor: 5.5.28
 -- versão do PHP: 5.3.19
 
@@ -45,13 +45,6 @@ CREATE TABLE IF NOT EXISTS `aluno` (
 -- Extraindo dados da tabela `aluno`
 --
 
-INSERT INTO `aluno` (`CodAluno`, `Nome`, `Matricula`, `Senha`, `email`, `Curso`, `instituicao`, `LinkLattes`) VALUES
-(10, 'Guilherme Souza Santos', '123', '123', 'guilthys@gmail.com', 'Engenharia de Software', 'Unipampa', 'meuLattes@hahha'),
-(11, 'vitor', '12345', '12345', 'vitao375@hotmail.com', '12345', '12345', NULL),
-(12, 'Guilherme Souza Santos', '123''', '123', 'guilthys@gmail.com', 'Es', 'Unipampa', NULL),
-(13, 'Guilherme Souza Santos', '152020028', '123', 'guilthys@gmail.com', 'Engenharia de Software', 'Unipampa', 'linklatescolaraki'),
-(14, 'Vitor Hugo Maciel dos Santos', '123456', '123456', 'v@hotmail.com', 'Engenharia de Software', 'Unipampa', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -75,9 +68,6 @@ CREATE TABLE IF NOT EXISTS `coordenadortcc` (
 -- Extraindo dados da tabela `coordenadortcc`
 --
 
-INSERT INTO `coordenadortcc` (`idCordenador`, `Nome`, `siape`, `email`, `instituicao`, `Area`, `LinkLattes`, `Senha`, `Formacao`) VALUES
-(1, 'prof', '12345', 'prof@prof.com.br', 'unipampa', 'haha', 'porf@hahah', '12345', 'doc');
-
 -- --------------------------------------------------------
 
 --
@@ -93,11 +83,6 @@ CREATE TABLE IF NOT EXISTS `funcao` (
 --
 -- Extraindo dados da tabela `funcao`
 --
-
-INSERT INTO `funcao` (`codFunc`, `NomFunc`) VALUES
-(1, 'CoordenadorDeTCC'),
-(2, 'Orientador'),
-(3, 'Avaliador');
 
 -- --------------------------------------------------------
 
@@ -135,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `nota` (
   PRIMARY KEY (`codAvaliacao`),
   KEY `idAval` (`idAval`),
   KEY `codAluno` (`codAluno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -153,19 +138,9 @@ CREATE TABLE IF NOT EXISTS `professor` (
   `LinkLattes` varchar(200) DEFAULT NULL,
   `Senha` varchar(50) DEFAULT NULL,
   `Formacao` varchar(50) DEFAULT NULL,
-  `codFunc` int(10) NOT NULL,
-  PRIMARY KEY (`idAval`),
-  KEY `codFunc_4` (`codFunc`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
-
---
--- Extraindo dados da tabela `professor`
---
-
-INSERT INTO `professor` (`idAval`, `Nome`, `siape`, `email`, `instituicao`, `area`, `LinkLattes`, `Senha`, `Formacao`, `codFunc`) VALUES
-(26, 'Ana', '152020028', 'Ana', 'Ana', 'Ana', 'Ana', '12345', 'Ana', 2),
-(27, 'Guilherme Souza Santos', '12345', 'guilthys@gmail.com', 'Unipampa', 'Engenharia Software', 'linklatescolaraki', '12345', 'Doutor', 2),
-(28, 'JP', '123456789', 'jp@hotmail.com', 'Unipampa', 'Engenharia de software', 'www.lattes.com', '123456789', 'Mestre', 2);
+  `codFunc` int(10) DEFAULT NULL,
+  PRIMARY KEY (`idAval`)  
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 -- --------------------------------------------------------
 
@@ -186,17 +161,6 @@ CREATE TABLE IF NOT EXISTS `tarefa` (
   KEY `tarefa_fk` (`idAval`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
---
--- Extraindo dados da tabela `tarefa`
---
-
-INSERT INTO `tarefa` (`codTarefa`, `nome`, `descricao`, `dinicio`, `dfim`, `destinatario`, `arquivo`, `idAval`) VALUES
-(2, 'hahahhah', 'ahhahhahhahahha ', '2017-07-14T12:30', '2017-07-20T12:30', 'aluno', 'alguma coisa', 26),
-(3, 'Segunda Tarefa', 'hahaa ', '2017-07-14T12:00', '2017-07-22T00:00', 'aluno', 'alguma coisa', 26),
-(4, 'hahaa', 'ajsdjasl ', '2017-07-19T12:02', '2017-07-20T13:20', 'orientador', 'alguma coisa', 26),
-(5, 'Tarefa Orienta', 'sçak ', '2017-07-19T12:23', '2017-07-27T23:45', 'aluno', 'alguma coisa', 27),
-(6, 'AAAAA', ' aaaaa', '2017-07-05T12:00', '2017-07-26T12:00', 'aluno', 'alguma coisa', 27);
-
 -- --------------------------------------------------------
 
 --
@@ -213,13 +177,6 @@ CREATE TABLE IF NOT EXISTS `tcc` (
   KEY `fk_Orientador` (`idOri`),
   KEY `fk_turma` (`idTurma`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Extraindo dados da tabela `tcc`
---
-
-INSERT INTO `tcc` (`idtcc`, `idAluno`, `idOri`, `idTurma`) VALUES
-(2, 10, 27, 1);
 
 -- --------------------------------------------------------
 
@@ -240,9 +197,6 @@ CREATE TABLE IF NOT EXISTS `turma` (
 --
 -- Extraindo dados da tabela `turma`
 --
-
-INSERT INTO `turma` (`idTurma`, `codigoturma`, `semestre`, `Curso`, `idCordenador`) VALUES
-(1, 'UD01', '2017/02', 'Engenharia de Software', 1);
 
 --
 -- Constraints for dumped tables
@@ -265,9 +219,6 @@ ALTER TABLE `nota`
 --
 -- Limitadores para a tabela `professor`
 --
-ALTER TABLE `professor`
-  ADD CONSTRAINT `professor_ibfk_1` FOREIGN KEY (`codFunc`) REFERENCES `funcao` (`codFunc`);
-
 --
 -- Limitadores para a tabela `tcc`
 --

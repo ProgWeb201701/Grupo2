@@ -18,6 +18,9 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 	$aluno = new Aluno($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
 
 	
+
+
+	
 	$conection = new getConection();
 
 	$mysql = $conection->getMysql();

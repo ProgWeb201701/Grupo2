@@ -10,10 +10,7 @@
 		$this->mysqli = $mysql;
 	}
 
-		public function insertAluno($aluno){
-	
-
-	
+		public function insertAluno($aluno){	
 			
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare( "INSERT INTO aluno SET CodAluno=NULL, nome=?, matricula=?, senha=?, email=?, curso=?, instituicao=?, LinkLattes=?");
@@ -29,16 +26,11 @@
 			$instituicao = $aluno->getInstituicao();
 			$lattesAluno = $aluno->getLattes();
 
-		
-
-
-
 			$stmt->execute();
 			$stmt->close();
 		}
 
 		public function updateAluno($aluno){
-
 			
 			
 			$stmt = $this->mysqli->stmt_init();
@@ -52,9 +44,7 @@
 			$curso = $aluno->getCurso();
 			$instituicao = $aluno->getInstituicao();
 			$lattes = $aluno->getLattes();
-
-
-
+			
 			
 			$stmt->execute();
 			$stmt->close();

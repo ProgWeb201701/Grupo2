@@ -17,6 +17,7 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 
     $aluno = new Aluno($nome, $matricula, $senha, $email, $curso, $instituicao, $lattes);
 
+
 	$conection = new getConection();
 
 	$mysql = $conection->getMysql();
@@ -25,6 +26,7 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
 
 	$daoAluno->updateAluno($aluno);	
 	
+	exit();
 
 	header("Location: ../../View/menuAluno.php");
 	exit();

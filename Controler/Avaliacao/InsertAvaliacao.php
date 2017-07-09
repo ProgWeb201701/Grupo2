@@ -38,12 +38,10 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
 	$avaliacao = new Avaliacao( $nota, $parecer, $arquivo, $idAval, $codAluno);
 	$daoAvaliacao->insertAvaliacao($avaliacao);
 
-	echo "aki";
-	exit();
-
+	
 	
 
-	header("Location: ../../View/....");
+	header("Location: ../../View/AdicionarAvaliacao.php");
 	exit();
 
 ?>

@@ -38,12 +38,9 @@
 							<ul class="dropdown-menu">
 								<li><a href="SubmeterTCC.php"> Submeter </a></li>
 								<li><a href=""> Editar Ultimo </a></li>
-								<li><a href=""> Remover </a></li>
 								</ul>
 						</li>
-						<li><a href="">Cronograma</a></li>
-						<li><a href="">Ajuda</a></li>
-						
+												
 					<li ><a href=""> Sair</a></li>
 					</ul>
 
