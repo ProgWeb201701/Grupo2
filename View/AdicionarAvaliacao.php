@@ -77,19 +77,13 @@
 						</div>	
 						
 						<div class="form-group">
-						<label>Titulo do Trabalho:</label>
-						<input type="text" class="form-control" name="titulo"  placeholder="Digite o titulo do Trabalho...">
-						</div>	
-			
-
-						<div class="form-group">
 						<label>Nota:</label>
 						<input type="text" class="form-control" name="nota"  placeholder="Digite uma Nota... ">
 						</div>
                         
                         <div class="form-group">
 						<label> Parecer:</label>
-						<textarea type="text" class="form-control"  rows ="7" name="nota"  placeholder="Digite uma Nota... "> </textarea>
+						<textarea type="text" class="form-control"  rows ="7" name="parecer"  placeholder="Digite o parecer... "> </textarea>
 						</div>
 
 						<div class="form-group">
