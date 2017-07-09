@@ -1,6 +1,5 @@
 <?php
-Class Professor
-{
+Class Professor {
 
  private $nome;
  private $siape;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 09-Jul-2017 às 14:53
+-- Data de Criação: 09-Jul-2017 às 15:20
 -- Versão do servidor: 5.5.28
 -- versão do PHP: 5.3.19
 
@@ -38,12 +38,9 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   `instituicao` varchar(150) DEFAULT NULL,
   `LinkLattes` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`CodAluno`),
+  UNIQUE KEY `matricula_unica` (`Matricula`),
   KEY `Matricula` (`Matricula`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-
---
--- Extraindo dados da tabela `aluno`
---
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -68,6 +65,9 @@ CREATE TABLE IF NOT EXISTS `coordenadortcc` (
 -- Extraindo dados da tabela `coordenadortcc`
 --
 
+INSERT INTO `coordenadortcc` (`idCordenador`, `Nome`, `siape`, `email`, `instituicao`, `Area`, `LinkLattes`, `Senha`, `Formacao`) VALUES
+(1, 'prof', '12345', 'prof@prof.com.br', 'unipampa', 'haha', 'porf@hahah', '12345', 'doc');
+
 -- --------------------------------------------------------
 
 --
@@ -83,6 +83,11 @@ CREATE TABLE IF NOT EXISTS `funcao` (
 --
 -- Extraindo dados da tabela `funcao`
 --
+
+INSERT INTO `funcao` (`codFunc`, `NomFunc`) VALUES
+(1, 'CoordenadorDeTCC'),
+(2, 'Orientador'),
+(3, 'Avaliador');
 
 -- --------------------------------------------------------
 
@@ -139,8 +144,16 @@ CREATE TABLE IF NOT EXISTS `professor` (
   `Senha` varchar(50) DEFAULT NULL,
   `Formacao` varchar(50) DEFAULT NULL,
   `codFunc` int(10) DEFAULT NULL,
-  PRIMARY KEY (`idAval`)  
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+  PRIMARY KEY (`idAval`),
+  UNIQUE KEY `siape_unico` (`siape`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+
+--
+-- Extraindo dados da tabela `professor`
+--
+
+INSERT INTO `professor` (`idAval`, `Nome`, `siape`, `email`, `instituicao`, `area`, `LinkLattes`, `Senha`, `Formacao`, `codFunc`) VALUES
+(30, 'Guilherme Arcano', '152020028', 'guilthys@gmail.com', 'Unipampa', 'Matematica ', 'meuLattes@hahha', '12345', 'Mestre', 2);
 
 -- --------------------------------------------------------
 
@@ -195,10 +208,6 @@ CREATE TABLE IF NOT EXISTS `turma` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Extraindo dados da tabela `turma`
---
-
---
 -- Constraints for dumped tables
 --
 
@@ -216,9 +225,6 @@ ALTER TABLE `nota`
   ADD CONSTRAINT `AlunoNota` FOREIGN KEY (`codAluno`) REFERENCES `aluno` (`CodAluno`),
   ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`idAval`) REFERENCES `professor` (`idAval`);
 
---
--- Limitadores para a tabela `professor`
---
 --
 -- Limitadores para a tabela `tcc`
 --

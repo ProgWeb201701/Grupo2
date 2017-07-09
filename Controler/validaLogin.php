@@ -8,9 +8,7 @@
 		$tipologin = $_POST['tipologin'];
 		$conection = new getConection();
 		$mysql = $conection->getMysql();
-		$daoLogin = new DaoLogin($mysql);
-
-		
+		$daoLogin = new DaoLogin($mysql);		
 
 
 		if($tipologin =='aluno'){
