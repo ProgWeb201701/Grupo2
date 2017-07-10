@@ -14,7 +14,10 @@ ini_set('display_errors', 1);
 	$daoTur = new DaoTurma($conection->getMysql());
 
 	$idcor = $daoTur->consultaCoordenador($siape);
-
+	// echo "<br><br>__";
+	// print_r($idcor);
+	// echo "<br><br>__";
+	// exit();
 	$daoTur->insertTurma($codigoturma, $semestre, $curso, $idcor);	
 
 	header("Location: ../../View/menuCoordenador.php");

@@ -6,9 +6,9 @@
 	}else{
     	$aux = unserialize($_SESSION['nivel']);
     }
-    if ($aux != "avaliador") {
-    	header("Location: LoginApp.php");
-    }
+    // if ($aux != "avaliador") {
+    // 	header("Location: LoginApp.php");
+    // }
  ?>
 <html>
 <head>
@@ -80,7 +80,6 @@
 				include_once '../Model/Dados/ClassDaoTarefa.php';
 
 				$selectTa = new SelectTarefa();
-				session_start();
 				$usuario = $_SESSION['user'];
 				$usuario = unserialize($usuario);
 				$siapeAval = $usuario->getSiape();

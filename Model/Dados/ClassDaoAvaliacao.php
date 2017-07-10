@@ -62,18 +62,32 @@
 			$stmt->close();
 		}
 		
-		public function selectProfessor($login, $senha){
+		public function selectAvaliacaoAluno($idAluno){
 
-			$query = "SELECT * FROM professor where siape= $login and Senha = $senha";
+			$query = "SELECT * FROM nota where codAluno = '$idAluno'";
 			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-
-			if($result->num_rows > 0){
-				$result = $result->fetch_array(MYSQLI_ASSOC);
-				$id = $result['idAval'];
+			$avaliacoes = array();
+			while ($row = $result->fetch_assoc()) {
+				$ava = new Avaliacao($row['Nota'], $row['Parecer'], $row['Arquivo'], $row['idAval'], $row['codAluno']);
+				array_push($avaliacoes, $ava);
 
 			}
 
-			return $id; 
+			return $avaliacoes; 
+		}
+
+		public function selectAvaliacaoProfessor($idProf){
+
+			$query = "SELECT * FROM nota where idAval = '$idProf'";
+			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+			$avaliacoes = array();
+			while ($row = $result->fetch_assoc()) {
+				$ava = new Avaliacao($row['Nota'], $row['Parecer'], $row['Arquivo'], $row['idAval'], $row['codAluno']);
+				array_push($avaliacoes, $ava);
+
+			}
+
+			return $avaliacoes; 
 		}
 
 

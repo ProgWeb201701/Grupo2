@@ -31,7 +31,7 @@
 			if($prof->getSiape() != ""){
 				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
 					$_SESSION['user'] = serialize($prof);
-					$_SESSION['nivel'] = serialize("orientador");
+					$_SESSION['nivel'] = serialize("avaliador");
 					header("Location: ../View/MenuOrientador.php");
 					exit();
 			}

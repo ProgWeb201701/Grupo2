@@ -30,13 +30,11 @@ class DaoTurma{
 		
 		if ($result->num_rows > 0) {
 
-        $result = $result->fetch_array(MYSQLI_ASSOC);
-		$idCordenador = $result['idCordenador']; 
+	        $result = $result->fetch_array(MYSQLI_ASSOC);
+			$idCordenador = $result['idCordenador'];
+			return $idCordenador; 
         }
-		// echo("<pre>");
-		// print_r($idCordenador);
-		// echo ("</pre>");
-		return $idCordenador;
+		return null;
 	}
 
 
