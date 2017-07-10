@@ -1,10 +1,19 @@
 <?php 
 
-session_start();
-$_SESSION['user'] = serialize($aluno); 
-include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassMonografia.php';
-include  'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
-include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoAluno.php';
+ 
+	session_start();
+	if (!isset($_SESSION["user"]) ){
+		header("Location: LoginApp.php");
+	}else{
+    	$aux = unserialize($_SESSION['nivel']);
+    }
+    if ($aux != "aluno") {
+    	header("Location: LoginApp.php");
+    }
+
+include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassMonografia.php';
+include_once  'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+include_once  'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoMonografia.php';
 
 ini_set('display_errors', 1);
 
@@ -15,11 +24,11 @@ move_uploaded_file($_FILES['files']['tmp_name'], $_UP['pasta'].$name);
 
 
 
-$titulo = $_POST['nome'];
-$autor = $_POST['matricula'];
-$orientador = $_POST['senha'];
-$pchave = $_POST['email'];
-$resumo = $_POST['curso'];
+$titulo = $_POST['titulo'];
+$autor = $_POST['autor'];
+$orientador = $_POST['siape'];
+$pchave = $_POST['pchave'];
+$resumo = $_POST['resumo'];
 $arquivo = $_UP['pasta'].$name;
 
 
@@ -31,9 +40,9 @@ $conection = new getConection();
 
 $mysql = $conection->getMysql();
 
-$daoMonografia = new DaoMonografia($conection->getMysql());
+$daoMon = new DaoMonografia($conection->getMysql());
 
-$daoMonografia->insertAluno($monografia);
+$daoMon->insertMonografia($monografia);
 
 
 

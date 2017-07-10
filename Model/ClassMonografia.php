@@ -1,6 +1,6 @@
 <?php
 
-Class Tarefa{
+Class Monografia{
 
  private $titulo;
  private $autor;

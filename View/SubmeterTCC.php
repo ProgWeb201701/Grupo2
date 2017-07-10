@@ -89,23 +89,19 @@
 								</div>
 								<div class="form-group">
 									<label >Orientador</label>
-									<input type="text" name="orientador"  class="form-control" placeholder="Orientador">
+									<input type="text" name="siape"  class="form-control" placeholder="Siape do Orientador...">
 									
 								</div>
 								<div class="form-group">
 									<label >Palavra Chaves</label>
-									<input type="text" name="palavrachave"  class="form-control" placeholder="Palavra Chave">
+									<input type="text" name="pchave"  class="form-control" placeholder="Palavra Chave">
 									
 								</div>
 								<div class="form-group" >
 									<label >Resumo</label>
 									<textarea  name="resumo"  class="form-control"  row = "6" placeholder="Resumo"></textarea>
 								</div>
-								<div class="form-group">
-									<label >Abstract </label>
-									<textarea  name="abstract"  class="form-control"  row = "6" placeholder="Abastract"></textarea>
-									
-								</div>
+								
 								<div class="inline" >
 									<input type="file" name="files" class="col-sm-9"> <input type="reset" class="btn btn-warning"  value="Remover Arquivo" style="float: right" class="button" class="col-sm-3">
 								</div> </br> </br> </br> </br>

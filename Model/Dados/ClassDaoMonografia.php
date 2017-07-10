@@ -1,97 +1,105 @@
 <?php
-	
-	/**
-	* 
-	*/
+
+include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
+include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAluno.php';
+
+if (!isset($_SESSION["user"]) ){
+	header("Location: LoginApp.php");
+}else{
+	$aux = unserialize($_SESSION['nivel']);
+}
+if ($aux != "aluno") {
+	header("Location: LoginApp.php");
+}
+
 include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoMonografia.php';
 include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassMonografia.php';
-	class DaoTarefa{
+
+
+
+class DaoMonografia{
+
+	private $mysqli;
+
+	public function __construct($my){
+		$this->mysqli = $my;
+	}
+
+	public function insertMonografia($monografia){
+
 		
-		private $mysqli;
-
-		public function __construct($my){
-			$this->mysqli = $my;
-		}
-
-		public function insertMonografia($monografia){
-			
+		$id = $this->selectProfessores($monografia->getOrientador());
+		$idAluno = $this->selectAluno($monografia->getAutor());
+		$idtur = $this->selectTurma($idAluno);
+		$idtc = $this->selectTcc($idAluno);
 
 
-			$query = "INSERT INTO monografia SET codAluno=NULL, idturma=?, arquivo=?, resumo=?, titulo=?, autor=?, nomeOrientador=?, idtcc=?,  pChave=?";
-			$stmt = $this->mysqli->stmt_init();
-			$stmt->prepare($query);
-			$stmt->bind_param('isssssis',$idturma, $arquivo, $resumo, $titulo, $autor, $nomeOrientador, $idtcc, $pChave);
-			$nome = $tarefa->getNome();
-			$descricao = $tarefa->getDescricao();
-			$dinicio = $tarefa->getDinicio(); 
-			$dfim = $tarefa->getDfim();
-			$destinatario = $tarefa->getDestinatario(); 
-			$arquivo = $tarefa->getArquivo();
-			$avaliador = $id;
+		
+
+		$query = "INSERT INTO monografia SET CodAluno=?, idturma=?, Arquivo=?, Resumo=?, Titulo=?, autor=?, idOri=?, idtcc=?,  pChave=?";
+		$stmt = $this->mysqli->stmt_init();
+		$stmt->prepare($query);
+		$stmt->bind_param('iisssssis', $codAluno,$idturma, $arquivo, $resumo, $titulo, $autor, $idOri, $idtcc, $pChave);
 
 
-			$stmt->execute();
-			$stmt->close();
-		}
+		
+        $codAluno = $idAluno;
+        $titulo =$monografia->getTitulo();
+		$autor = $monografia->getAutor();
+		$pChave = $monografia->getPChave();
+		$resumo = $monografia->getResumo(); 
+		$arquivo = $monografia->getArquivo();
+		$idOri = $id;
+		$idturma = $idtur;
+		$idtcc = $idtc;
 
-		public function updateTarefa($tarefa, $id){
-			$query = "UPDATE tarefa SET nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?, 
-			arquivo=? WHERE codTarefa=?";
-			$stmt = $this->mysqli->stmt_init();
-			$stmt->prepare($query);
-			$stmt->bind_param('ssssssi', $nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo, $codTarefa);
-			$nome = $tarefa->getNome();
-			$descricao = $tarefa->getDescricao();
-			$dinicio = $tarefa->getDinicio(); 
-			$dfim = $tarefa->getDfim();
-			$destinatario = $tarefa->getDestinatario(); 
-			$arquivo = $tarefa->getArquivo();
-			$codTarefa = $id;
+
+
+
+		$stmt->execute();
+		$stmt->close();
+	}
+
+	public function updateMonografica($monografica, $id){
+		$query = "UPDATE monografica SET nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?, 
+		arquivo=? WHERE codTarefa=?";
+		$stmt = $this->mysqli->stmt_init();
+		$stmt->prepare($query);
+		$stmt->bind_param('ssssssi', $nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo, $codTarefa);
+		$nome = $tarefa->getNome();
+		$descricao = $tarefa->getDescricao();
+		$dinicio = $tarefa->getDinicio(); 
+		$dfim = $tarefa->getDfim();
+		$destinatario = $tarefa->getDestinatario(); 
+		$arquivo = $tarefa->getArquivo();
+		$codTarefa = $id;
 			// echo "<br>";
 			// echo "<br>";
 			// print_r($query);
 			// echo "<br>";
 			// echo "<br>";
 			// exit();
-			$stmt->execute();
-			$stmt->close();
-		}
+		$stmt->execute();
+		$stmt->close();
+	}
 
-		public function deleteTarefa($id){
-			$query = "DELETE FROM tarefa WHERE codTarefa=?";
-			$stmt = $this->$mysqli->stmt_init();
-			$stmt->prepare($query);
-			$stmt->bind_param('i', $idProf);
+	public function deleteTarefa($id){
+		$query = "DELETE FROM tarefa WHERE codTarefa=?";
+		$stmt = $this->$mysqli->stmt_init();
+		$stmt->prepare($query);
+		$stmt->bind_param('i', $idProf);
 
-			$idProf = $id;
+		$idProf = $id;
 
-			$stmt->execute();
-			$stmt->close();
-		}
-		// public function editTarefa($tarefa, $id){
-		// 	$query = "UPDATE professor SET $nome=?, $siape=?, $email=?, $instituicao=?, $areaAtua=?, $curriculo=?, $senha=?,  $formacao=? WHERE idProf=?";
-		// 	$stmt = $this->$mysqli->stmt_init();
-		// 	$stmt->prepare($query);
-		// 	$stmt->bind_param('sssssssi', $nome, $siape, $email, $instituicao, $areaAtua, $curriculo, $senha,  $formacao, $idAval);
-		// 	$nome = $aluno->getNome();
-		// 	$siap = $prof->getsiep();
-		// 	$email = $prof->getEmail();
-		// 	$instituicao = $prof->getInstituicao();
-		// 	$areaAtua = $prof->getAreaAtua();
-		// 	$curriculo = $prof->getCurriculo();
-		// 	$senha = $prof->getSenha();
-		// 	$formacaoProf = $prof->getFormacao();
-		// 	$idAval = $id;
+		$stmt->execute();
+		$stmt->close();
+	}
 
-		// 	$stmt->execute();
-		// 	$stmt->close();
-		// }
+	public function selectProfessores($siape){
 
-		public function selectProfessores($login, $senha){
-
-		$query = "SELECT * FROM professor where siape= $login and Senha = $senha";
+		$query = "SELECT * FROM professor where siape= $siape";
 		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-		
+
 		if($result->num_rows > 0){
 			$result = $result->fetch_array(MYSQLI_ASSOC);
 			$id = $result['idAval'];
@@ -100,44 +108,57 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassMonografia.php';
 
 		return $id; 
 	}
-		public function selectTarefas($siapeAval){
-			$query = "SELECT * FROM tarefa INNER JOIN professor ON tarefa.idAval = professor.idAval WHERE professor.siape = $siapeAval order by dinicio";
-			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-			$num_rows = $result->num_rows;
 
-			$tarefas = array();
-			while ($row = $result->fetch_assoc()) {
-				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
-				array_push($tarefas,$tarefa);
+	public function selectAluno($nome){
 
-			}
-			// echo "<br><br>";
-			// print_r(count($tarefas));
-			// echo "<br><br>";
-			// exit();
+		$query = "SELECT * FROM aluno where nome like '%".$nome."%'";
+		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
 
+		if($result->num_rows > 0){
+			$result = $result->fetch_array(MYSQLI_ASSOC);
+			$id = $result['CodAluno'];
 
-			return $tarefas; 
 		}
-		public function selectTarefasAluno(){
-			$query = "SELECT * FROM tarefa WHERE tarefa.destinatario='aluno' order by dinicio";
-			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
-			$num_rows = $result->num_rows;
 
-			$tarefas = array();
-			while ($row = $result->fetch_assoc()) {
-				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
-				array_push($tarefas,$tarefa);
-
-			}
-			// echo "<br><br>";
-			// print_r(count($tarefas));
-			// echo "<br><br>";
-			// exit();
-
-
-			return $tarefas; 
-		}
+		return $id; 
 	}
+
+
+
+
+	public function selectTurma($id){
+
+		$query = "SELECT * FROM tcc where idAluno= $id";
+		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+
+		if($result->num_rows > 0){
+			$result = $result->fetch_array(MYSQLI_ASSOC);
+			$idTurma = $result['idTurma'];
+
+		}
+
+		return $idTurma;
+
+	}
+
+
+
+
+
+	public function selectTcc($id){
+
+		$query = "SELECT * FROM tcc where idAluno= $id";
+		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+
+		if($result->num_rows > 0){
+			$result = $result->fetch_array(MYSQLI_ASSOC);
+			$id = $result['idtcc'];
+
+		}
+
+		return $id; 
+	}
+
+}
 
 ?>
