@@ -32,7 +32,7 @@ include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
 	$mysql = $conection->getMysql();
 
 	$daoAvaliacao = new daoAvaliacao($conection->getMysql());
-	$idAval = $daoAvaliacao->selectProfessor($professor->getSiape(), $professor->getSenha());
+	$idAval = $daoAvaliacao->selectProfessores($professor->getSiape());
 	$codAluno = $daoAvaliacao->selectAluno($matricula);
 
 	$avaliacao = new Avaliacao( $nota, $parecer, $arquivo, $idAval, $codAluno);

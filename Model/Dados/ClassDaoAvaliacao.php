@@ -90,6 +90,20 @@
 			return $avaliacoes; 
 		}
 
+		public function selectProfessores($siape){
+
+		$query = "SELECT * FROM professor where siape= $siape";
+		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+
+		if($result->num_rows > 0){
+			$result = $result->fetch_array(MYSQLI_ASSOC);
+			$id = $result['idAval'];
+
+		}
+
+		return $id; 
+	}
+
 
 
 		public function selectAluno($matricula){
