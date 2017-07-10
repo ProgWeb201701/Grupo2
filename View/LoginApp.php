@@ -32,14 +32,14 @@
 		     <br>
 		</div>
 
-		<div class="form-inline" class="radio"> 
+		<!-- <div class="form-inline" class="radio"> 
 			<label class="radio-inline"><input type="radio" name="tipologin"  value="aluno" >Aluno </label>
 			<label class="radio-inline"><input type="radio" name="tipologin"  value="orientador" >Orientador </label>
 			<label class="radio-inline"><input type="radio" name="tipologin"  value="avaliador" >Avaliador </label>
 			<label class="radio-inline"><input type="radio" name="tipologin"  value="coordenador" >Coordenador</label>
 
 		
-		</div>
+		</div> -->
 
 		<div >
                <button type="submit" class="btn btn-primary"   style="float: right"  class="button">Logar</button>

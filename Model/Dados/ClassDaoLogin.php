@@ -21,11 +21,13 @@ class DaoLogin{
 
 			$result = $result->fetch_array(MYSQLI_ASSOC);
 			$aluno = new Aluno($result['Nome'], $result['Matricula'], $result['Senha'], $result['email'], $result['Curso'], $result['instituicao'], $result['LinkLattes']);
-
+			return $aluno;
+		}else{
+			return null;
 		}
 
 
-		return $aluno;
+		
 	}
 
 	public function selectLoginProfessor($login, $senha){
@@ -37,10 +39,28 @@ class DaoLogin{
 			$result = $result->fetch_array(MYSQLI_ASSOC);
 			$professor = new Professor($result['Nome'], $result['siape'], $result['email'], $result['instituicao'],      $result['area'], $result['LinkLattes'], $result['Senha'], $result['Formacao']);
 
-
+			return $professor;
+		}else {
+			return null;
 		}
 
-		return $professor; 
+		 
+    }
+
+    public function selectLoginCoordenador($login, $senha){
+
+		$query = "SELECT * FROM coordenadortcc where siape= $login and Senha = $senha";
+		$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+		
+		if($result->num_rows > 0){
+			$result = $result->fetch_array(MYSQLI_ASSOC);
+			$professor = new Professor($result['Nome'], $result['siape'], $result['email'], $result['instituicao'],      $result['area'], $result['LinkLattes'], $result['Senha'], $result['Formacao']);
+
+
+			return $professor;
+		}else {
+			return null;
+		}
     }
 
 	

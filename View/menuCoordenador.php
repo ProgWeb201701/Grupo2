@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php 
+	session_start();
+	if (!isset($_SESSION["user"]) ){
+		header("Location: LoginApp.php");
+	}else{
+    	$aux = unserialize($_SESSION['nivel']);
+    }
+    if ($aux != "coordenador") {
+    	header("Location: LoginApp.php");
+    }
+ ?>
 <html>
 <head>
 	<title> Menu Coordenador Web TCC</title>
@@ -75,7 +86,6 @@
 				include_once '../Model/Dados/ClassDaoTarefa.php';
 
 				$selectTa = new SelectTarefa();
-				session_start();
 				$usuario = $_SESSION['user'];
 				$usuario = unserialize($usuario);
 				$siapeAval = $usuario->getSiape();

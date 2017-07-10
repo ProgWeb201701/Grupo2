@@ -3,10 +3,15 @@ session_start();
 include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassConection.php';
 include 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassAluno.php';
 
-
-
-?>
-
+if (!isset($_SESSION["user"]) ){
+	header("Location: LoginApp.php");
+}else{
+	$aux = unserialize($_SESSION['nivel']);
+}
+if ($aux != "aluno") {
+	header("Location: LoginApp.php");
+}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

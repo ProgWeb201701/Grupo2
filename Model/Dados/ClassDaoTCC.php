@@ -61,14 +61,14 @@
         $result = $result->fetch_array(MYSQLI_ASSOC);
  
         $idOri = $result['idAval']; 
- 
-        }
+ 		return $idOri;
+    }
  
     
- 
+ 	return null;
 
  
-  return $idOri;
+  
  
 }
  

@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php 
+	session_start();
+	if (!isset($_SESSION["user"]) ){
+		header("Location: LoginApp.php");
+	}else{
+    	$aux = unserialize($_SESSION['nivel']);
+    }
+    if ($aux != "avaliador") {
+    	header("Location: LoginApp.php");
+    }
+ ?>
 <html>
 <head>
 	<title> Menu Avaliador Web TCC</title>
