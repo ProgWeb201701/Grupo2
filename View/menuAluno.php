@@ -29,6 +29,7 @@
 							<ul class="dropdown-menu">
 							    <li><a href="Alterar senha.php">Alterar Senha</a></li>
 								<li><a href="EditarPerfilAluno.php">Editar</a></li>
+								<li><a href="DeleteAluno.php">Remover</a></li>
 								</ul>
 						</li>
 						<li class="dropdown">

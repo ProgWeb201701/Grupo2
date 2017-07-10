@@ -51,13 +51,19 @@
 		}
 
 		public function deleteAluno($aluno){
-			$query = "DELETE FROM aluno WHERE matricula=? and senha= ?";
+
+				
+
+
+			$query = "DELETE FROM aluno WHERE matricula= ? and senha= ? ";
 			$stmt = $this->mysqli->stmt_init();
 			$stmt->prepare($query);
 			$stmt->bind_param('ss', $matriculaAluno, $senhaAluno);
 
 			$matriculaAluno = $aluno->getMatricula();
 			$senha = $aluno->getSenha();
+			
+
 
 			$stmt->execute();
 			$stmt->close();
