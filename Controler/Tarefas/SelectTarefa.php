@@ -24,6 +24,10 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\Dados\ClassDaoTarefa.ph
   public function tarefasAluno(){
     return $this->daoTarefa->selectTarefasAluno();
   }
+
+  public function tarefasCord(){
+    return $this->daoTarefa->selectTarefasCord();
+  }
 }
 
 

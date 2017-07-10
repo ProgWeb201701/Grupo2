@@ -136,6 +136,27 @@ include_once 'C:\WebServer\Apache2.2\htdocs\Grupo2\Model\ClassProf.php';
 
 			return $tarefas; 
 		}
+		public function selectTarefasCord(){
+			$query = "SELECT * FROM tarefa";
+			$result =  $this->mysqli->query($query, MYSQLI_STORE_RESULT);
+			$num_rows = $result->num_rows;
+
+			$tarefas = array();
+			while ($row = $result->fetch_assoc()) {
+				$tarefa = new Tarefa($row['nome'], $row['descricao'], $row['dinicio'], $row['dfim'], $row['destinatario'], $row['arquivo']);
+				array_push($tarefas,$tarefa);
+
+			}
+			// echo "<br><br>";
+			// print_r(count($tarefas));
+			// echo "<br><br>";
+			// exit();
+
+
+			return $tarefas; 
+		}
+
+
 	}
 
 ?>

@@ -87,14 +87,13 @@
 
 				$selectTa = new SelectTarefa();
 				$usuario = unserialize($_SESSION['user']);
-				$siapeAval = $usuario->getSiape();
 				// echo ("<pre>");
 				// print_r(($usuario));
 				// echo ("<pre>");
 				// exit();
 
 
-				$tar = $selectTa->tarefas($siapeAval);
+				$tar = $selectTa->tarefasCord();
 				// echo "___<br><br>";
 				// print_r(count($tar));
 				// echo "<br><br>___";
