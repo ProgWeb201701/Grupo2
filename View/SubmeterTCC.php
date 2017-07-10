@@ -75,7 +75,7 @@
 				<div class="panel-body">
 
 					
-						<form method="post" action="../Controler/Monografia/insertMonografia.php">
+						<form method="post"  enctype="multipart/form-data" action="../Controler/Monografia/insertMonografia.php">
 							
 								<div class="form-group">
 									<label>Titulo </label>
@@ -107,7 +107,7 @@
 									
 								</div>
 								<div class="inline" >
-									<input type="file" name="Arquivo" class="col-sm-9"> <input type="reset" class="btn btn-warning"  value="Remover Arquivo" style="float: right" class="button" class="col-sm-3">
+									<input type="file" name="files" class="col-sm-9"> <input type="reset" class="btn btn-warning"  value="Remover Arquivo" style="float: right" class="button" class="col-sm-3">
 								</div> </br> </br> </br> </br>
 
 
