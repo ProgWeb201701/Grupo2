@@ -6,7 +6,7 @@
 	}else{
     	$aux = unserialize($_SESSION['nivel']);
     }
-    if ($aux != "avaliador") {
+    if ($aux != "avaliador"&& $aux != "orientador") {
     	header("Location: LoginApp.php");
     }
  ?>

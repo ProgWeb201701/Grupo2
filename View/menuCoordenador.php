@@ -86,9 +86,14 @@
 				include_once '../Model/Dados/ClassDaoTarefa.php';
 
 				$selectTa = new SelectTarefa();
-				$usuario = $_SESSION['user'];
-				$usuario = unserialize($usuario);
+				$usuario = unserialize($_SESSION['user']);
 				$siapeAval = $usuario->getSiape();
+				// echo ("<pre>");
+				// print_r(($usuario));
+				// echo ("<pre>");
+				// exit();
+
+
 				$tar = $selectTa->tarefas($siapeAval);
 				// echo "___<br><br>";
 				// print_r(count($tar));
@@ -128,6 +133,11 @@
 							echo '<div class="form-group">';
 								echo '<label>Data final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
 								echo '<label>'.$value->getDfim().'</label>';						
+							echo '</div>';
+
+							echo '<div class="form-group">';
+								echo '<label>Arquivo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label> <a href=".$value->getArquivo()."> Baixar Arquivo </a> </label>';						
 							echo '</div>';
 
 

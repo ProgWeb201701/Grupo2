@@ -86,7 +86,7 @@
 
 
 
-				<form id="frmInscricao" method="post" action="../Controler/Tarefas/InsertTarefa.php">
+				<form id="frmInscricao"  enctype="multipart/form-data" method="post" action="../Controler/Tarefas/InsertTarefa.php">
 					
 					
 						<div class="form-group">
@@ -123,7 +123,7 @@
 
 						<div>
 						<label> Arquivo: </label>
-						<input type="file" name="arquivotarefa">
+						<input type="file" name="files">
 
 
 

@@ -118,6 +118,10 @@
 								echo '<label>Data final:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
 								echo '<label>'.$value->getDfim().'</label>';						
 							echo '</div>';
+							echo '<div class="form-group">';
+								echo '<label>Arquivo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+								echo '<label> <a href=".$value->getArquivo()."> Baixar Arquivo </a> </label>';						
+							echo '</div>';
 
 
 							

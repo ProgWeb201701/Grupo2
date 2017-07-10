@@ -32,7 +32,7 @@
 				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
 					$_SESSION['user'] = serialize($prof);
 					$_SESSION['nivel'] = serialize("avaliador");
-					header("Location: ../View/MenuOrientador.php");
+					header("Location: ../View/menuOrientador.php");
 					exit();
 			}
 			
@@ -42,7 +42,7 @@
 			if($prof->getSiape() != ""){
 				if($prof->getSiape() == $login && $prof->getSenha() == $senha){
 					$_SESSION['user'] = serialize($prof);
-					header("Location: ../View/MenuAvaliador.php");
+					header("Location: ../View/menuAvaliador.php");
 					$_SESSION['nivel'] = serialize("avaliador");
 					exit();
 				
@@ -57,7 +57,7 @@
 			if($coord->getSiape() == $login && $coord->getSenha() == $senha){
 				$_SESSION['user'] = serialize($coord);	
 				$_SESSION['nivel'] = serialize("coordenador");			
-				header("Location: ../View/MenuCoordenador.php");
+				header("Location: ../View/menuCoordenador.php");
 				
 				exit();
 	    	}
