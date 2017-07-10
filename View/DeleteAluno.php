@@ -50,7 +50,7 @@
 							</ul>
 						</li>
 
-						<li ><a href=""> Sair</a></li>
+						<li ><a href="Sair.php"> Sair</a></li>
 					</ul>
 
 				</div><!--/.nav-collapse -->

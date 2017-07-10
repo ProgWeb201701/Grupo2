@@ -55,7 +55,7 @@
 						<li><a href="">Cronograma</a></li>
 						<li><a href="">Ajuda</a></li>
 						
-					<li ><a href=""> Sair</a></li>
+					<li ><a href="Sair.php"> Sair</a></li>
 					</ul>
 
 				</div><!--/.nav-collapse -->

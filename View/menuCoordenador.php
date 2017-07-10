@@ -61,7 +61,7 @@
 							</ul>
 						</li>
 										
-						<li ><a href=""> Sair</a></li>
+						<li ><a href="Sair.php"> Sair</a></li>
 					</ul>
 
 				</div>
@@ -137,7 +137,7 @@
 
 							echo '<div class="form-group">';
 								echo '<label>Arquivo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-								echo '<label> <a href=".$value->getArquivo()."> Baixar Arquivo </a> </label>';						
+								echo '<label> <a href="'.$value->getArquivo().'"> Baixar Arquivo </a> </label>';						
 							echo '</div>';
 
 
