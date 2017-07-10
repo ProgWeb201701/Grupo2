@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 09-Jul-2017 às 15:20
+-- Data de Criação: 10-Jul-2017 às 14:58
 -- Versão do servidor: 5.5.28
 -- versão do PHP: 5.3.19
 
@@ -40,7 +40,14 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   PRIMARY KEY (`CodAluno`),
   UNIQUE KEY `matricula_unica` (`Matricula`),
   KEY `Matricula` (`Matricula`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+--
+-- Extraindo dados da tabela `aluno`
+--
+
+INSERT INTO `aluno` (`CodAluno`, `Nome`, `Matricula`, `Senha`, `email`, `Curso`, `instituicao`, `LinkLattes`) VALUES
+(17, 'Guilherme Souza Santos', '152020028', '12345', 'guilthys@gmail.com', 'Engenharia de Software', 'Unipampa', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,18 +103,27 @@ INSERT INTO `funcao` (`codFunc`, `NomFunc`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `monografia` (
+  `idMonografia` int(10) NOT NULL AUTO_INCREMENT,
   `CodAluno` int(10) DEFAULT NULL,
   `idTurma` int(10) DEFAULT NULL,
-  `hora` varchar(12) DEFAULT NULL,
   `Arquivo` varchar(200) DEFAULT NULL,
-  `Local` varchar(200) DEFAULT NULL,
-  `Data` date DEFAULT NULL,
   `Resumo` varchar(250) DEFAULT NULL,
-  `Titulo` varchar(100) DEFAULT NULL,
-  `Tema` varchar(100) DEFAULT NULL,
+  `Titulo` varchar(250) DEFAULT NULL,
+  `pChave` varchar(100) DEFAULT NULL,
+  `idOri` varchar(100) DEFAULT NULL,
+  `idTCC` int(11) DEFAULT NULL,
+  `autor` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idMonografia`),
   KEY `CodAluno` (`CodAluno`),
   KEY `idTurma` (`idTurma`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Extraindo dados da tabela `monografia`
+--
+
+INSERT INTO `monografia` (`idMonografia`, `CodAluno`, `idTurma`, `Arquivo`, `Resumo`, `Titulo`, `pChave`, `idOri`, `idTCC`, `autor`) VALUES
+(3, 17, 2, 'C:\\WebServer\\Apache2.2\\htdocs\\Grupo2\\uploads\\ TrabalhodeMPS2.pdf', 'A, B, C, D', 'A verdade', 'hahahhahhahhaa', '30', 4, 'Guilherme Souza Santos');
 
 -- --------------------------------------------------------
 
@@ -153,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `professor` (
 --
 
 INSERT INTO `professor` (`idAval`, `Nome`, `siape`, `email`, `instituicao`, `area`, `LinkLattes`, `Senha`, `Formacao`, `codFunc`) VALUES
-(30, 'Guilherme Arcano', '152020028', 'guilthys@gmail.com', 'Unipampa', 'Matematica ', 'meuLattes@hahha', '12345', 'Mestre', 2);
+(30, 'Guilherme Arcano', '152020028', 'guilthys@gmail.com', 'Unipampa', 'Matematica ', 'meuLattes@hahha', '123456', 'Mestre', 2);
 
 -- --------------------------------------------------------
 
@@ -172,7 +188,15 @@ CREATE TABLE IF NOT EXISTS `tarefa` (
   `idAval` int(10) DEFAULT NULL,
   PRIMARY KEY (`codTarefa`),
   KEY `tarefa_fk` (`idAval`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Extraindo dados da tabela `tarefa`
+--
+
+INSERT INTO `tarefa` (`codTarefa`, `nome`, `descricao`, `dinicio`, `dfim`, `destinatario`, `arquivo`, `idAval`) VALUES
+(7, 'Informar Orientador', ' Cada aluno, devera informar o seu orientador, conformar documento abaixo.', '2017-07-10T12:00', '2017-07-15T00:00', 'aluno', 'C:\\WebServer\\Apache2.2\\htdocs\\Grupo2\\uploads\\ Enunciado_PW_P2.pdf', NULL),
+(8, 'Professor ', ' fazer hahha', '2017-07-11T12:00', '2017-07-12T12:00', 'orientador', 'C:\\WebServer\\Apache2.2\\htdocs\\Grupo2\\uploads\\ Enunciado_PW_P2.pdf', NULL);
 
 -- --------------------------------------------------------
 
@@ -189,7 +213,14 @@ CREATE TABLE IF NOT EXISTS `tcc` (
   KEY `fk_Aluno` (`idAluno`),
   KEY `fk_Orientador` (`idOri`),
   KEY `fk_turma` (`idTurma`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `tcc`
+--
+
+INSERT INTO `tcc` (`idtcc`, `idAluno`, `idOri`, `idTurma`) VALUES
+(4, 17, 30, 2);
 
 -- --------------------------------------------------------
 
@@ -205,7 +236,14 @@ CREATE TABLE IF NOT EXISTS `turma` (
   `idCordenador` int(10) DEFAULT NULL,
   PRIMARY KEY (`idTurma`),
   KEY `idCordenador` (`idCordenador`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Extraindo dados da tabela `turma`
+--
+
+INSERT INTO `turma` (`idTurma`, `codigoturma`, `semestre`, `Curso`, `idCordenador`) VALUES
+(2, 'UDC02', '2017/02', 'Engenharia de Software', 1);
 
 --
 -- Constraints for dumped tables

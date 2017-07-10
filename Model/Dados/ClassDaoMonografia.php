@@ -60,28 +60,7 @@ class DaoMonografia{
 		$stmt->close();
 	}
 
-	public function updateMonografica($monografica, $id){
-		$query = "UPDATE monografica SET nome=?, descricao=?, dinicio=?, dfim=?, destinatario=?, 
-		arquivo=? WHERE codTarefa=?";
-		$stmt = $this->mysqli->stmt_init();
-		$stmt->prepare($query);
-		$stmt->bind_param('ssssssi', $nome, $descricao, $dinicio, $dfim, $destinatario, $arquivo, $codTarefa);
-		$nome = $tarefa->getNome();
-		$descricao = $tarefa->getDescricao();
-		$dinicio = $tarefa->getDinicio(); 
-		$dfim = $tarefa->getDfim();
-		$destinatario = $tarefa->getDestinatario(); 
-		$arquivo = $tarefa->getArquivo();
-		$codTarefa = $id;
-			// echo "<br>";
-			// echo "<br>";
-			// print_r($query);
-			// echo "<br>";
-			// echo "<br>";
-			// exit();
-		$stmt->execute();
-		$stmt->close();
-	}
+	
 
 	public function deleteTarefa($id){
 		$query = "DELETE FROM tarefa WHERE codTarefa=?";
